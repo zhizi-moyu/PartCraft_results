@@ -1,0 +1,28 @@
+
+
+            component_list = {
+    'central_drum': {
+        'num': '1',
+        'description': 'A cylindrical object with two flat end faces. One face features a recessed circular hub designed to integrate with other components, and a central through-hole is visible.'
+    },
+    'outer_ring': {
+        'num': '1',
+        'description': 'A thick hollow cylindrical ring that encases other components. It has a smooth outer surface and an inner surface that fits tightly around the assembly.'
+    },
+    'spacer_disk': {
+        'num': '2',
+        'description': 'Thin, flat circular disks with a central hole. Each disk serves as a spacer between other components, maintaining precise alignment in the assembly.'
+    },
+    'internal_gear_ring': {
+        'num': '2',
+        'description': 'A ring-shaped component with fine, closely spaced teeth on its inner circumference, forming a gear-like structure for engaging with other parts. The outer surface is smooth.'
+    },
+    'fastening_pin': {
+        'num': '4',
+        'description': 'Slender cylindrical pins used to secure the internal components in place. They fit through the small holes aligned circumferentially around the parts.'
+    }
+}
+            modify component list:
+            None
+            None
+        
