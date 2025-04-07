@@ -1,0 +1,46 @@
+
+
+            component_list = {
+    'central_shaft': {
+        'num': '1', 
+        'description': 'A cylindrical rod that runs through the entire model, featuring smooth surfaces and multiple grooves for attaching other components.'
+    },
+    'clamping_section': {
+        'num': '2', 
+        'description': 'Each section is a cylindrical piece designed to encircle and grip the central shaft. They have a notable slit or split which allows for tightening around the shaft, making them adjustable. They are equipped with evenly spaced screw holes for fastening.'
+    },
+    'screw_holes': {
+        'num': 'multiple', 
+        'description': 'Circular holes located on the clamping sections. They allow screws to pass through and secure the clamps firmly onto the central shaft. The holes are countersunk to accommodate the head of the screws flush with the surface.'
+    }
+}
+            modify component list:
+            component_list = {
+    'central_shaft': {
+        'num': '1', 
+        'description': 'A cylindrical rod that runs through the entire model, featuring smooth surfaces and multiple grooves for attaching other components.'
+    },
+    'clamping_section': {
+        'num': '2', 
+        'description': 'Each section is a cylindrical piece designed to encircle and grip the central shaft. They have a notable slit or split which allows for tightening around the shaft, making them adjustable. They are equipped with 4 evenly spaced screw holes for fastening.'
+    },
+    'screw_holes': {
+        'num': '8 (4 on each clamping section)', 
+        'description': 'Circular holes integrated into the clamping sections. They allow screws to pass through and secure the clamps firmly onto the central shaft. The holes are countersunk to accommodate the head of the screws flush with the surface.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['central_shaft'],
+        'description': 'The central shaft runs through the entire model, providing the main structural element around which the other components are attached.'
+    },
+    'layer_2': {
+        'involved_components': ['clamping_section_1', 'screw_holes'],
+        'description': 'The first clamping section encircles the central shaft, equipped with screw holes for securing it tightly. This clamping section is responsible for gripping the shaft and maintaining its position.'
+    },
+    'layer_3': {
+        'involved_components': ['clamping_section_2', 'screw_holes'],
+        'description': 'The second clamping section is positioned along the central shaft, mirroring the first clamping section. It also has screw holes for fastening, enabling further stabilization and secure attachment.'
+    }
+}
+        
