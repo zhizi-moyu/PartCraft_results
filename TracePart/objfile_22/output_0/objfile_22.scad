@@ -1,100 +1,82 @@
-```scad
-// Central Shaft
+
+// Basic dimensions
+shaft_diameter = 10;
+shaft_length = 20;
+spacer_thickness = 2;
+flange_thickness = 3;
+flange_diameter = 12;
+nut_size = 3;
+bolt_length = 15;
+bolt_diameter = 2;
+
 module central_shaft() {
-    cylinder(h = 50, d = 20, $fn = 100); // Main cylindrical body
+    cylinder(h=shaft_length, d=shaft_diameter);
 }
 
-// Input Shaft
 module input_shaft() {
     difference() {
-        cylinder(h = 30, d = 20, $fn = 100); // Solid cylindrical piece
-        translate([0, 0, 15])
-            cylinder(h = 15, d = 10, $fn = 100); // Hole on one side
+        cylinder(h=shaft_length, d=shaft_diameter);
+        translate([0, 0, shaft_length / 2])
+            cylinder(h=shaft_length, d=shaft_diameter / 2);
     }
 }
 
-// Output Shaft
 module output_shaft() {
     difference() {
-        cylinder(h = 30, d = 20, $fn = 100); // Solid cylindrical piece
-        translate([0, 0, 15])
-            cylinder(h = 15, d = 10, $fn = 100); // Hole on one side
+        cylinder(h=shaft_length, d=shaft_diameter);
+        translate([0, 0, shaft_length / 2])
+            cylinder(h=shaft_length, d=shaft_diameter / 2);
     }
 }
 
-// Spacer Ring
 module spacer_ring() {
     difference() {
-        cylinder(h = 5, d = 20, $fn = 100); // Outer ring
-        translate([0, 0, 0])
-            cylinder(h = 5, d = 15, $fn = 100); // Hollow center
+        cylinder(h=spacer_thickness, d=shaft_diameter);
+        cylinder(h=spacer_thickness, d=shaft_diameter - 3);
     }
 }
 
-// Flange Plate
 module flange_plate() {
     difference() {
-        cylinder(h = 5, d = 30, $fn = 100); // Flat plate
-        translate([0, 0, 0])
-            cylinder(h = 5, d = 20, $fn = 100); // Hollow center
-        // Bolt holes
-        for (i = [0, 90, 180, 270]) {
-            rotate([0, 0, i])
-                translate([12, 0, 0])
-                    cylinder(h = 5, d = 5, $fn = 100);
-        }
+        cylinder(h=flange_thickness, d=flange_diameter);
+        translate([bolt_diameter / 2, bolt_diameter / 2, 0])
+            cylinder(h=flange_thickness, d=nut_size);
     }
 }
 
-// Nut
-module nut() {
-    cylinder(h = 5, d = 7, $fn = 6); // Hexagonal cylinder
+module hexagonal_nut() {
+    cylinder(h=nut_size, d=nut_size, $fn=6);
 }
 
-// Bolt
 module bolt() {
-    union() {
-        cylinder(h = 25, d = 4, $fn = 100); // Shaft
-        translate([0, 0, 25])
-            cylinder(h = 2, d = 6, $fn = 6); // Hexagonal head
-    }
+    cylinder(h=bolt_length, d=bolt_diameter);
 }
 
-// Assembly
-module assembly() {
-    // Central Shaft
-    central_shaft();
-    
-    // Spacers
-    translate([0, 0, 15])
-        spacer_ring();
-    translate([0, 0, 35])
-        spacer_ring();
-    
-    // Flange Plates
-    translate([0, 0, 5])
+translated_components() {
+    translate([-shaft_diameter / 2, 0, -shaft_length / 2]) {
+        central_shaft();
+    }
+    translate([0, 0, shaft_length / 2 + spacer_thickness])
         flange_plate();
-    translate([0, 0, 45])
+    translate([0, 0, shaft_length / 2 + spacer_thickness + flange_thickness])
+        spacer_ring();
+    translate([0, 0, shaft_length + spacer_thickness + flange_thickness])
         flange_plate();
-    
-    // Input and Output Shafts
-    translate([0, 0, -30])
-        input_shaft();
-    translate([0, 0, 80])
+    translate([-shaft_diameter, 0, shaft_length])
         output_shaft();
-    
-    // Nuts and Bolts (Adding for demonstration; placement requires positional refinement)
-    for (i = [0, 90, 180, 270]) {
-        rotate([0, 0, i])
-            translate([10, 0, 0])
-                nut();
-        rotate([0, 0, i])
-            translate([10, 0, 20])
-                bolt();
-    }
+    translate([shaft_diameter, 0, shaft_length])
+        input_shaft();
 }
 
-// Render the complete assembly
-assembly();
-```
+translated_components();
+
+// Assemble nuts and bolts 
+for (i = [-shaft_diameter / 2, shaft_diameter / 2]) {
+    for (j = [shaft_length / 2 - nut_size, shaft_length / 2 + nut_size]) {
+        translate([i, j, shaft_length + spacer_thickness + flange_thickness])
+            hexagonal_nut();
+        translate([i, j, -shaft_length / 2])
+            bolt();
+    }
+}
 
