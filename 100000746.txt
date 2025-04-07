@@ -1,0 +1,22 @@
+
+
+            component_list = {
+    'rectangular_loop': {
+        'num': '6',
+        'description': 'A slender rectangular loop with smooth, uniform edges. The cross-section appears rectangular and the shape is slightly elongated with rounded corners on one side. It has precise dimensions and appears designed for structural or connection purposes.'
+    }
+}
+            modify component list:
+            component_list = {
+    'rectangular_loop': {
+        'num': '6',
+        'description': 'A slender rectangular loop with smooth, uniform edges. The cross-section appears rectangular and the shape is slightly elongated with rounded corners on one side. It has precise dimensions and appears designed for structural or connection purposes.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['rectangular_loop_1', 'rectangular_loop_2', 'rectangular_loop_3', 'rectangular_loop_4', 'rectangular_loop_5', 'rectangular_loop_6'],
+        'description': 'The six rectangular loops are arranged vertically in a layered manner, with each loop occupying the same vertical position in the structure. They appear to be aligned and evenly spaced.'
+    }
+}
+        
