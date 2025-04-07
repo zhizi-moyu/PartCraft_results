@@ -1,62 +1,42 @@
 
 
             component_list = {
-    'sleeve_connector': {
-        'num': '2',
-        'description': 'A cylindrical component with a hollow interior and visible slits on the side for adjustable tightening. It appears smooth and symmetric in design.'
+    'coupling_shell': {
+        'num': '1',
+        'description': 'A robust cylindrical structure with two distinct halves divided by a slit. Each half has a smooth surface and includes two circular apertures aligned for fastening.'
     },
-    'bolt_with_hexagonal_head': {
-        'num': '4',
-        'description': 'Slender cylindrical bolts with clearly visible hexagonal heads designed for tightening. Typically threaded along the length for secure connections.'
+    'bolt': {
+        'num': '2',
+        'description': 'A slender cylindrical component featuring a threaded surface on one side for secure insertion into the coupling shell apertures, used to hold the two halves together.'
     },
     'nut': {
-        'num': '4',
-        'description': 'Small hexagonal nuts, designed to pair with bolts and ensure fixed connections. They sit flush and fit into the provided bolts seamlessly.'
-    },
-    'cylindrical_shaft_with_slots': {
-        'num': '1',
-        'description': 'A solid cylindrical shaft with two matching slots near the ends. These slots provide adaptable fitting with other components, such as the sleeve connectors.'
+        'num': '2',
+        'description': 'A hexagonal cylindrical piece designed to fit onto the bolt, enabling tightening and providing structural integrity to the assembled coupling shell.'
     }
 }
             modify component list:
             component_list = {
-    'sleeve_connector': {
-        'num': '2',
-        'description': 'A cylindrical component with a hollow interior and visible slits on the side for adjustable tightening. It appears smooth and symmetric in design.'
+    'coupling_shell': {
+        'num': '1',
+        'description': 'A robust cylindrical structure with two distinct halves divided by a slit. Each half has a smooth surface and includes two circular apertures aligned for fastening.'
     },
-    'bolt_with_hexagonal_head': {
-        'num': '4',
-        'description': 'Slender cylindrical bolts with clearly visible hexagonal heads designed for tightening. Typically threaded along the length for secure connections.'
+    'bolt': {
+        'num': '2',
+        'description': 'A slender cylindrical component featuring a threaded surface on one side for secure insertion into the coupling shell apertures, used to hold the two halves together.'
     },
     'nut': {
-        'num': '4',
-        'description': 'Small hexagonal nuts, designed to pair with bolts and ensure fixed connections. They sit flush and fit into the provided bolts seamlessly.'
-    },
-    'cylindrical_shaft_with_slots': {
-        'num': '1',
-        'description': 'A solid cylindrical shaft with two matching slots near the ends. These slots provide adaptable fitting with other components, such as the sleeve connectors.'
+        'num': '2',
+        'description': 'A hexagonal cylindrical piece designed to fit onto the bolt, enabling tightening and providing structural integrity to the assembled coupling shell.'
     }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['sleeve_connector_1', 'bolt_with_hexagonal_head_1', 'nut_1'],
-        'description': 'This layer includes one sleeve connector, one bolt, and one nut. The bolt penetrates the sleeve connector enabling adjustable tightening, secured by the nut.'
+        'involved_components': ['bolt_1', 'bolt_2', 'nut_1', 'nut_2'],
+        'description': 'The bolts are inserted through the circular apertures on the coupling shell, securing both halves with nuts. The bolts and nuts form a fastened connection to hold the structure together.'
     },
     'layer_2': {
-        'involved_components': ['sleeve_connector_2', 'bolt_with_hexagonal_head_2', 'nut_2'],
-        'description': 'This layer mirrors the top layer, with another sleeve connector, bolt, and nut in similar orientation and connection.'
-    },
-    'layer_3': {
-        'involved_components': ['cylindrical_shaft_with_slots'],
-        'description': 'The cylindrical shaft is positioned centrally, acting as the core that integrates with the sleeve connectors via the slots for adaptable fitting.'
-    },
-    'layer_4': {
-        'involved_components': ['bolt_with_hexagonal_head_3', 'nut_3'],
-        'description': 'This layer includes a bolt and nut positioned opposite to the top two layers. The bolt passes through the shaft and is tightened using the nut.'
-    },
-    'layer_5': {
-        'involved_components': ['bolt_with_hexagonal_head_4', 'nut_4'],
-        'description': 'The bottom-most layer includes another bolt and nut pair. Similar to the above layer, the bolt passes through and is secured in position.'
+        'involved_components': ['coupling_shell'],
+        'description': 'The coupling shell consists of two halves joined together by bolts and nuts, with a visible slit dividing the halves. The structure is robust and cylindrical, and the bolts pass through its aligned apertures for fastening.'
     }
 }
         

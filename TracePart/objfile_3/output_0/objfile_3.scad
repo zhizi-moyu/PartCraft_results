@@ -1,100 +1,65 @@
 
-```openscad
-// Module for a sleeve connector
-module sleeve_connector() {
+// Module for the coupling shell
+module coupling_shell() {
     difference() {
-        cylinder(h = 30, r = 10, $fn = 100);
-        // Hollow interior
-        cylinder(h = 30, r = 8, $fn = 100);
-        // Slits for tightening
-        translate([0, 0, 10])
-            rotate([90, 0, 0])
-            cube([20, 2, 1], center = true);
+        // Main cylindrical body
+        cylinder(h = 30, d = 20, center = true);
+        
+        // Slit in the middle
+        translate([-12, 0, -15])
+            cube([24, 2, 30], center = true);
+        
+        // Bolt holes
+        translate([0, 0, -7.5])
+            cylinder(h = 30, d = 5, center = true);
     }
 }
 
-// Module for a bolt with a hexagonal head
-module bolt_with_hexagonal_head(length = 35) {
+// Module for a bolt
+module bolt() {
     union() {
-        // Cylindrical part of the bolt
-        translate([0, 0, -length])
-            cylinder(h = length, r = 2, $fn = 100);
-        // Hexagonal head
-        rotate([0, 0, 0])
-            translate([0, 0, 0])
-            cylinder(h = 5, r = 3.5, $fn = 6);
+        // Main bolt shaft
+        cylinder(h = 20, d = 5, center = true);
+        // Bolt head
+        translate([0, 0, 10])
+            cylinder(h = 4, d = 8, center = true);
     }
 }
 
 // Module for a nut
 module nut() {
-    difference() {
-        // Hexagonal nut
-        rotate([0, 0, 0])
-            cylinder(h = 4, r = 4.5, $fn = 6);
-        // Cut-out for the bolt
-        translate([0, 0, -1])
-            cylinder(h = 6, r = 2, $fn = 100);
+    union() {
+        // Hexagonal shape for nut
+        translate([0, 0, -3])
+            cylinder(h = 6, d = 8, center = true, $fn = 6);
+        
+        // Internal threaded hole (approximation)
+        translate([0, 0, -3])
+            cylinder(h = 6, d = 5, center = true);
     }
 }
 
-// Module for a cylindrical shaft with slots
-module cylindrical_shaft_with_slots() {
-    difference() {
-        // Solid cylinder
-        cylinder(h = 50, r = 8, $fn = 100);
-        // Slots near ends
-        translate([0, 0, 5])
-            rotate([90, 0, 0])
-            cube([2, 18, 8], center = true);
-        translate([0, 0, 45])
-            rotate([90, 0, 0])
-            cube([2, 18, 8], center = true);
-    }
-}
-
-// Assembly
-module assembly() {
-    translate([0, 0, 0]) {
-        // Layer 1: Sleeve connector 1 with bolt and nut
+// Build the full coupling with nuts and bolts
+module flexible_coupling() {
+    // Coupling shell with a slit
+    union() {
+        coupling_shell();
+        
+        // Translating the bolts to the right positions
         translate([0, 0, 0])
-            sleeve_connector();
-        translate([0, 0, -5])
-            rotate([0, 0, 0])
-            bolt_with_hexagonal_head();
-        translate([0, 0, -8])
-            rotate([0, 0, 0])
-            nut();
-
-        // Layer 2: Sleeve connector 2 with bolt and nut
-        translate([0, 0, 30])
-            sleeve_connector();
-        translate([0, 0, 25])
-            rotate([0, 0, 0])
-            bolt_with_hexagonal_head();
-        translate([0, 0, 22])
-            rotate([0, 0, 0])
-            nut();
-
-        // Layer 3: Central cylindrical shaft
+            bolt();
+        
         translate([0, 0, 15])
-            cylindrical_shaft_with_slots();
-
-        // Layer 4: Bolt with nut binding the shaft
-        translate([0, 0, 5])
-            bolt_with_hexagonal_head(15);
-        translate([0, 0, -5])
+            bolt();
+        
+        // Corresponding nuts
+        translate([0, 0, -18])
             nut();
-
-        // Layer 5: Bottom bolt with nut
-        translate([0, 0, 40])
-            bolt_with_hexagonal_head(15);
-        translate([0, 0, 47])
+        
+        translate([0, 0, -3])
             nut();
     }
 }
 
-// Render the assembly
-assembly();
-```
+flexible_coupling();
 
