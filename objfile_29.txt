@@ -1,0 +1,41 @@
+
+
+            component_list = {
+    'base_block': {
+        'num': '1',
+        'description': 'A rectangular block with precise cut-outs and holes for connecting other components. It features a smooth finish and a robust form designed for structural support.'
+    },
+    'cylindrical_connector': {
+        'num': '1',
+        'description': 'A slender cylindrical piece with grooves for secure attachment, having a hollow center for inserting additional components.'
+    },
+    'adjustable_arm': {
+        'num': '2',
+        'description': 'An elongated arm with a bend in the middle, offering a pivot point for articulation. It has a series of longitudinal slots for adjustable fitting.'
+    },
+    'joint_connector': {
+        'num': '2',
+        'description': 'Small cylindrical pieces with extensions on either end for linking to the adjustable arms; these are key for rotational flexibility.'
+    },
+    'mounting_plate': {
+        'num': '1',
+        'description': 'A flat plate with evenly spaced holes for securing the model onto a surface. It is detailed with ridges for enhanced grip.'
+    },
+    'locking_fastener': {
+        'num': '4',
+        'description': 'Compact fasteners with a hexagonal head, designed for insertion into the base block to lock components in place firmly.'
+    }
+}
+            modify component list:
+            component_list = {
+    'base_block': {
+        'num': '1',
+        'description': 'A rectangular block with precise cut-outs and holes for connecting other components. It features a smooth finish and a robust form designed for structural support.'
+    },
+    'locking_fastener': {
+        'num': '4',
+        'description': 'Compact fasteners with a hexagonal head, designed for insertion into the base block to lock components in place firmly.'
+    }
+}
+            None
+        
