@@ -1,0 +1,46 @@
+
+
+            component_list = {
+    'base_frame': {
+        'num': '1',
+        'description': 'A rectangular frame with cut-out windows, elongated legs, and thin structural edges. It serves as the main foundation for the entire assembly.'
+    },
+    'support_wedge': {
+        'num': '2',
+        'description': 'Triangular-shaped wedges with a flat base and sloped surfaces. The top has a hollow connecting slot for stabilizing assemblies above them.'
+    },
+    'inner_bracket': {
+        'num': '1',
+        'description': 'A flat piece with detailed central cutouts and raised edges. This component is designed for internal stabilization and alignment within the assembly.'
+    }
+}
+            modify component list:
+            component_list = {
+    'base_frame': {
+        'num': '1',
+        'description': 'A rectangular frame with cut-out windows, elongated legs, and thin structural edges. It serves as the main foundation for the entire assembly.'
+    },
+    'support_wedge': {
+        'num': '2',
+        'description': 'Triangular-shaped wedges with a flat base and sloped surfaces. The top has a hollow connecting slot for stabilizing assemblies above them.'
+    },
+    'inner_bracket': {
+        'num': '1',
+        'description': 'A flat piece with detailed central cutouts and raised edges. This component is designed for internal stabilization and alignment within the assembly.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['inner_bracket'],
+        'description': 'The inner_bracket is positioned at the top of the assembly, providing internal stabilization and alignment.'
+    },
+    'layer_2': {
+        'involved_components': ['support_wedge_1', 'support_wedge_2'],
+        'description': 'Two support wedges are symmetrically positioned beneath the inner_bracket, stabilizing and connecting it to the base frame.'
+    },
+    'layer_3': {
+        'involved_components': ['base_frame'],
+        'description': 'The base_frame serves as the foundation and is located at the bottom of the assembly.'
+    }
+}
+        
