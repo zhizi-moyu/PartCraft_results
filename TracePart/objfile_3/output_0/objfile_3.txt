@@ -1,0 +1,46 @@
+
+
+            component_list = {
+    'coupling_shell': {
+        'num': '2',
+        'description': 'A cylindrical hollow shell with two angular cutouts to secure components, and openings for screws. The exterior surface is smooth, while the interior aligns to grip the central cylinder.'
+    },
+    'tightening_screw': {
+        'num': '4',
+        'description': 'Slender screws featuring hexagonal heads for tightening into the coupling shell. Used for securing the shell and maintaining alignment.'
+    },
+    'central_cylinder': {
+        'num': '1',
+        'description': 'A solid cylindrical element positioned at the center. Smooth surface for seamless alignment with the shells and designed to distribute torque between the connected parts.'
+    }
+}
+            modify component list:
+            component_list = {
+    'coupling_shell': {
+        'num': '2',
+        'description': 'A cylindrical hollow shell with two angular cutouts to secure components, and openings for screws. The exterior surface is smooth, while the interior aligns to grip the central cylinder.'
+    },
+    'tightening_screw': {
+        'num': '2',
+        'description': 'Slender screws featuring hexagonal heads for tightening into the coupling shell. Used for securing the shell and maintaining alignment.'
+    },
+    'central_cylinder': {
+        'num': '1',
+        'description': 'A solid cylindrical element positioned at the center. Smooth surface for seamless alignment with the shells and designed to distribute torque between the connected parts.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['coupling_shell_1', 'tightening_screw_1'],
+        'description': 'The first coupling shell is secured by the tightening screw inserted through one of its openings at the top.'
+    },
+    'layer_2': {
+        'involved_components': ['central_cylinder'],
+        'description': 'The central cylinder is positioned at the middle, aligning perfectly with both coupling shells for torque distribution.'
+    },
+    'layer_3': {
+        'involved_components': ['coupling_shell_2', 'tightening_screw_2'],
+        'description': 'The second coupling shell and tightening screw are positioned at the bottom, mirroring the setup of the top shell.'
+    }
+}
+        
