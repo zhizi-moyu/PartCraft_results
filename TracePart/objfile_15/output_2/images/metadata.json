@@ -1,9 +1,9 @@
 {
   "animation_count": 0,
   "armature_count": 0,
-  "edge_count": 1536,
+  "edge_count": 2544,
   "file_identifier": "https://github.com/zhizi-moyu/for_modify_stl/blob/main/output.stl",
-  "file_size": 168922,
+  "file_size": 279554,
   "lamp_count": 1,
   "linked_files": [],
   "material_count": 0,
@@ -18,7 +18,7 @@
     "files": []
   },
   "object_count": 4,
-  "poly_count": 1024,
+  "poly_count": 1696,
   "random_color": [
     0.8,
     0.8,
@@ -30,15 +30,15 @@
     "bbox_max": [
       27.0,
       23.512399673461914,
-      55.0
+      80.0
     ],
     "bbox_min": [
       -27.0,
       -23.512399673461914,
-      0.0
+      8.0
     ]
   },
-  "sha256": "379131c1b0a6e63e59ada86aa197499db0d875857ced0ee6133046c14e975ff2",
+  "sha256": "94302e1c08d8ba2ac8d25aedf8d2addecfd359680b995ce82501fad7d073c3b3",
   "shape_key_count": 0,
-  "vert_count": 540
+  "vert_count": 876
 }
