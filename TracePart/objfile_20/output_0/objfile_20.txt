@@ -1,48 +1,70 @@
 
 
             component_list = {
-    'central_shaft': {'num': '1', 'description': 'A long cylindrical shaft positioned at the center, with holes on either end for thread insertion and symmetric dimensions along its axis.'},
-    'flange_plate': {'num': '4', 'description': 'Circular flat discs with multiple evenly distributed holes along the circumference, typically used for bolting or securing adjacent parts.'},
-    'spacer_ring': {'num': '2', 'description': 'Thin flat rings resembling a washer with a hollow center, designed to separate and align other components.'},
-    'nut': {'num': '8', 'description': 'Small hexagonal components designed to secure bolts, featuring an internal threaded aperture for tight locking.'},
-    'bolt': {'num': '4', 'description': 'Slender cylindrical rods with external threading on one end, used for fastening nuts to other components.'}
+    'central_shaft': {
+        'num': '1',
+        'description': 'A cylindrical rod at the center, extending the length of the assembly. It serves as the main structural component connecting the other parts.'
+    },
+    'end_plates': {
+        'num': '2',
+        'description': 'Disc-shaped components at each end of the shaft, with evenly spaced holes for bolts. The plates add stability to the assembly, acting as interfaces for bolting the shaft to other structures.'
+    },
+    'spacer_rings': {
+        'num': '2',
+        'description': 'Flat ring-like discs positioned between each end plate and the central shaft. They maintain a uniform distance between components, ensuring even and secure fitting.'
+    },
+    'bolts': {
+        'num': '4',
+        'description': 'Long, slender cylindrical metal pieces with helical threading used to fasten the end plates through the holes. They provide tensile strength, keeping the assembly intact.'
+    },
+    'nuts': {
+        'num': '4',
+        'description': 'Hexagonal components with internal threading matched to the bolts, used to secure the bolts into place. They are placed on the opposite side of the plates, creating a tight fastening once adjusted.'
+    }
 }
             modify component list:
             component_list = {
-    'central_shaft': {'num': '1', 'description': 'A long cylindrical shaft positioned at the center, with holes on either end for thread insertion and symmetric dimensions along its axis.'},
-    'flange_plate': {'num': '4', 'description': 'Circular flat discs with multiple evenly distributed holes along the circumference, typically used for bolting or securing adjacent parts.'},
-    'spacer_ring': {'num': '2', 'description': 'Thin flat rings resembling a washer with a hollow center, designed to separate and align other components.'},
-    'nut': {'num': '8', 'description': 'Small hexagonal components designed to secure bolts, featuring an internal threaded aperture for tight locking.'},
-    'bolt': {'num': '4', 'description': 'Slender cylindrical rods with external threading on one end, used for fastening nuts to other components.'}
+    'central_shaft': {
+        'num': '1',
+        'description': 'A cylindrical rod at the center, extending the length of the assembly. It serves as the main structural component connecting the other parts.'
+    },
+    'end_plates': {
+        'num': '2',
+        'description': 'Disc-shaped components at each end of the shaft, with evenly spaced holes for bolts. The plates add stability to the assembly, acting as interfaces for bolting the shaft to other structures.'
+    },
+    'spacer_rings': {
+        'num': '2',
+        'description': 'Flat ring-like discs positioned between each end plate and the central shaft. They maintain a uniform distance between components, ensuring even and secure fitting.'
+    },
+    'bolts': {
+        'num': '4',
+        'description': 'Long, slender cylindrical metal pieces with helical threading used to fasten the end plates through the holes. They provide tensile strength, keeping the assembly intact.'
+    },
+    'nuts': {
+        'num': '4',
+        'description': 'Hexagonal components with internal threading matched to the bolts, used to secure the bolts into place. They are placed on the opposite side of the plates, creating a tight fastening once adjusted.'
+    }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['flange_plate_1', 'nut_1', 'nut_2'],
-        'description': 'The first flange plate is positioned at the top, secured by nuts.'
+        'involved_components': ['end_plates', 'nuts', 'bolts'],
+        'description': 'The upper end plate is bolted firmly to the central shaft using bolts that penetrate through it. Nuts secure the bolts on the rear side of the plate, creating a tight and stable interface.'
     },
     'layer_2': {
-        'involved_components': ['spacer_ring_1', 'bolt_1', 'bolt_2'],
-        'description': 'The spacer ring is aligned beneath the first flange plate and penetrated by bolts.'
+        'involved_components': ['spacer_rings'],
+        'description': 'A spacer ring is located below the upper end plate, maintaining an even distance between the upper end plate and the central shaft.'
     },
     'layer_3': {
-        'involved_components': ['flange_plate_2', 'nut_3', 'nut_4'],
-        'description': 'The second flange plate is secured to the bolts with nuts, following the first layer setup.'
+        'involved_components': ['central_shaft'],
+        'description': 'The central shaft runs along the entire length, serving as the structural backbone connecting all components. It passes through the middle of the assembly.'
     },
     'layer_4': {
-        'involved_components': ['central_shaft'],
-        'description': 'The central shaft passes through the middle, providing structural alignment for all components.'
+        'involved_components': ['spacer_rings'],
+        'description': 'Another spacer ring is positioned below the central shaft, maintaining uniform spacing between the shaft and the lower end plate.'
     },
     'layer_5': {
-        'involved_components': ['flange_plate_3', 'nut_5', 'nut_6'],
-        'description': 'Another flange plate is positioned symmetrically opposite to the setup at the bottom, secured by nuts.'
-    },
-    'layer_6': {
-        'involved_components': ['spacer_ring_2', 'bolt_3', 'bolt_4'],
-        'description': 'A second spacer ring similarly positioned with bolts for alignment and spacing.'
-    },
-    'layer_7': {
-        'involved_components': ['flange_plate_4', 'nut_7', 'nut_8'],
-        'description': 'The final flange plate at the base, secured by additional nuts.'
+        'involved_components': ['end_plates', 'nuts', 'bolts'],
+        'description': 'The lower end plate is bolted to the central shaft, just like the upper one, with nuts securing the bolts firmly in place on the opposite side of the plate.'
     }
 }
         

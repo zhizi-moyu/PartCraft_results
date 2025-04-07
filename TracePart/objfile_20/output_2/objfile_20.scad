@@ -1,14 +1,14 @@
 
 // Parameters
 bolt_radius = 2;
-bolt_length = 15;
-nut_size = 4;
+bolt_length = 20; // Extended bolt length for protrusion
+nut_size = 6; // Adjusted for more prominent engagement
 shaft_radius = 5;
-shaft_length = 50;
+shaft_length = 50; // Lengthened central shaft
 plate_radius = 10;
 plate_thickness = 2;
 spacer_radius = 8;
-spacer_thickness = 3;
+spacer_thickness = 5; // Thickened spacer rings for better definition
 end_plate_hole_spacing = 14;
 bolt_positions = [
     [7, 7],
@@ -43,35 +43,37 @@ module spacer_ring() {
 
 // Full Assembly
 module coupling() {
-    // Layer 1: Upper end plate and bolts
+    // Layer 1 - Upper end plate
     translate([0, 0, shaft_length - plate_thickness])
         end_plate();
     
-    // Layer 2: Spacer ring
-    translate([0, 0, shaft_length/2 + spacer_thickness])
+    // Layer 2 - Upper spacer ring
+    translate([0, 0, shaft_length/2 + spacer_thickness/2])
         spacer_ring();
     
-    // Layer 3: Central shaft
+    // Layer 3 - Central shaft
     central_shaft();
     
-    // Layer 4: Spacer ring
-    translate([0, 0, shaft_length/2 - spacer_thickness - plate_thickness])
+    // Layer 4 - Lower spacer ring
+    translate([0, 0, shaft_length/2 - spacer_thickness/2 - plate_thickness])
         spacer_ring();
     
-    // Layer 5: Lower end plate and bolts
+    // Layer 5 - Lower end plate
     translate([0, 0, 0])
         end_plate();
     
-    // Nuts and bolts for both end plates
+    // Bolts and nuts
     for (position = bolt_positions) {
-        translate([position[0], position[1], shaft_length-plate_thickness])
-            cylinder(h=shaft_length + 2*bolt_length, r=bolt_radius, $fn=50); // Bolts
-        
-        translate([position[0], position[1], shaft_length])
-            cylinder(h=nut_size, r=nut_size, $fn=6); // Nuts at the upper end
-        
+        // Bolts passing through the entire assembly
         translate([position[0], position[1], -bolt_length])
-            cylinder(h=nut_size, r=nut_size, $fn=6); // Nuts at the lower end
+            cylinder(h=shaft_length + 2*bolt_length, r=bolt_radius, $fn=50);
+        
+        // Nuts at the end of bolts
+        translate([position[0], position[1], shaft_length + bolt_length])
+            cylinder(h=nut_size, r=nut_size, $fn=6);
+        
+        translate([position[0], position[1], -nut_size])
+            cylinder(h=nut_size, r=nut_size, $fn=6);
     }
 }
 
