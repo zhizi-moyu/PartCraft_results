@@ -1,0 +1,38 @@
+
+
+            component_list = {
+       'L_shaped_bracket': {
+           'num': '1',
+           'description': 'A component with a right angle bend, providing structural support. It features a flat surface on one side and a perpendicular extension forming an "L" shape.'
+       },
+       'horizontal_extension': {
+           'num': '1',
+           'description': 'A linear component that extends horizontally from the L-shaped bracket. It is relatively flat and evenly surfaced for stable attachment.'
+       },
+       'vertical_extension': {
+           'num': '1',
+           'description': 'A vertical part affixed to the L-shaped bracket. It provides height and vertical balance, smoothly integrating with the bracket’s structure.'
+       }
+   }
+            modify component list:
+            component_list = {
+    'L_shaped_bracket': {
+        'num': '1',
+        'description': 'A component with a right angle bend, providing structural support. It features a flat surface on one side and a perpendicular extension forming an "L" shape.'
+    },
+    'horizontal_extension': {
+        'num': '1',
+        'description': 'A linear component that extends horizontally from the L-shaped bracket. It is relatively flat and evenly surfaced for stable attachment.'
+    },
+    'vertical_extension': {
+        'num': '1',
+        'description': 'A vertical part affixed to the L-shaped bracket. It provides height and vertical balance, smoothly integrating with the bracket’s structure.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['L_shaped_bracket', 'horizontal_extension', 'vertical_extension'],
+        'description': 'The L_shaped_bracket provides the structural base with the horizontal_extension stretching out horizontally and the vertical_extension offering vertical balance and support.'
+    }
+}
+        
