@@ -1,48 +1,78 @@
 
 
             component_list = {
-    'central_gear' : {'num': '1', 'description': 'A cylindrical gear with grooves along its side and a central hole, serving as the main central component in the assembly'},
-    'outer_ring' : {'num': '1', 'description': 'A large cylindrical outer ring that fits around the central gear, with external grooves for attachment'},
-    'inner_ring' : {'num': '1', 'description': 'A cylindrical inner ring, designed to fit snugly inside the outer ring, with internal grooves and a central hole'},
-    'locking_plate' : {'num': '2', 'description': 'Flat circular plates with three evenly spaced holes for bolts, used to lock the assembly components together'},
-    'groove_plate' : {'num': '2', 'description': 'Plates with series of grooves, ensuring secure fitting and movement control between the central gear and rings'},
-    'bolt' : {'num': '6', 'description': 'Slender cylindrical bolts used to fasten the locking plates and groove plates together, ensuring a tight hold'},
-    'nut' : {'num': '6', 'description': 'Hexagonal nuts corresponding to the bolts, used to securely lock the bolts in place'}
+    'main_body': {
+        'num': '1',
+        'description': 'A large, cylindrical piece with a smooth surface, featuring several circular grooves around its circumference near one end, possibly to accommodate springs or rings.'
+    },
+    'end_cap': {
+        'num': '1',
+        'description': 'A disc-like piece that fits snugly with the main body, featuring several protruding elements aligned with the bolts, ensuring secure attachment.'
+    },
+    'retaining_ring': {
+        'num': '1',
+        'description': 'A thin, circular ring that fits into one of the grooves on the main body, designed to keep other components in place.'
+    },
+    'bolt': {
+        'num': '4',
+        'description': 'Thick, threaded rods meant to fasten the end cap to the main body, ensuring structural integrity.'
+    },
+    'nut': {
+        'num': '4',
+        'description': 'Hexagonal shaped fasteners used to tighten the bolts, helping to secure the end cap onto the main body.'
+    },
+    'compression_spring': {
+        'num': '1',
+        'description': 'Spiral-shaped, metallic spring that sits within the grooves of the main body, providing tension to hold other components in position.'
+    }
 }
             modify component list:
             component_list = {
-    'central_gear' : {'num': '1', 'description': 'A cylindrical gear with grooves along its side and a central hole, serving as the main central component in the assembly'},
-    'outer_ring' : {'num': '1', 'description': 'A large cylindrical outer ring that fits around the central gear, with external grooves for attachment'},
-    'inner_ring' : {'num': '1', 'description': 'A cylindrical inner ring, designed to fit snugly inside the outer ring, with internal grooves and a central hole'},
-    'locking_plate' : {'num': '2', 'description': 'Flat circular plates with three evenly spaced holes for bolts, used to lock the assembly components together'},
-    'groove_plate' : {'num': '2', 'description': 'Plates with series of grooves, ensuring secure fitting and movement control between the central gear and rings'},
-    'bolt' : {'num': '6', 'description': 'Slender cylindrical bolts used to fasten the locking plates and groove plates together, ensuring a tight hold'},
-    'nut' : {'num': '6', 'description': 'Hexagonal nuts corresponding to the bolts, used to securely lock the bolts in place'}
+    'main_body': {
+        'num': '1',
+        'description': 'A large, cylindrical piece with a smooth surface, featuring several circular grooves around its circumference near one end, possibly to accommodate springs or rings.'
+    },
+    'end_cap': {
+        'num': '1',
+        'description': 'A disc-like piece that fits snugly with the main body, featuring several protruding elements aligned with the bolts, ensuring secure attachment.'
+    },
+    'retaining_ring': {
+        'num': '1',
+        'description': 'A thin, circular ring that fits into one of the grooves on the main body, designed to keep other components in place.'
+    },
+    'bolt': {
+        'num': '4',
+        'description': 'Thick, threaded rods meant to fasten the end cap to the main body, ensuring structural integrity.'
+    },
+    'nut': {
+        'num': '4',
+        'description': 'Hexagonal shaped fasteners used to tighten the bolts, helping to secure the end cap onto the main body.'
+    },
+    'compression_spring': {
+        'num': '1',
+        'description': 'Spiral-shaped, metallic spring that sits within the grooves of the main body, providing tension to hold other components in position.'
+    }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['locking_plate_1', 'bolt_1', 'bolt_2', 'bolt_3', 'nut_1', 'nut_2', 'nut_3'],
-        'description': 'The upper locking plate is fastened using three bolts inserted through its holes, secured by corresponding nuts.'
+        'involved_components': ['end_cap'],
+        'description': 'The end cap is placed at the topmost layer, fitting snugly with the main body.'
     },
     'layer_2': {
-        'involved_components': ['groove_plate_1'],
-        'description': 'The first groove plate is positioned directly beneath the upper locking plate, ensuring alignment and secure fitting of components.'
+        'involved_components': ['bolt', 'nut'],
+        'description': 'Bolts are threaded through the end cap into the main body and secured with nuts, ensuring a firm attachment.'
     },
     'layer_3': {
-        'involved_components': ['central_gear'],
-        'description': 'The central gear lies at the core of the assembly, interconnected with the groove plate above and fitting snugly inside the inner ring and outer ring.'
+        'involved_components': ['retaining_ring'],
+        'description': 'The retaining ring is seated in a groove on the main body to keep other components secured.'
     },
     'layer_4': {
-        'involved_components': ['groove_plate_2'],
-        'description': 'The second groove plate is placed beneath the central gear, providing secure fitting and movement control between the central gear and rings.'
+        'involved_components': ['compression_spring'],
+        'description': 'The compression spring is positioned in a groove on the main body, providing the necessary tension.'
     },
     'layer_5': {
-        'involved_components': ['locking_plate_2', 'bolt_4', 'bolt_5', 'bolt_6', 'nut_4', 'nut_5', 'nut_6'],
-        'description': 'The lower locking plate is fastened using three bolts inserted through its holes, secured by corresponding nuts.'
-    },
-    'layer_6': {
-        'involved_components': ['outer_ring', 'inner_ring'],
-        'description': 'The outer ring fits snugly around the entire assembly, ensuring external security, while the inner ring provides internal alignment and stabilization.'
+        'involved_components': ['main_body'],
+        'description': 'The main body forms the base structure, supporting and housing all other components as integral parts.'
     }
 }
         

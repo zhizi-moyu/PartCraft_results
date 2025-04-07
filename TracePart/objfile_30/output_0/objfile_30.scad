@@ -1,66 +1,74 @@
 
-// Define dimensions for components
-module central_gear() {
-    // Assuming central gear dimensions: diameter 20, height 10
+// Parameters
+module main_body() {
     difference() {
-        cylinder(d = 20, h = 10);
-        cylinder(d = 5, h = 12);  // Central hole
-    }
-}
-
-module outer_ring() {
-    // Assuming outer ring dimensions: diameter 25, height 15
-    difference() {
-        cylinder(d = 25, h = 15);
-        cylinder(d = 20, h = 15);  // Internal space for central gear
-    }
-}
-
-module inner_ring() {
-    // Assuming inner ring dimensions: diameter 22, height 10
-    difference() {
-        cylinder(d = 22, h = 10);
-        cylinder(d = 20, h = 10);  // Internal fit for central gear
-    }
-}
-
-module locking_plate() {
-    // Assuming plate dimensions: diameter 25, thickness 2
-    difference() {
-        cylinder(d = 25, h = 2);
-        for (i = [0 : 120 : 240]) {
-            rotate([0, 0, i]) translate([10, 0, 0]) cylinder(d = 4, h = 3);  // Bolt holes
+        cylinder(h=50, r=20, $fn=100); // Main cylinder
+        translate([0, 0, 10]) cylinder(h=40, r=15, $fn=100); // Hollow inner cylinder
+        for (z = [5, 15, 25, 35, 45]) {
+            translate([0, 0, z]) cylinder(h=2, r=20, $fn=100); // Circular grooves
         }
     }
 }
 
-module groove_plate() {
-    // Assuming plate with grooves dimensions: diameter 22, thickness 2
-    cylinder(d = 22, h = 2);
+module end_cap() {
+    difference() {
+        cylinder(h=10, r=20, $fn=100); // Disc shape
+        translate([0, 0, 5]) cylinder(h=10, r=10, $fn=100); // Remove center
+        for (angle = [0, 90, 180, 270]) {
+            rotate([0, 0, angle]) translate([15, 0, 3])
+            rotate([90, 0, 0]) cylinder(h=6, r=2.5, $fn=50); // Bolt holes
+        }
+    }
 }
 
 module bolt() {
-    // Bolt dimensions: diameter 3, length 5
-    cylinder(d = 3, h = 5);
+    union() {
+        cylinder(h=50, r=2.5, $fn=50); // Threaded rod
+        translate([0, 0, 50]) cylinder(h=5, r=4, $fn=50); // Bolt head
+    }
 }
 
 module nut() {
-    // Nut dimensions: diameter 4, thickness 2
-    cylinder(d = 4, h = 2);
+    difference() {
+        cylinder(h=5, r=4, $fn=50); // Hexagonal base
+        translate([0, 0, -1]) cylinder(h=6, r=2.5, $fn=50); // Remove center
+    }
 }
 
-// Assembly of components based on positional relationship
-module assembly() {
-    translate([0, 0, 0]) locking_plate();
-    translate([0, 0, 2]) groove_plate();
-    translate([0, 0, 4]) central_gear();
-    translate([0, 0, 14]) groove_plate();
-    translate([0, 0, 16]) locking_plate();
-    translate([-12, 0, 0]) bolt();  // Bolt position example
-    translate([0, 0, 19]) inner_ring();
-    translate([0, 0, 19]) outer_ring();
+module retaining_ring() {
+    difference() {
+        cylinder(h=2, r=20, $fn=100); // Ring
+        translate([0, 0, -1]) cylinder(h=4, r=19, $fn=100); // Remove inner
+    }
 }
 
-// Render assembly
-assembly();
+module compression_spring() {
+    translate([0, 0, 10])
+    linear_extrude(height = 30, twist = 720, $fn=100) {
+        translate([-1, -1]) circle(r=1, $fn=100); // Spiral extrusion
+    }
+}
+
+// Assembly of components
+module flexible_coupling() {
+    main_body();
+    translate([0, 0, 50]) end_cap();
+
+    // Bolt and nut placement
+    for (angle = [0, 90, 180, 270]) {
+        rotate([0, 0, angle]) {
+            translate([15, 0, -10]) bolt();
+            translate([15, 0, -15]) nut();
+        }
+    }
+
+    // Spring placement
+    compression_spring();
+
+    // Retaining ring
+    translate([0, 0, 3]) retaining_ring();
+}
+
+// Render the complete model
+flexible_coupling();
 
