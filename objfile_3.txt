@@ -1,46 +1,62 @@
 
 
             component_list = {
-       'coupler_body': {
-           'num': '1',
-           'description': 'A cylindrical component with a slot running along part of its length allowing flexibility. It has two larger holes for clamping screws and a smaller hole for a set screw on one side.'
-       },
-       'clamping_screw': {
-           'num': '2',
-           'description': 'Standard hexagonal-headed screws designed for tightening within the larger holes, used to clamp the coupler body to shafts.'
-       },
-       'set_screw': {
-           'num': '1',
-           'description': 'A small, typically Allen-keyed screw placed in the smaller hole to secure the position on the shaft.'
-       }
-   }
+    'sleeve_connector': {
+        'num': '2',
+        'description': 'A cylindrical component with a hollow interior and visible slits on the side for adjustable tightening. It appears smooth and symmetric in design.'
+    },
+    'bolt_with_hexagonal_head': {
+        'num': '4',
+        'description': 'Slender cylindrical bolts with clearly visible hexagonal heads designed for tightening. Typically threaded along the length for secure connections.'
+    },
+    'nut': {
+        'num': '4',
+        'description': 'Small hexagonal nuts, designed to pair with bolts and ensure fixed connections. They sit flush and fit into the provided bolts seamlessly.'
+    },
+    'cylindrical_shaft_with_slots': {
+        'num': '1',
+        'description': 'A solid cylindrical shaft with two matching slots near the ends. These slots provide adaptable fitting with other components, such as the sleeve connectors.'
+    }
+}
             modify component list:
             component_list = {
-    'coupler_body': {
-        'num': '1',
-        'description': 'A cylindrical component with a slot running along part of its length allowing flexibility. It has two larger holes for clamping screws and a smaller hole for a set screw on one side.'
-    },
-    'clamping_screw': {
+    'sleeve_connector': {
         'num': '2',
-        'description': 'Standard hexagonal-headed screws designed for tightening within the larger holes, used to clamp the coupler body to shafts.'
+        'description': 'A cylindrical component with a hollow interior and visible slits on the side for adjustable tightening. It appears smooth and symmetric in design.'
     },
-    'set_screw': {
+    'bolt_with_hexagonal_head': {
+        'num': '4',
+        'description': 'Slender cylindrical bolts with clearly visible hexagonal heads designed for tightening. Typically threaded along the length for secure connections.'
+    },
+    'nut': {
+        'num': '4',
+        'description': 'Small hexagonal nuts, designed to pair with bolts and ensure fixed connections. They sit flush and fit into the provided bolts seamlessly.'
+    },
+    'cylindrical_shaft_with_slots': {
         'num': '1',
-        'description': 'A small, typically Allen-keyed screw placed in the smaller hole to secure the position on the shaft.'
+        'description': 'A solid cylindrical shaft with two matching slots near the ends. These slots provide adaptable fitting with other components, such as the sleeve connectors.'
     }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['set_screw'],
-        'description': 'The set screw is positioned at the smaller hole on the coupler body to secure its position on a shaft.'
+        'involved_components': ['sleeve_connector_1', 'bolt_with_hexagonal_head_1', 'nut_1'],
+        'description': 'This layer includes one sleeve connector, one bolt, and one nut. The bolt penetrates the sleeve connector enabling adjustable tightening, secured by the nut.'
     },
     'layer_2': {
-        'involved_components': ['coupler_body'],
-        'description': 'The main cylindrical component. It serves as the base structure to connect the shafts and hold the screws.'
+        'involved_components': ['sleeve_connector_2', 'bolt_with_hexagonal_head_2', 'nut_2'],
+        'description': 'This layer mirrors the top layer, with another sleeve connector, bolt, and nut in similar orientation and connection.'
     },
     'layer_3': {
-        'involved_components': ['clamping_screw_1', 'clamping_screw_2'],
-        'description': 'The clamping screws are inserted into the larger holes on the coupler body for tightening, ensuring the body attaches firmly to the shafts.'
+        'involved_components': ['cylindrical_shaft_with_slots'],
+        'description': 'The cylindrical shaft is positioned centrally, acting as the core that integrates with the sleeve connectors via the slots for adaptable fitting.'
+    },
+    'layer_4': {
+        'involved_components': ['bolt_with_hexagonal_head_3', 'nut_3'],
+        'description': 'This layer includes a bolt and nut positioned opposite to the top two layers. The bolt passes through the shaft and is tightened using the nut.'
+    },
+    'layer_5': {
+        'involved_components': ['bolt_with_hexagonal_head_4', 'nut_4'],
+        'description': 'The bottom-most layer includes another bolt and nut pair. Similar to the above layer, the bolt passes through and is secured in position.'
     }
 }
         
