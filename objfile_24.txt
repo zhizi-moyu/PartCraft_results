@@ -1,0 +1,57 @@
+
+
+            component_list = {
+    'cylinder': {
+        'num': '1',
+        'description': 'A central solid cylinder that forms the core of the assembly, designed to connect with other components and support the structure.'
+    },
+    'large_end_cap': {
+        'num': '1',
+        'description': 'A large cylindrical cap piece that fits over the end of the cylinder, featuring a smooth outer surface and a centered mounting hole.'
+    },
+    'small_end_cap': {
+        'num': '1',
+        'description': 'A smaller cylindrical cap with a flat face, designed to close off one end of the assembly, also with a central hole for bolts.'
+    },
+    'flange': {
+        'num': '4',
+        'description': 'Flat disc-like components with multiple bolt holes around the outer edge, used to connect pieces together or provide stability in the assembly.'
+    },
+    'spacer': {
+        'num': '2',
+        'description': 'Thin ring-like components positioned between other parts, used primarily to maintain distance or spacing where needed within the structure.'
+    },
+    'connector_rod': {
+        'num': '1',
+        'description': 'A rod-like structure that connects different parts, possibly integrating small circular features that help secure the assembly or allow for movement.'
+    }
+}
+            modify component list:
+            component_list = {
+    'cylinder': {
+        'num': '1',
+        'description': 'A central solid cylinder that forms the core of the assembly, designed to connect with other components and support the structure.'
+    },
+    'large_end_cap': {
+        'num': '1',
+        'description': 'A large cylindrical cap piece that fits over the end of the cylinder, featuring a smooth outer surface and a centered mounting hole.'
+    },
+    'small_end_cap': {
+        'num': '1',
+        'description': 'A smaller cylindrical cap with a flat face, designed to close off one end of the assembly, also with a central hole for bolts.'
+    },
+    'flange': {
+        'num': '4',
+        'description': 'Flat disc-like components with multiple bolt holes around the outer edge, used to connect pieces together or provide stability in the assembly.'
+    },
+    'spacer': {
+        'num': '2',
+        'description': 'Thin ring-like components positioned between other parts, used primarily to maintain distance or spacing where needed within the structure.'
+    },
+    'connector_rod': {
+        'num': '1',
+        'description': 'A rod-like structure that connects different parts, possibly integrating small circular features that help secure the assembly or allow for movement.'
+    }
+}
+            None
+        
