@@ -1,70 +1,54 @@
 
 
             component_list = {
-    'cylinder_body': {
-        'num': '1',
-        'description': 'A central cylindrical component with a smooth surface, featuring grooves for mechanical engagement and aesthetics.'
+    'central_cylinder': {
+        'num': '1', 
+        'description': 'A smooth cylinder with a slightly extended rod-like feature in the center, acting as the main body of the model. It has a consistent smooth and symmetrical profile.'
     },
-    'shaft': {
-        'num': '1',
-        'description': 'A protruding cylindrical shaft from the central body, slightly smaller in diameter, designed for rotational support and connection to other mechanical parts.'
+    'grooved_cylinder': {
+        'num': '1', 
+        'description': 'A cylindrical component that features decorative or functional parallel grooves along its side and includes an opening on one side. The grooves are evenly carved around its circumference.'
     },
-    'groove_section': {
+    'pin': {
         'num': '1',
-        'description': 'This section showcases multiple evenly spaced circumferential grooves, which could serve both functional and aesthetic purposes.'
+        'description': 'A slender, rod-like component that protrudes slightly from the central cylinder. It is likely used to connect or orient other parts during assembly.'
     },
-    'end_cap': {
+    'set_screw': {
         'num': '2',
-        'description': 'Circular components that cap the ends of the cylinder, with one featuring a centered hole to accommodate the shaft, and the other being solid.'
-    },
-    'mounting_hole': {
-        'num': '2',
-        'description': 'Holes present on the side surface of the cylinder, possibly intended for securing the component to another structure or for integration with additional parts.'
+        'description': 'Small screws with hexagonal heads embedded into the side of the grooved cylinder. These screws are likely used for tightening or securing the assembly.'
     }
 }
             modify component list:
             component_list = {
-    'cylinder_body': {
+    'central_cylinder': {
         'num': '1',
-        'description': 'A central cylindrical component with a smooth surface, featuring grooves for mechanical engagement and aesthetics.'
+        'description': 'A smooth cylinder with a slightly extended rod-like feature in the center, acting as the main body of the model. It has a consistent smooth and symmetrical profile.'
     },
-    'shaft': {
+    'grooved_cylinder': {
         'num': '1',
-        'description': 'A protruding cylindrical shaft from the central body, slightly smaller in diameter, designed for rotational support and connection to other mechanical parts.'
+        'description': 'A cylindrical component that features decorative or functional parallel grooves along its side and includes an opening on one side. The grooves are evenly carved around its circumference.'
     },
-    'groove_section': {
+    'pin': {
         'num': '1',
-        'description': 'This section showcases multiple evenly spaced circumferential grooves, which could serve both functional and aesthetic purposes.'
+        'description': 'A slender, rod-like component that protrudes slightly from the central cylinder. It is likely used to connect or orient other parts during assembly.'
     },
-    'end_cap': {
-        'num': '2',
-        'description': 'Circular components that cap the ends of the cylinder, with one featuring a centered hole to accommodate the shaft, and the other being solid.'
-    },
-    'mounting_hole': {
-        'num': '2',
-        'description': 'Holes present on the side surface of the cylinder, possibly intended for securing the component to another structure or for integration with additional parts.'
+    'set_screw': {
+        'num': '1',
+        'description': 'A small screw with a hexagonal head embedded into the side of the grooved cylinder. This screw is likely used for tightening or securing the assembly.'
     }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['end_cap_1'],
-        'description': 'The uppermost layer features one end cap with a hole to accommodate the shaft, acting as a protective covering for the shaft end.'
+        'involved_components': ['pin'],
+        'description': 'The slender, rod-like pin protrudes from the central cylinder. It corresponds to the extended rod-like feature visible at the top position of the model.'
     },
     'layer_2': {
-        'involved_components': ['shaft'],
-        'description': 'The shaft protrudes horizontally from the central body, designed for rotational support and connection.'
+        'involved_components': ['central_cylinder'],
+        'description': 'The smooth cylinder forms the main body of the model. It serves as a symmetrical and consistent central base connecting other parts.'
     },
     'layer_3': {
-        'involved_components': ['cylinder_body', 'groove_section'],
-        'description': 'The central cylindrical component serves as the main structure, with the groove section providing both mechanical engagement and aesthetic attributes.'
-    },
-    'layer_4': {
-        'involved_components': ['mounting_hole_1', 'mounting_hole_2'],
-        'description': 'Positioned on the side surface of the cylinder, these holes facilitate securing the component to other structures or integrating it with additional parts.'
-    },
-    'layer_5': {
-        'involved_components': ['end_cap_2'],
-        'description': 'The bottom layer features a solid end cap, providing closure to the cylinder and completing the structural form.'
+        'involved_components': ['grooved_cylinder', 'set_screw'],
+        'description': 'The grooved cylinder with parallel grooves and an opening is attached to the central cylinder. The set screw is embedded into the side of the grooved cylinder, securing the grooved cylinder to the central cylinder.'
     }
 }
         
