@@ -1,0 +1,22 @@
+
+
+            component_list = {
+    'mounting_bracket': {
+        'num': '6',
+        'description': 'A rectangular bracket with an L-shaped profile. It features a flat base with four circular mounting holes in each corner for screws or bolts. A hollow cylindrical cut-out sits in the center, likely for alignment or securing a cylindrical object. The side profile forms a perpendicular wall with two elongated rectangular holes for additional mounting options. Edges and faces are smooth and precision-cut for a perfect fit into an assembly structure.'
+    }
+}
+            modify component list:
+            component_list = {
+    'mounting_bracket': {
+        'num': '6',
+        'description': 'A rectangular bracket with an L-shaped profile. It features a flat base with four circular mounting holes in each corner for screws or bolts. A hollow cylindrical cut-out sits in the center, likely for alignment or securing a cylindrical object. The side profile forms a perpendicular wall with two elongated rectangular holes for additional mounting options. Edges and faces are smooth and precision-cut for a perfect fit into an assembly structure.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['mounting_bracket_1', 'mounting_bracket_2', 'mounting_bracket_3', 'mounting_bracket_4', 'mounting_bracket_5', 'mounting_bracket_6'],
+        'description': 'All six mounting brackets are positioned identically in the same vertical layer. The flat base lies horizontally, while the L-shaped profile provides perpendicular support. Each bracket maintains alignment across the structure for a secure connection.'
+    }
+}
+        
