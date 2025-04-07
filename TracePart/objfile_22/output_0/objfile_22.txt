@@ -1,0 +1,65 @@
+
+
+            component_list = {
+    'central_shaft': {
+        'num': '1',
+        'description': 'A main cylindrical body that connects input and output crafts, seen as the core of the assembly.'
+    },
+    'input_shaft': {
+        'num': '1',
+        'description': 'A solid cylindrical piece intended to connect to the power source, featuring a hole at one side.'
+    },
+    'output_shaft': {
+        'num': '1',
+        'description': 'Similar to the input shaft, connects to the output side, with a specified positioning hole.'
+    },
+    'spacer_ring': {
+        'num': '2',
+        'description': 'Two flat rings designed to maintain spacing, very thin and visually flat.'
+    },
+    'flange_plate': {
+        'num': '4',
+        'description': 'Hollow, flat cylindrical plates designed for coupling, each with bolt holes for fastening to other components.'
+    },
+    'nut': {
+        'num': '16',
+        'description': 'Small hexagonal cylinders that assist in fastening bolts and securing components together.'
+    },
+    'bolt': {
+        'num': '8',
+        'description': 'Long, slender cylindrical rods used for tightening and holding the assembly together through flanges and shafts.'
+    }
+}
+            modify component list:
+            component_list = {
+    'central_shaft': {
+        'num': '1',
+        'description': 'A main cylindrical body that connects input and output crafts, seen as the core of the assembly.'
+    },
+    'input_shaft': {
+        'num': '1',
+        'description': 'A solid cylindrical piece intended to connect to the power source, featuring a hole at one side.'
+    },
+    'output_shaft': {
+        'num': '1',
+        'description': 'Similar to the input shaft, connects to the output side, with a specified positioning hole.'
+    },
+    'spacer_ring': {
+        'num': '2',
+        'description': 'Two flat rings designed to maintain spacing, very thin and visually flat.'
+    },
+    'flange_plate': {
+        'num': '4',
+        'description': 'Hollow, flat cylindrical plates designed for coupling, each with bolt holes for fastening to other components.'
+    },
+    'nut': {
+        'num': '16',
+        'description': 'Small hexagonal cylinders that assist in fastening bolts and securing components together.'
+    },
+    'bolt': {
+        'num': '8',
+        'description': 'Long, slender cylindrical rods used for tightening and holding the assembly together through flanges and shafts.'
+    }
+}
+            None
+        
