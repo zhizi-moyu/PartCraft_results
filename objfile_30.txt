@@ -1,48 +1,56 @@
 
 
             component_list = {
-    'cylindrical_coupling_body': {
-        'num': '2',
-        'description': 'A smooth cylinder segment with a hollow center designed to hold the shaft or internal gear interface. Features a flat end and a slightly recessed inner portion for secure attachment.'
-    },
-    'flexible_grooved_segment': {
+    'central_craft': {
         'num': '1',
-        'description': 'A cylindrical segment with several grooves running across its circular surface, allowing flexibility and slight deformation. It serves as a torsion buffer and connection point for the coupling system.'
+        'description': 'A cylindrical component with a grooved surface, designed to form the central part of the model. It has external ridges for possible mechanical connection.'
     },
-    'hexagonal_bolt': {
-        'num': '4',
-        'description': 'Small, steel-like hexagonal head bolts used to fasten adjacent components. Each bolt is slender with threading along its cylindrical shaft.'
+    'input_craft': {
+        'num': '1',
+        'description': 'A cylindrical object on one side of the model, featuring an embedded circular groove and bolts for secure attachment.'
     },
-    'circular_washer': {
-        'num': '4',
-        'description': 'Flat, round washers with an inner ring hole. These are placed under the bolt heads to distribute force and secure the connection.'
+    'output_craft': {
+        'num': '1',
+        'description': 'A similar cylindrical component mirroring the input craft, located on the opposite end of the main assembly.'
     },
-    'internal_gear_interface': {
+    'spacer_ring': {
         'num': '2',
-        'description': 'Circular interface component with gear-like recesses along the perimeter, ensuring precise engagement with other components. This part is nested into the cylindrical coupling body.'
+        'description': 'Flat ring-shaped components positioned between the central craft and the external flange plates to ensure spacing and structural integrity.'
+    },
+    'nut': {
+        'num': '4',
+        'description': 'Small hexagonal nuts that are fastened onto bolts to hold the assembly components together securely.'
+    },
+    'bolt': {
+        'num': '4',
+        'description': 'Slender cylindrical bolts with external threading, inserted through the flange plates and secured with nuts.'
     }
 }
             modify component list:
             component_list = {
-    'cylindrical_coupling_body': {
+    'central_craft': {
         'num': '1',
-        'description': 'A smooth cylinder segment with a hollow center designed to hold the shaft or internal gear interface. Features a flat end and a slightly recessed inner portion for secure attachment.'
+        'description': 'A cylindrical component with a grooved surface, designed to form the central part of the model. It has external ridges for possible mechanical connection.'
     },
-    'flexible_grooved_segment': {
+    'input_craft': {
         'num': '1',
-        'description': 'A cylindrical segment with several grooves running across its circular surface, allowing flexibility and slight deformation. It serves as a torsion buffer and connection point for the coupling system.'
+        'description': 'A cylindrical object on one side of the model, featuring an embedded circular groove and bolts for secure attachment.'
     },
-    'hexagonal_bolt': {
-        'num': '4',
-        'description': 'Small, steel-like hexagonal head bolts used to fasten adjacent components. Each bolt is slender with threading along its cylindrical shaft.'
+    'output_craft': {
+        'num': '1',
+        'description': 'A similar cylindrical component mirroring the input craft, located on the opposite end of the main assembly.'
     },
-    'circular_washer': {
-        'num': '4',
-        'description': 'Flat, round washers with an inner ring hole. These are placed under the bolt heads to distribute force and secure the connection.'
-    },
-    'internal_gear_interface': {
+    'spacer_ring': {
         'num': '2',
-        'description': 'Circular interface component with gear-like recesses along the perimeter, ensuring precise engagement with other components. This part is nested into the cylindrical coupling body.'
+        'description': 'Flat ring-shaped components positioned between the central craft and the external flange plates to ensure spacing and structural integrity.'
+    },
+    'nut': {
+        'num': '4',
+        'description': 'Small hexagonal nuts that are fastened onto bolts to hold the assembly components together securely.'
+    },
+    'bolt': {
+        'num': '4',
+        'description': 'Slender cylindrical bolts with external threading, inserted through the flange plates and secured with nuts.'
     }
 }
             None
