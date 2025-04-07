@@ -1,0 +1,102 @@
+
+
+            component_list = {
+    'central_shaft': {
+        'num': '1',
+        'description': 'A central cylindrical shaft with a smooth surface designed to link other components.'
+    },
+    'input_adapter': {
+        'num': '1',
+        'description': 'A hollow cylindrical adapter connected to the central shaft, with mounting holes for bolts.'
+    },
+    'output_adapter': {
+        'num': '1',
+        'description': 'A hollow cylindrical adapter similar to the input adapter, used to transmit torque.'
+    },
+    'spacer_ring': {
+        'num': '2',
+        'description': 'Thin flat rings used to separate flange plates, featuring a circular profile.'
+    },
+    'flange_plate': {
+        'num': '4',
+        'description': 'Flat circular plates with multiple drilled holes for nuts and bolts to hold the assembly together.'
+    },
+    'nut': {
+        'num': '16',
+        'description': 'Hexagonal nuts with a smooth threading used to secure the bolts in place.'
+    },
+    'bolt': {
+        'num': '8',
+        'description': 'Slender cylindrical bolts with threading and smooth surfaces for connecting various components tightly.'
+    }
+}
+            modify component list:
+            component_list = {
+    'central_shaft': {
+        'num': '1',
+        'description': 'A central cylindrical shaft with a smooth surface designed to link other components.'
+    },
+    'input_adapter': {
+        'num': '1',
+        'description': 'A hollow cylindrical adapter connected to the central shaft, with mounting holes for bolts.'
+    },
+    'output_adapter': {
+        'num': '1',
+        'description': 'A hollow cylindrical adapter similar to the input adapter, used to transmit torque.'
+    },
+    'spacer_ring': {
+        'num': '2',
+        'description': 'Thin flat rings used to separate flange plates, featuring a circular profile.'
+    },
+    'flange_plate': {
+        'num': '4',
+        'description': 'Flat circular plates with multiple drilled holes for nuts and bolts to hold the assembly together.'
+    },
+    'nut': {
+        'num': '16',
+        'description': 'Hexagonal nuts with a smooth threading used to secure the bolts in place.'
+    },
+    'bolt': {
+        'num': '8',
+        'description': 'Slender cylindrical bolts with threading and smooth surfaces for connecting various components tightly.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['input_adapter'],
+        'description': 'The input adapter is positioned at the topmost layer of the assembly.'
+    },
+    'layer_2': {
+        'involved_components': ['flange_plate_1', 'nut_1', 'nut_2', 'nut_3', 'nut_4'],
+        'description': 'The first flange plate is secured to the input adapter using four evenly distributed nuts.'
+    },
+    'layer_3': {
+        'involved_components': ['spacer_ring_1', 'bolt_1', 'bolt_2', 'bolt_3', 'bolt_4'],
+        'description': 'The spacer ring is positioned below the first flange plate, and bolts penetrate this layer concentrically.'
+    },
+    'layer_4': {
+        'involved_components': ['flange_plate_2', 'nut_5', 'nut_6', 'nut_7', 'nut_8'],
+        'description': 'Another flange plate is positioned below the spacer ring with bolts passing through it and nuts securing the bolts.'
+    },
+    'layer_5': {
+        'involved_components': ['central_shaft'],
+        'description': 'The central shaft is positioned in this layer, running through the middle of the entire assembly.'
+    },
+    'layer_6': {
+        'involved_components': ['flange_plate_3', 'nut_9', 'nut_10', 'nut_11', 'nut_12'],
+        'description': 'Below the central shaft, the third flange plate is secured with nuts on bolts in concentric formation.'
+    },
+    'layer_7': {
+        'involved_components': ['spacer_ring_2', 'bolt_5', 'bolt_6', 'bolt_7', 'bolt_8'],
+        'description': 'The second spacer ring is situated below the third flange plate, with bolts penetrating through and securing the layer.'
+    },
+    'layer_8': {
+        'involved_components': ['flange_plate_4', 'nut_13', 'nut_14', 'nut_15', 'nut_16'],
+        'description': 'The fourth flange plate is secured using the remaining nuts distributed evenly on this layer.'
+    },
+    'layer_9': {
+        'involved_components': ['output_adapter'],
+        'description': 'The output adapter is positioned at the bottommost layer of the assembly.'
+    }
+}
+        
