@@ -1,54 +1,46 @@
 
 
             component_list = {
-    'central_cylinder': {
-        'num': '1', 
-        'description': 'A smooth cylinder with a slightly extended rod-like feature in the center, acting as the main body of the model. It has a consistent smooth and symmetrical profile.'
-    },
-    'grooved_cylinder': {
-        'num': '1', 
-        'description': 'A cylindrical component that features decorative or functional parallel grooves along its side and includes an opening on one side. The grooves are evenly carved around its circumference.'
-    },
-    'pin': {
+    'main_cylindrical_body': {
         'num': '1',
-        'description': 'A slender, rod-like component that protrudes slightly from the central cylinder. It is likely used to connect or orient other parts during assembly.'
+        'description': 'A primary cylindrical component with a series of grooves around its circumference near one end. It appears to have a hole at one end for the central rod to insert.'
     },
-    'set_screw': {
+    'central_rod': {
+        'num': '1',
+        'description': 'A short and slightly protruding rod attached to the main cylindrical body, likely serves as the axis for rotation or connection to another part.'
+    },
+    'screw': {
         'num': '2',
-        'description': 'Small screws with hexagonal heads embedded into the side of the grooved cylinder. These screws are likely used for tightening or securing the assembly.'
+        'description': 'Small hexagonal screw heads visible, suggesting fastening parts together. Possibly one on each side of the main cylindrical body.'
     }
 }
             modify component list:
             component_list = {
-    'central_cylinder': {
+    'main_cylindrical_body': {
         'num': '1',
-        'description': 'A smooth cylinder with a slightly extended rod-like feature in the center, acting as the main body of the model. It has a consistent smooth and symmetrical profile.'
+        'description': 'A primary cylindrical component with a series of grooves around its circumference near one end. It appears to have a hole at one end for the central rod to insert.'
     },
-    'grooved_cylinder': {
+    'central_rod': {
         'num': '1',
-        'description': 'A cylindrical component that features decorative or functional parallel grooves along its side and includes an opening on one side. The grooves are evenly carved around its circumference.'
+        'description': 'A short and slightly protruding rod attached to the main cylindrical body, likely serves as the axis for rotation or connection to another part.'
     },
-    'pin': {
+    'screw': {
         'num': '1',
-        'description': 'A slender, rod-like component that protrudes slightly from the central cylinder. It is likely used to connect or orient other parts during assembly.'
-    },
-    'set_screw': {
-        'num': '1',
-        'description': 'A small screw with a hexagonal head embedded into the side of the grooved cylinder. This screw is likely used for tightening or securing the assembly.'
+        'description': 'A small hexagonal screw head visible, suggesting it is fastening parts together on one side of the main cylindrical body.'
     }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['pin'],
-        'description': 'The slender, rod-like pin protrudes from the central cylinder. It corresponds to the extended rod-like feature visible at the top position of the model.'
+        'involved_components': ['central_rod'],
+        'description': 'The central rod protrudes from one end of the main cylindrical body and likely acts as the axis for rotation or connection to another part.'
     },
     'layer_2': {
-        'involved_components': ['central_cylinder'],
-        'description': 'The smooth cylinder forms the main body of the model. It serves as a symmetrical and consistent central base connecting other parts.'
+        'involved_components': ['main_cylindrical_body'],
+        'description': 'The main cylindrical body is the largest component, featuring grooves near one end and accommodating the central rod through the center.'
     },
     'layer_3': {
-        'involved_components': ['grooved_cylinder', 'set_screw'],
-        'description': 'The grooved cylinder with parallel grooves and an opening is attached to the central cylinder. The set screw is embedded into the side of the grooved cylinder, securing the grooved cylinder to the central cylinder.'
+        'involved_components': ['screw'],
+        'description': 'The screw is embedded on a side of the main cylindrical body, securing it or attaching it to other components.'
     }
 }
         
