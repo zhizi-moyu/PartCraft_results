@@ -1,41 +1,42 @@
 
 
             component_list = {
-    'coupling_hub': {
-        'num': '2',
-        'description': 'A short cylindrical component with external ridges and a slotted bore at the center for a secure fit. It also has evenly spaced threaded holes near the base for fastening.'
-    },
-    'flange_disc': {
-        'num': '2',
-        'description': 'A flat circular plate with a central hole and multiple equally spaced smaller holes around its circumference for screws or bolts.'
-    },
-    'spacer_ring': {
+    'cylinder_with_flange': {
         'num': '1',
-        'description': 'A long hollow cylindrical component with smooth surfaces and consistent thickness, connecting the two flange discs between the coupling hubs.'
+        'description': 'A cylindrical component with an integrated flange, featuring multiple bolt holes arranged around the perimeter. The cylinder has a grooved section for mechanical fastening and a central hollow for shaft alignment.'
     },
-    'screw': {
-        'num': '6',
-        'description': 'Small cylindrical fasteners with flat heads, used to secure the flange discs to the spacer ring.'
+    'slotted_cylinder': {
+        'num': '1',
+        'description': 'A short cylindrical piece similar to a bushing, characterized by a significant slot cut across its length. It includes several grooves and a larger diameter at one end with holes around the circumference for bolts or pins.'
     },
-    'bolt_with_nut': {
-        'num': '4',
-        'description': 'Slender cylindrical bolts paired with hexagonal nuts, used to fasten the coupling hubs to another mechanical element.'
+    'circular_disk_with_holes': {
+        'num': '1',
+        'description': 'A flat circular disk with evenly spaced circular holes around the central larger hole. This is typically used as a connector or brace between components.'
     }
 }
             modify component list:
-            None
+            component_list = {
+    'cylinder_with_flange': {
+        'num': '1',
+        'description': 'A cylindrical component with an integrated flange, featuring multiple bolt holes arranged around the perimeter. The cylinder has a grooved section for mechanical fastening and a central hollow for shaft alignment.'
+    },
+    'slotted_cylinder': {
+        'num': '1',
+        'description': 'A short cylindrical piece similar to a bushing, characterized by a significant slot cut across its length. It includes several grooves and a larger diameter at one end with holes around the circumference for bolts or pins.'
+    },
+    'circular_disk_with_holes': {
+        'num': '1',
+        'description': 'A flat circular disk with evenly spaced circular holes around the central larger hole. This is typically used as a connector or brace between components.'
+    }
+}
             graph_dict = {
     'layer_1': {
-        'involved_components': ['component_1'],
-        'description': 'The topmost component, possibly a cylindrical section of the object.'
+        'involved_components': ['circular_disk_with_holes'],
+        'description': 'This component is located at the top of the assembly, serving as a connector or brace.'
     },
     'layer_2': {
-        'involved_components': ['component_2'],
-        'description': 'A smaller component positioned below layer 1, appears to have a flanged section.'
-    },
-    'layer_3': {
-        'involved_components': ['component_3'],
-        'description': 'This component is at the lowest layer, adding to the overall cylindrical shape.'
+        'involved_components': ['cylinder_with_flange', 'slotted_cylinder'],
+        'description': 'The cylinder with flange and slotted cylinder are positioned directly below the circular disk. The flange provides a stable connection to the circular disk, while the slotted cylinder aligns through the central holes of both the flange and disk, facilitating mechanical fastening.'
     }
 }
         
