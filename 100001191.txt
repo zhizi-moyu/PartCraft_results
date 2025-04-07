@@ -1,0 +1,46 @@
+
+
+            component_list = {
+    'base_block': {
+        'num': '1',
+        'description': 'A rectangular cuboid block with a flat-edged base and one tapered end forming a trapezoidal profile on the narrow side.'
+    },
+    'angled_extension': {
+        'num': '1',
+        'description': 'A wedge-like rectangular component with one acute-angled sloping edge extending sharply outward from a wide base.'
+    },
+    'support_block': {
+        'num': '3',
+        'description': 'Small rectangular blocks with clean, sharp edges and flat sides, appearing to serve as structural support connections or spacers.'
+    }
+}
+            modify component list:
+            component_list = {
+    'base_block': {
+        'num': '1',
+        'description': 'A rectangular cuboid block with a flat-edged base and one tapered end forming a trapezoidal profile on the narrow side.'
+    },
+    'angled_extension': {
+        'num': '1',
+        'description': 'A wedge-like rectangular component with one acute-angled sloping edge extending sharply outward from a wide base.'
+    },
+    'support_block': {
+        'num': '2',
+        'description': 'Small rectangular blocks with clean, sharp edges and flat sides, appearing to serve as structural support connections or spacers.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['support_block_1', 'support_block_2'],
+        'description': 'Two small rectangular support blocks are located at the bottommost layer and serve as the base support for the entire structure.'
+    },
+    'layer_2': {
+        'involved_components': ['base_block'],
+        'description': 'The rectangular cuboid base block rests directly above the support blocks, forming a flat stable layer. One end of this base block is tapered, resulting in a trapezoidal profile on the narrow side.'
+    },
+    'layer_3': {
+        'involved_components': ['angled_extension'],
+        'description': 'The angled rectangular component is positioned above the base block and extends outward with an acute-angled sloping edge, providing a sharp outward projection from the broader base.'
+    }
+}
+        
