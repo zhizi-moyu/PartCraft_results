@@ -1,0 +1,62 @@
+
+
+            component_list = {
+       'end_plate': {
+           'num': '2',
+           'description': 'Circular discs with a hole in the center and two screw holes spaced symmetrically on either side allowing attachment to a shaft or other surfaces.'
+       },
+       'central_body': {
+           'num': '1',
+           'description': 'A cylindrical body with grooves cut into it allowing it to securely hold the cross bars in place vertically. It features a central bore for alignment with the end plates.'
+       },
+       'cross_bar': {
+           'num': '2',
+           'description': 'Rectangular bars that fit horizontally into the grooves of the central body, providing structural stability. Each has a central hole for the pin.'
+       },
+       'pin': {
+           'num': '2',
+           'description': 'Cylindrical rods used for locking the cross bars in place within the central body, fitting through both cross bars and the central body.'
+       }
+   }
+            modify component list:
+            component_list = {
+    'end_plate': {
+        'num': '2',
+        'description': 'Circular discs with a hole in the center and two screw holes spaced symmetrically on either side allowing attachment to a shaft or other surfaces.'
+    },
+    'central_body': {
+        'num': '1',
+        'description': 'A cylindrical body with grooves cut into it allowing it to securely hold the cross bars in place vertically. It features a central bore for alignment with the end plates.'
+    },
+    'cross_bar': {
+        'num': '2',
+        'description': 'Rectangular bars that fit horizontally into the grooves of the central body, providing structural stability. Each has a central hole for the pin.'
+    },
+    'pin': {
+        'num': '2',
+        'description': 'Cylindrical rods used for locking the cross bars in place within the central body, fitting through both cross bars and the central body.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['end_plate_1'],
+        'description': 'The end plate is located at the top, attached to the central body, providing structural closure.'
+    },
+    'layer_2': {
+        'involved_components': ['cross_bar_1', 'pin_1'],
+        'description': 'The cross bar is horizontally positioned and secured with a pin through its central hole into the central body, aligning with its groove.'
+    },
+    'layer_3': {
+        'involved_components': ['central_body'],
+        'description': 'The central body holds the structure together, featuring grooves that secure the cross bars and align the pins.'
+    },
+    'layer_4': {
+        'involved_components': ['cross_bar_2', 'pin_2'],
+        'description': 'Similarly, the second cross bar and pin align horizontally at the lower groove of the central body, providing additional structural support.'
+    },
+    'layer_5': {
+        'involved_components': ['end_plate_2'],
+        'description': 'The lower end plate provides structural closure at the bottom, mirroring the positioning of the top end plate.'
+    }
+}
+        
