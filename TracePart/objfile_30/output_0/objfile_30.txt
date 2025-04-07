@@ -1,0 +1,70 @@
+
+
+            component_list = {
+    'cylinder': {
+        'num': '1',
+        'description': 'A main solid cylinder acting as the central support, appears elongated with consistent diameter throughout.'
+    },
+    'flange_disc': {
+        'num': '2',
+        'description': 'Circular with holes for bolts, disks attached to the ends of the cylinder for fixing the cylinder to other components.'
+    },
+    'bolt': {
+        'num': '6', 
+        'description': 'Long slender cylinders used for securing other components, often with hexagonal heads.'
+    },
+    'nut': {
+        'num': '6', 
+        'description': 'Small hexagonal pieces used to fasten bolts in place.'
+    },
+    'wave_spring': {
+        'num': '5',
+        'description': 'Compressed cylindrical forms with wave-like contours, likely yield and dampen mechanical stress.'
+    }
+}
+            modify component list:
+            component_list = {
+    'cylinder': {
+        'num': '1',
+        'description': 'A main solid cylinder acting as the central support, appears with uniform diameter and slight elongation.'
+    },
+    'flange_disc': {
+        'num': '2',
+        'description': 'Circular components with extensions that may not have visible bolt holes, likely used as end caps.'
+    },
+    'bolt': {
+        'num': '3', 
+        'description': 'Long slender cylinders used for securing other components, with a definite need for a reduced number.'
+    },
+    'nut': {
+        'num': '3', 
+        'description': 'Small hexagonal pieces used to fasten bolts in place, adjusted to match bolt number.'
+    },
+    'wave_spring': {
+        'num': '5',
+        'description': 'Compressed cylindrical forms with wave-like contours that match the appearance of visible layers.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['flange_disc_1', 'bolt_1', 'nut_1'],
+        'description': 'The first flange disc forms the top layer, secured by a bolt and a nut.'
+    },
+    'layer_2': {
+        'involved_components': ['wave_spring_1', 'wave_spring_2', 'wave_spring_3'],
+        'description': 'Three wave springs are stacked immediately below the first flange disc, separated by their wave-like contour, forming a compressed spring layer.'
+    },
+    'layer_3': {
+        'involved_components': ['cylinder'],
+        'description': 'The central support cylinder extends vertically through the entire model, serving as the structural backbone of the assembly.'
+    },
+    'layer_4': {
+        'involved_components': ['wave_spring_4', 'wave_spring_5'],
+        'description': 'Two additional wave springs are stacked below the central cylinder and are connected to the second flange disc layer.'
+    },
+    'layer_5': {
+        'involved_components': ['flange_disc_2', 'bolt_2', 'nut_2', 'bolt_3', 'nut_3'],
+        'description': 'The second flange disc forms the bottom layer securely held in place with bolts and nuts.'
+    }
+}
+        
