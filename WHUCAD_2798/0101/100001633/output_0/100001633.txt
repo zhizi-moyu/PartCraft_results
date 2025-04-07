@@ -1,0 +1,46 @@
+
+
+            component_list = {
+    'tabletop': {
+        'num': '1',
+        'description': 'A flat rectangular slab representing the surface of the table, with smooth edges and a solid appearance. It appears to have metallic properties and a uniform finish.'
+    },
+    'leg': {
+        'num': '4',
+        'description': 'Slender cylindrical rods acting as table legs. They have smooth surfaces and equal lengths, designed to support the tabletop at each corner.'
+    },
+    'crossbar': {
+        'num': '2',
+        'description': 'Thin cylindrical bars designed to connect the legs horizontally, providing structural reinforcement and stability to the table.'
+    }
+}
+            modify component list:
+            component_list = {
+    'tabletop': {
+        'num': '1',
+        'description': 'A flat rectangular slab representing the surface of the table, with smooth edges and a solid appearance. It appears to have metallic properties and a uniform finish.'
+    },
+    'leg': {
+        'num': '4',
+        'description': 'Slender cylindrical rods acting as table legs. They have smooth surfaces and equal lengths, designed to support the tabletop at each corner.'
+    },
+    'crossbar': {
+        'num': '2',
+        'description': 'Thin cylindrical bars designed to connect the legs horizontally, providing structural reinforcement and stability to the table.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['tabletop'],
+        'description': 'The tabletop serves as the topmost surface, lying flat and supported by the legs beneath it.'
+    },
+    'layer_2': {
+        'involved_components': ['leg_1', 'leg_2', 'leg_3', 'leg_4'],
+        'description': 'The legs are located beneath the tabletop at the four corners, providing vertical support for the tabletop.'
+    },
+    'layer_3': {
+        'involved_components': ['crossbar_1', 'crossbar_2'],
+        'description': 'The crossbars are positioned horizontally between the legs on opposing sides, reinforcing the structural stability of the legs.'
+    }
+}
+        
