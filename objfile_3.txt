@@ -1,70 +1,58 @@
 
 
             component_list = {
-    'coupling_body': {
+    'main_body': {
         'num': '1',
-        'description': 'A cylindrical hollow body with slots and two cut-outs for fastening bolts. The surface is smooth with circular symmetry.'
+        'description': 'A cylindrical component with multiple slots and threaded holes for bolts. The surface has evenly spaced cutouts, and the cylinder itself is solid with one internal chamber.'
     },
-    'input_shaft_adapter': {
+    'clamping_bolt': {
+        'num': '2',
+        'description': 'Small cylindrical bolts with hexagonal heads and threaded shafts. These are used to secure the main body in place at specific slots.'
+    },
+    'side_hole_connector': {
         'num': '1',
-        'description': 'A smaller cylindrical component attached to one end of the coupling body, featuring a central hole for shaft interfacing and a visible opening for bolt insertion.'
+        'description': 'A cylindrical connector with a smooth hollow chamber and side slots for alignment and securing other components.'
     },
-    'output_shaft_adapter': {
-        'num': '1',
-        'description': 'A mirrored cylindrical adapter resembling the input shaft adapter, connected to the opposite side of the coupling body and designed to interface the output shaft.'
-    },
-    'fastening_bolt': {
-        'num': '4',
-        'description': 'Slender cylindrical bolts with external threading. Designed for securing the coupling body and adapters through the slots and openings.'
-    },
-    'hexagonal_nut': {
-        'num': '4',
-        'description': 'Small hexagonal nuts with internal threading, accompanying the fastening bolts to provide a firm lock between components.'
+    'end_cap': {
+        'num': '2',
+        'description': 'Flat cylindrical discs with smooth surfaces and a central hole for axis alignment. These caps serve as covers at the ends.'
     }
 }
             modify component list:
             component_list = {
-    'coupling_body': {
+    'main_body': {
         'num': '1',
-        'description': 'A cylindrical hollow body with slots and two cut-outs for fastening bolts. The surface is smooth with circular symmetry.'
+        'description': 'A cylindrical component with multiple slots and threaded holes for bolts. The surface has evenly spaced cutouts, and the cylinder itself is solid with one internal chamber.'
     },
-    'input_shaft_adapter': {
+    'clamping_bolt': {
+        'num': '2',
+        'description': 'Small cylindrical bolts with hexagonal heads and threaded shafts. These are used to secure the main body in place at specific slots.'
+    },
+    'side_hole_connector': {
         'num': '1',
-        'description': 'A smaller cylindrical component attached to one end of the coupling body, featuring a central hole for shaft interfacing and a visible opening for bolt insertion.'
+        'description': 'A cylindrical connector that may accompany the main body for proper alignment. While its full scope isn’t visible in images, ensure it matches any internal or side feature.'
     },
-    'output_shaft_adapter': {
-        'num': '1',
-        'description': 'A mirrored cylindrical adapter resembling the input shaft adapter, connected to the opposite side of the coupling body and designed to interface the output shaft.'
-    },
-    'fastening_bolt': {
-        'num': '4',
-        'description': 'Slender cylindrical bolts with external threading. Designed for securing the coupling body and adapters through the slots and openings.'
-    },
-    'hexagonal_nut': {
-        'num': '4',
-        'description': 'Small hexagonal nuts with internal threading, accompanying the fastening bolts to provide a firm lock between components.'
+    'end_cap': {
+        'num': '2',
+        'description': 'Flat cylindrical discs with smooth surfaces and a central hole for axis alignment. These caps serve as covers at the ends.'
     }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['input_shaft_adapter'],
-        'description': 'The input_shaft_adapter is connected to one end of the coupling_body, featuring openings for bolt insertion and aligning with the central hole for shaft interfacing.'
+        'involved_components': ['end_cap_1'],
+        'description': 'The first end cap is located at the topmost position, covering the main body and aligning the axis.'
     },
     'layer_2': {
-        'involved_components': ['fastening_bolt', 'hexagonal_nut'],
-        'description': 'The fastening_bolts are inserted through the slots on the coupling_body and secured tightly with hexagonal_nuts to ensure the assembly is fixed.'
+        'involved_components': ['main_body', 'side_hole_connector'],
+        'description': 'The main body is the central cylindrical component, with the side hole connector used for proper alignment or additional connectivity features.'
     },
     'layer_3': {
-        'involved_components': ['coupling_body'],
-        'description': 'The coupling_body acts as the central hollow cylindrical structure that connects the input and output shaft adapters, providing circular symmetry with fastening slots.'
+        'involved_components': ['clamping_bolt_1', 'clamping_bolt_2'],
+        'description': 'Two clamping bolts are threaded into designated slots on the main body to secure it firmly.'
     },
     'layer_4': {
-        'involved_components': ['fastening_bolt', 'hexagonal_nut'],
-        'description': 'Similar to layer_2, fastening_bolts pass through the coupling_body and are locked with hexagonal_nuts for a secure connection.'
-    },
-    'layer_5': {
-        'involved_components': ['output_shaft_adapter'],
-        'description': 'The output_shaft_adapter is connected to the opposite end of the coupling_body, mirroring the input_shaft_adapter functionality with a central hole and bolt insertions.'
+        'involved_components': ['end_cap_2'],
+        'description': 'The second end cap is positioned at the bottommost layer, securely covering the main body and ensuring alignment.'
     }
 }
         

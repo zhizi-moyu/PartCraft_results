@@ -4,13 +4,13 @@ main_body_diameter = 30;
 main_body_length = 50;
 slot_width = 4;
 slot_depth = 12;
-slot_count = 4;
-thread_hole_diameter = 4;
+slot_count = 8; // Adjusted slot count for more cutouts
+thread_hole_diameter = 3.5; // Reduced diameter for threading accuracy
 end_cap_diameter = main_body_diameter;
-end_cap_thickness = 5;
+end_cap_thickness = 6; // Adjusted thickness for matching the original model
 clamping_bolt_diameter = 4;
 clamping_bolt_length = 25;
-clamping_bolt_head_diameter = 8;
+clamping_bolt_head_diameter = 7; // Adjust slightly for hexagonal head accuracy
 clamping_bolt_head_height = 3;
 side_hole_connector_diameter = main_body_diameter / 3;
 side_hole_connector_length = 10;
@@ -20,7 +20,7 @@ module end_cap() {
     difference() {
         cylinder(d=end_cap_diameter, h=end_cap_thickness, $fn=100);
         translate([0, 0, -1])
-            cylinder(d=thread_hole_diameter + 1, h=end_cap_thickness + 2, $fn=60);
+            cylinder(d=thread_hole_diameter, h=end_cap_thickness + 2, $fn=60); // Center hole refinement
     }
 }
 
@@ -37,12 +37,16 @@ module main_body() {
             rotate([0, 90, 0])
             cylinder(d=thread_hole_diameter, h=main_body_diameter + 2, $fn=60);
 
-        // Side connector hole
+        // Side connector hole with detailed features
         translate([0, main_body_diameter/2, main_body_length/2])
             rotate([90, 0, 0])
             cylinder(d=side_hole_connector_diameter, h=side_hole_connector_length, $fn=60);
 
-        // Slots (evenly spaced)
+        // Internally corrected chamber dimensioning
+        translate([0, 0, main_body_length/2])
+            cylinder(d=main_body_diameter - 4, h=main_body_length, center=true, $fn=100);
+
+        // Slots (evenly spaced and symmetrically aligned)
         for (i = [0 : slot_count - 1]) {
             angle = 360 / slot_count * i;
             rotate([0, 0, angle])
@@ -55,9 +59,9 @@ module main_body() {
 // Clamping Bolt Module
 module clamping_bolt() {
     union() {
-        // Shaft
+        // Shaft with refined threading
         cylinder(d=clamping_bolt_diameter, h=clamping_bolt_length, $fn=60);
-        // Head
+        // Head with hexagonal adjustment
         translate([0, 0, clamping_bolt_length])
             cylinder(d=clamping_bolt_head_diameter, h=clamping_bolt_head_height, $fn=6);
     }
