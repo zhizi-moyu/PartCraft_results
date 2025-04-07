@@ -1,24 +1,49 @@
 
 
             component_list = {
-    'central_body': {
+    'central_hub': {
         'num': '1',
-        'description': 'A cylindrical central component with a flat surface, featuring notches or grooves for attaching other parts.'
+        'description': 'A cylindrical core piece with a circular central hole, used to connect and align the model components.'
     },
-    'coupler_segments': {
+    'outer_block': {
         'num': '2',
-        'description': 'Two semi-circular segments that complete a coupling shape around the central body, with provision for bolt insertion to secure them together.'
+        'description': 'A curved, rectangular block with semi-circular edges. Each block features hexagonal bolt holes for attachment.'
     },
-    'clamping_bolts': {
-        'num': '8',
-        'description': 'Long bolts designed to pass through coupler segments to clamp securely onto the central body, bending throughout varied angles.'
+    'spacer_ring': {
+        'num': '4',
+        'description': 'Thin, flat, circular discs with a central hole, specifically designed to separate the outer blocks and central hub for stability.'
     },
-    'mounting_holes': {
-        'num': 'integrated',
-        'description': 'Circular apertures within the central body and segments for aligning and securing other components, ensuring structural integrity.'
+    'bolt': {
+        'num': '4',
+        'description': 'Long, slender cylindrical pieces with threading along the length, used to fasten the entire assembly securely.'
+    },
+    'nut': {
+        'num': '4',
+        'description': 'Hexagonal cylindrical fasteners designed to tighten onto the bolts and hold the assembly together.'
     }
 }
             modify component list:
-            None
+            component_list = {
+    'central_hub': {
+        'num': '1',
+        'description': 'A cylindrical core piece with a circular central hole, used to connect and align the model components.'
+    },
+    'outer_block': {
+        'num': '2',
+        'description': 'A curved, rectangular block with semi-circular edges. Each block features hexagonal bolt holes for attachment.'
+    },
+    'spacer_ring': {
+        'num': '2',
+        'description': 'Thin, flat, circular discs with a central hole, specifically designed to separate the outer blocks and central hub for stability.'
+    },
+    'bolt': {
+        'num': '4',
+        'description': 'Long, slender cylindrical pieces with threading along the length, used to fasten the entire assembly securely.'
+    },
+    'nut': {
+        'num': '4',
+        'description': 'Hexagonal cylindrical fasteners designed to tighten onto the bolts and hold the assembly together.'
+    }
+}
             None
         
