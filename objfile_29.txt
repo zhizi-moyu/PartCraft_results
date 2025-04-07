@@ -3,39 +3,72 @@
             component_list = {
     'base_block': {
         'num': '1',
-        'description': 'A rectangular block with precise cut-outs and holes for connecting other components. It features a smooth finish and a robust form designed for structural support.'
+        'description': 'A rectangular solid block with multiple protrusions and cavities for mounting other components. It has cylindrical holes for bolts and features a slightly rounded edge design on one side.'
     },
-    'cylindrical_connector': {
-        'num': '1',
-        'description': 'A slender cylindrical piece with grooves for secure attachment, having a hollow center for inserting additional components.'
-    },
-    'adjustable_arm': {
+    'clamping_arm': {
         'num': '2',
-        'description': 'An elongated arm with a bend in the middle, offering a pivot point for articulation. It has a series of longitudinal slots for adjustable fitting.'
+        'description': 'Long curved components that form a clamping mechanism. Each arm has an elongated profile with a split end and a hollow cylindrical section at the pivot point. These components appear smooth but feature beveled edges for grip and alignment.'
     },
-    'joint_connector': {
+    'rotational_pin': {
         'num': '2',
-        'description': 'Small cylindrical pieces with extensions on either end for linking to the adjustable arms; these are key for rotational flexibility.'
+        'description': 'Slender cylindrical rods used to create a pivot joint between the clamping arms and the base block. These pins are smooth and have uniform thickness across their lengths.'
     },
-    'mounting_plate': {
-        'num': '1',
-        'description': 'A flat plate with evenly spaced holes for securing the model onto a surface. It is detailed with ridges for enhanced grip.'
-    },
-    'locking_fastener': {
+    'bolt': {
         'num': '4',
-        'description': 'Compact fasteners with a hexagonal head, designed for insertion into the base block to lock components in place firmly.'
+        'description': 'Standard cylindrical screws with hexagonal heads, used to fasten various components together. The threading along their bodies is visible, adding a textured detail.'
+    },
+    'nut': {
+        'num': '4',
+        'description': 'Small hexagonal components paired with bolts. These nuts feature a flat surface for secure tightening and a circular hollow threaded interior for proper alignment with the bolts.'
+    },
+    'washer': {
+        'num': '4',
+        'description': 'Thin, flat, circular rings placed beneath nuts and bolts for reinforcement. These washers have a smooth surface and are slightly wider than the bolts they accompany.'
     }
 }
             modify component list:
             component_list = {
     'base_block': {
         'num': '1',
-        'description': 'A rectangular block with precise cut-outs and holes for connecting other components. It features a smooth finish and a robust form designed for structural support.'
+        'description': 'A rectangular solid block with multiple protrusions and cavities for mounting other components. It has cylindrical holes for bolts and features a slightly rounded edge design on one side.'
     },
-    'locking_fastener': {
+    'clamping_arm': {
+        'num': '2',
+        'description': 'Long curved components that form a clamping mechanism. Each arm has an elongated profile with a split end and a hollow cylindrical section at the pivot point. These components appear smooth but feature beveled edges for grip and alignment.'
+    },
+    'rotational_pin': {
+        'num': '2',
+        'description': 'Slender cylindrical rods used to create a pivot joint between the clamping arms and the base block. These pins are smooth and have uniform thickness across their lengths.'
+    },
+    'bolt': {
         'num': '4',
-        'description': 'Compact fasteners with a hexagonal head, designed for insertion into the base block to lock components in place firmly.'
+        'description': 'Standard cylindrical screws with hexagonal heads, used to fasten various components together. The threading along their bodies is visible, adding a textured detail.'
+    },
+    'nut': {
+        'num': '4',
+        'description': 'Small hexagonal components paired with bolts. These nuts feature a flat surface for secure tightening and a circular hollow threaded interior for proper alignment with the bolts.'
+    },
+    'washer': {
+        'num': '4',
+        'description': 'Thin, flat, circular rings placed beneath nuts and bolts for reinforcement. These washers have a smooth surface and are slightly wider than the bolts they accompany.'
     }
 }
-            None
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['clamping_arm_1', 'clamping_arm_2'],
+        'description': 'The clamping arms are positioned at the top of the assembly and appear symmetrical. They pivot on rotational pins connected to the base block.'
+    },
+    'layer_2': {
+        'involved_components': ['rotational_pin_1', 'rotational_pin_2'],
+        'description': 'Rotational pins are inserted through the hollow cylindrical sections of the clamping arms, connecting them to the base block securely.'
+    },
+    'layer_3': {
+        'involved_components': ['bolt_1', 'bolt_2', 'bolt_3', 'bolt_4', 'washer_1', 'washer_2', 'washer_3', 'washer_4', 'nut_1', 'nut_2', 'nut_3', 'nut_4'],
+        'description': 'Bolts pass through cylindrical cavities in the base block and other components, with washers and nuts used to secure them tightly.'
+    },
+    'layer_4': {
+        'involved_components': ['base_block'],
+        'description': 'The base block acts as the foundation component of the assembly, providing structural support and houses cavities for connecting other components.'
+    }
+}
         
