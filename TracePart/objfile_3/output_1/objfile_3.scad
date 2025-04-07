@@ -1,14 +1,16 @@
 
+```openscad
 // Parameters
 central_body_diameter = 20;
-central_body_length = 25;
-slot_width = 3;
+central_body_length = 20; // Adjusted to be shorter
+slot_width = 5; // Enlarged slots
 slot_depth = 18;
 bolt_hole_diameter = 4;
 bolt_diameter = 3;
-bolt_head_diameter = 6;
-bolt_head_height = 3;
+bolt_head_diameter = 7; // Adjusted head diameter
+bolt_head_height = 2.5; // Adjusted head height to be flatter
 offset_between_layers = 2;
+bolt_positions = [-6, 6]; // Adjusted positions for alignment
 
 // Functions for components
 module central_cylindrical_body() {
@@ -17,7 +19,7 @@ module central_cylindrical_body() {
         translate([0, 0, -central_body_length / 2])
             cube([slot_width, central_body_diameter, slot_depth], center = false);
         rotate([0, 90, 0])
-            for (pos = [-7, 7]) {
+            for (pos = bolt_positions) {
                 translate([0, pos, 0])
                     cylinder(d = bolt_hole_diameter, h = central_body_length + 5, center = true);
             }
@@ -26,8 +28,8 @@ module central_cylindrical_body() {
 
 module clamping_bolt() {
     union() {
-        cylinder(d = bolt_diameter, h = central_body_length / 2, center = true);
-        translate([0, 0, central_body_length / 4])
+        cylinder(d = bolt_diameter, h = (central_body_length / 2) * 0.8, center = true); // Shorter shaft
+        translate([0, 0, (central_body_length / 4) * 0.8]) // Adjusted position
             cylinder(d = bolt_head_diameter, h = bolt_head_height, center = true);
     }
 }
@@ -36,7 +38,7 @@ module clamping_bolt() {
 module layer_1() {
     translate([0, 0, central_body_length / 2])
         central_cylindrical_body();
-    for (pos = [-7, 7])
+    for (pos = bolt_positions)
         translate([0, pos, central_body_length / 2])
             clamping_bolt();
 }
@@ -44,7 +46,7 @@ module layer_1() {
 module layer_2() {
     translate([0, 0, -central_body_length / 2 - offset_between_layers])
         central_cylindrical_body();
-    for (pos = [-7, 7])
+    for (pos = bolt_positions)
         translate([0, pos, -central_body_length / 2 - offset_between_layers])
             clamping_bolt();
 }
@@ -52,4 +54,5 @@ module layer_2() {
 // Final Assembly
 layer_1();
 layer_2();
+```
 
