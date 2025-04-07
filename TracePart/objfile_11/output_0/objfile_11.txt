@@ -1,46 +1,46 @@
 
 
             component_list = {
-    'main_cylindrical_body': {
+    'cylinder_block': {
         'num': '1',
-        'description': 'A primary cylindrical component with a series of grooves around its circumference near one end. It appears to have a hole at one end for the central rod to insert.'
+        'description': 'A cylindrical block with rings on its side and central hole accommodating the inner rod. This component also has a hole at one end to house a screw.'
     },
-    'central_rod': {
+    'inner_rod': {
         'num': '1',
-        'description': 'A short and slightly protruding rod attached to the main cylindrical body, likely serves as the axis for rotation or connection to another part.'
+        'description': 'A slender cylindrical rod that passes centrally through the cylinder block, extending outward from one end.'
     },
     'screw': {
-        'num': '2',
-        'description': 'Small hexagonal screw heads visible, suggesting fastening parts together. Possibly one on each side of the main cylindrical body.'
+        'num': '1',
+        'description': 'A small screw designed to fasten components together, likely intersecting with the cylinder block to secure the inner rod.'
     }
 }
             modify component list:
             component_list = {
-    'main_cylindrical_body': {
+    'cylinder_block': {
         'num': '1',
-        'description': 'A primary cylindrical component with a series of grooves around its circumference near one end. It appears to have a hole at one end for the central rod to insert.'
+        'description': 'A cylindrical block with rings on its side and central hole accommodating the inner rod. This component also has a hole at one end to house a screw.'
     },
-    'central_rod': {
+    'inner_rod': {
         'num': '1',
-        'description': 'A short and slightly protruding rod attached to the main cylindrical body, likely serves as the axis for rotation or connection to another part.'
+        'description': 'A slender cylindrical rod that passes centrally through the cylinder block, extending outward from one end.'
     },
     'screw': {
         'num': '1',
-        'description': 'A small hexagonal screw head visible, suggesting it is fastening parts together on one side of the main cylindrical body.'
+        'description': 'A screw designed to fasten components together, likely intersecting with the cylinder block to secure the inner rod.'
     }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['central_rod'],
-        'description': 'The central rod protrudes from one end of the main cylindrical body and likely acts as the axis for rotation or connection to another part.'
+        'involved_components': ['cylinder_block'],
+        'description': 'The cylinder block is the main body, featuring rings on its side. It has a central hole that accommodates the inner rod, and a hole at one end for the screw.'
     },
     'layer_2': {
-        'involved_components': ['main_cylindrical_body'],
-        'description': 'The main cylindrical body is the largest component, featuring grooves near one end and accommodating the central rod through the center.'
+        'involved_components': ['inner_rod'],
+        'description': 'The inner rod is positioned centrally within the cylinder block, extending outward from one end.'
     },
     'layer_3': {
         'involved_components': ['screw'],
-        'description': 'The screw is embedded on a side of the main cylindrical body, securing it or attaching it to other components.'
+        'description': 'The screw intersects through the cylinder block, securing the inner rod in place.'
     }
 }
         
