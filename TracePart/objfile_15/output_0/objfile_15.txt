@@ -1,49 +1,62 @@
 
 
             component_list = {
-    'central_hub': {
-        'num': '1',
-        'description': 'A cylindrical core piece with a circular central hole, used to connect and align the model components.'
-    },
-    'outer_block': {
+    'circular_flange': {
         'num': '2',
-        'description': 'A curved, rectangular block with semi-circular edges. Each block features hexagonal bolt holes for attachment.'
+        'description': 'A circular, plate-like component with a central hole and four equally spaced smaller holes for bolts. It connects other components together in alignment.'
     },
-    'spacer_ring': {
-        'num': '4',
-        'description': 'Thin, flat, circular discs with a central hole, specifically designed to separate the outer blocks and central hub for stability.'
+    'spacer_block': {
+        'num': '3',
+        'description': 'A solid block with two curved sides and a flat top and bottom. It has holes for bolts at different positions which align with the circular flanges.'
     },
     'bolt': {
-        'num': '4',
-        'description': 'Long, slender cylindrical pieces with threading along the length, used to fasten the entire assembly securely.'
+        'num': '6',
+        'description': 'A slender threaded cylinder used to join the components by passing through corresponding holes. It has a flat or hexagonal head for tightening.'
     },
     'nut': {
-        'num': '4',
-        'description': 'Hexagonal cylindrical fasteners designed to tighten onto the bolts and hold the assembly together.'
+        'num': '6',
+        'description': 'A small hexagonal component that threads onto the end of a bolt to fasten components securely together.'
     }
 }
             modify component list:
             component_list = {
-    'central_hub': {
-        'num': '1',
-        'description': 'A cylindrical core piece with a circular central hole, used to connect and align the model components.'
-    },
-    'outer_block': {
+    'circular_flange': {
         'num': '2',
-        'description': 'A curved, rectangular block with semi-circular edges. Each block features hexagonal bolt holes for attachment.'
+        'description': 'A circular, plate-like component with a central hole and four equally spaced smaller holes for bolts. It connects other components together in alignment.'
     },
-    'spacer_ring': {
-        'num': '2',
-        'description': 'Thin, flat, circular discs with a central hole, specifically designed to separate the outer blocks and central hub for stability.'
+    'spacer_block': {
+        'num': '3',
+        'description': 'A solid block with two curved sides and a flat top and bottom. It has holes for bolts at different positions which align with the circular flanges.'
     },
     'bolt': {
-        'num': '4',
-        'description': 'Long, slender cylindrical pieces with threading along the length, used to fasten the entire assembly securely.'
+        'num': '6',
+        'description': 'A slender threaded cylinder used to join the components by passing through corresponding holes. It has a flat or hexagonal head for tightening.'
     },
     'nut': {
-        'num': '4',
-        'description': 'Hexagonal cylindrical fasteners designed to tighten onto the bolts and hold the assembly together.'
+        'num': '6',
+        'description': 'A small hexagonal component that threads onto the end of a bolt to fasten components securely together.'
     }
 }
-            None
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['circular_flange_1', 'nut_1', 'nut_2', 'nut_3', 'nut_4', 'bolt_1', 'bolt_2', 'bolt_3', 'bolt_4'],
+        'description': 'The circular flange is at the topmost position. Four nuts are evenly distributed around the four bolt holes, securing the flange with four bolts passing through it.'
+    },
+    'layer_2': {
+        'involved_components': ['spacer_block_1', 'bolt_1', 'bolt_2', 'bolt_3', 'bolt_4'],
+        'description': 'The first spacer block is directly beneath the top circular flange. The bolts continue to pass through it, ensuring alignment with the flange above.'
+    },
+    'layer_3': {
+        'involved_components': ['spacer_block_2', 'bolt_1', 'bolt_2', 'bolt_3', 'bolt_4'],
+        'description': 'The second spacer block is placed below the first spacer block, with the bolts passing through it and ensuring structural integrity and alignment.'
+    },
+    'layer_4': {
+        'involved_components': ['spacer_block_3', 'bolt_1', 'bolt_2', 'bolt_3', 'bolt_4'],
+        'description': 'The third spacer block is positioned beneath the second one. The bolts continue to extend through this layer, maintaining alignment and stability.'
+    },
+    'layer_5': {
+        'involved_components': ['circular_flange_2', 'nut_5', 'nut_6', 'nut_7', 'nut_8', 'bolt_1', 'bolt_2', 'bolt_3', 'bolt_4'],
+        'description': 'The second circular flange is at the bottommost position. Four nuts are tightened onto the exposed ends of the bolts, securing the entire assembly.'
+    }
+}
         
