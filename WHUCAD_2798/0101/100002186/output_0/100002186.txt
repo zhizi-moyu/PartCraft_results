@@ -1,0 +1,90 @@
+
+
+            component_list = {
+    'central_unit': {
+        'num': '1',
+        'description': 'A cylindrical part serving as the central connection point with flat ends and a smooth surface.'
+    },
+    'input_unit': {
+        'num': '1',
+        'description': 'A cylindrical piece resembling a tube or pipe, with a hollow center and some minor surface features for attachment.'
+    },
+    'output_unit': {
+        'num': '1',
+        'description': 'Similar to the input unit, this component has a cylindrical shape with a hollow center, but slightly shorter in length.'
+    },
+    'spacer_ring': {
+        'num': '2',
+        'description': 'Extremely flat circular rings that act as spacers; these rings have a smooth surface and uniform thickness.'
+    },
+    'flange_plate': {
+        'num': '4',
+        'description': 'Circular plates with a hollow center that feature symmetrical bolt holes along the edge; they have a moderate thickness.'
+    },
+    'nut': {
+        'num': '16',
+        'description': 'Tiny hexagonal cylinders used to secure bolts; their edges are flat and they possess interior threading.'
+    },
+    'bolt': {
+        'num': '8',
+        'description': 'Long, slender cylinders with threading along their shaft, used to hold multiple pieces together securely.'
+    }
+}
+            modify component list:
+            component_list = {
+    'central_unit': {
+        'num': '1',
+        'description': 'A cylindrical part serving as the central connection point with flat ends and a smooth surface.'
+    },
+    'input_unit': {
+        'num': '1',
+        'description': 'A cylindrical piece resembling a tube or pipe, with a hollow center and some minor surface features for attachment.'
+    },
+    'output_unit': {
+        'num': '1',
+        'description': 'Similar to the input unit, this component has a cylindrical shape with a hollow center, but slightly shorter in length.'
+    },
+    'spacer_ring': {
+        'num': '2',
+        'description': 'Extremely flat circular rings that act as spacers; these rings have a smooth surface and uniform thickness.'
+    },
+    'flange_plate': {
+        'num': '4',
+        'description': 'Circular plates with a hollow center that feature symmetrical bolt holes along the edge; they have a moderate thickness.'
+    },
+    'nut': {
+        'num': '16',
+        'description': 'Tiny hexagonal cylinders used to secure bolts; their edges are flat and they possess interior threading.'
+    },
+    'bolt': {
+        'num': '8',
+        'description': 'Long, slender cylinders with threading along their shaft, used to hold multiple pieces together securely.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['nut_1'],
+        'description': 'This component is located at the topmost position.'
+    },
+    'layer_2': {
+        'involved_components': ['nut_2'],
+        'description': 'Positioned just below nut_1, maintaining a sequential structure.'
+    },
+    'layer_3': {
+        'involved_components': ['nut_3'],
+        'description': 'Vertically aligned below nut_2, part of the structured stack.'
+    },
+    'layer_4': {
+        'involved_components': ['nut_4'],
+        'description': 'Situated directly beneath nut_3 in the hierarchy.'
+    },
+    'layer_5': {
+        'involved_components': ['nut_5'],
+        'description': 'Continuing the stack arrangement, positioned below nut_4.'
+    },
+    'layer_6': {
+        'involved_components': ['nut_6'],
+        'description': 'At the bottom-most position in the vertical assembly.'
+    }
+}
+        
