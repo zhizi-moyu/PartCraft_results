@@ -1,46 +1,46 @@
 
 
             component_list = {
-    'cylinder_block': {
+    'cylinder_body_with_grooves': {
         'num': '1',
-        'description': 'A cylindrical block with rings on its side and central hole accommodating the inner rod. This component also has a hole at one end to house a screw.'
+        'description': 'A cylindrical body with smooth outer surfaces interspersed with horizontal grooves. It has a hollow circular center running through its length and multiple slot cutouts for screws.'
     },
-    'inner_rod': {
+    'central_pin_shaft': {
         'num': '1',
-        'description': 'A slender cylindrical rod that passes centrally through the cylinder block, extending outward from one end.'
+        'description': 'A slender cylindrical pin that passes through the center of the main cylindrical body. It has a consistent diameter and extends slightly outside one end of the cylinder.'
     },
-    'screw': {
-        'num': '1',
-        'description': 'A small screw designed to fasten components together, likely intersecting with the cylinder block to secure the inner rod.'
+    'adjustment_slot_with_screw': {
+        'num': '2',
+        'description': 'A compact screw slot integrated into the side surface of the cylindrical body. Each slot contains a small fastening screw with visible threading and a hexagonal drive head.'
     }
 }
             modify component list:
             component_list = {
-    'cylinder_block': {
+    'cylinder_body_with_grooves': {
         'num': '1',
-        'description': 'A cylindrical block with rings on its side and central hole accommodating the inner rod. This component also has a hole at one end to house a screw.'
+        'description': 'A cylindrical body with smooth outer surfaces interspersed with horizontal grooves. It has a hollow circular center running through its length and multiple slot cutouts for screws.'
     },
-    'inner_rod': {
+    'central_pin_shaft': {
         'num': '1',
-        'description': 'A slender cylindrical rod that passes centrally through the cylinder block, extending outward from one end.'
+        'description': 'A slender cylindrical pin that passes through the center of the main cylindrical body. It has a consistent diameter and extends slightly outside one end of the cylinder.'
     },
-    'screw': {
-        'num': '1',
-        'description': 'A screw designed to fasten components together, likely intersecting with the cylinder block to secure the inner rod.'
+    'adjustment_slot_with_screw': {
+        'num': '2',
+        'description': 'A compact screw slot integrated into the side surface of the cylindrical body. Each slot contains a small fastening screw with visible threading and a hexagonal drive head.'
     }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['cylinder_block'],
-        'description': 'The cylinder block is the main body, featuring rings on its side. It has a central hole that accommodates the inner rod, and a hole at one end for the screw.'
+        'involved_components': ['adjustment_slot_with_screw_1', 'adjustment_slot_with_screw_2'],
+        'description': 'Two adjustment slots with screws are positioned on the outer surface of the cylinder body, distributed on opposite sides in horizontal alignment.'
     },
     'layer_2': {
-        'involved_components': ['inner_rod'],
-        'description': 'The inner rod is positioned centrally within the cylinder block, extending outward from one end.'
+        'involved_components': ['cylinder_body_with_grooves'],
+        'description': 'The cylindrical body with grooves forms the main structure of the model, with grooves running horizontally along its surface and housing the adjustment slots with screws.'
     },
     'layer_3': {
-        'involved_components': ['screw'],
-        'description': 'The screw intersects through the cylinder block, securing the inner rod in place.'
+        'involved_components': ['central_pin_shaft'],
+        'description': 'The central pin shaft runs through the center of the cylindrical body, extending slightly outward from one end, ensuring alignment and central stability.'
     }
 }
         
