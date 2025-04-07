@@ -1,0 +1,50 @@
+
+
+            component_list = {
+    'outer_rectangular_casing': {
+        'num': '1',
+        'description': 'A hollow rectangular prism forming the main body. It has a uniform thickness along its walls and bevelled edges on its top and bottom. Its dimensions are rectangular, and it serves as the structural framework for the other components.'
+    },
+    'inner_triangular_opening_frame': {
+        'num': '1',
+        'description': 'An internal frame with a triangular opening at its core. This component fits snugly within the outer rectangular casing, providing an angular structural support or flow pathway within the system.'
+    },
+    'top_rectangular_cover': {
+        'num': '1',
+        'description': 'A thin, flat rectangular plate that serves as the top cover for the structure. It has smooth edges and dimensions matching the top opening of the outer casing.'
+    },
+    'base_rectangular_plate': {
+        'num': '1',
+        'description': 'A flat rectangular plate designed to act as the base of the structure. It is slightly extended outward compared to the base opening of the outer casing to ensure stability.'
+    }
+}
+            modify component list:
+            component_list = {
+    'outer_rectangular_casing': {
+        'num': '1',
+        'description': 'A hollow rectangular prism forming the main body. It has a uniform thickness along its walls and bevelled edges on its top and bottom. Its dimensions are rectangular, and it serves as the structural framework for the other components.'
+    },
+    'inner_triangular_opening_frame': {
+        'num': '1',
+        'description': 'An internal frame with a triangular opening at its core. This component fits snugly within the outer rectangular casing, providing an angular structural support or flow pathway within the system.'
+    },
+    'base_rectangular_plate': {
+        'num': '1',
+        'description': 'A flat rectangular plate designed to act as the base of the structure. It is slightly extended outward compared to the base opening of the outer casing to ensure stability.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['inner_triangular_opening_frame'],
+        'description': 'The inner triangular opening frame is fitted snugly within the top portion of the outer rectangular casing, providing support or a flow pathway.'
+    },
+    'layer_2': {
+        'involved_components': ['outer_rectangular_casing'],
+        'description': 'The outer rectangular casing serves as the structural framework, enclosing the inner components.'
+    },
+    'layer_3': {
+        'involved_components': ['base_rectangular_plate'],
+        'description': 'The base rectangular plate acts as the bottom support, extending slightly beyond the casing base for added stability.'
+    }
+}
+        
