@@ -1,66 +1,48 @@
 
 
             component_list = {
-    'central_body': {
-        'num': '1',
-        'description': 'A cylinder with an outer ribbed surface to enhance grip or flexibility, serving as the main connecting structure.'
-    },
-    'coupling_end': {
-        'num': '2',
-        'description': 'Circular ends that interface with the central body, featuring an internal mechanism for securing components, usually flat with a raised circular section for alignment.'
-    },
-    'bolt': {
-        'num': '8',
-        'description': 'Short cylindrical shafts with threaded surfaces to fasten and securely join the coupling ends to the central body.'
-    },
-    'nut': {
-        'num': '8',
-        'description': 'Hexagonally shaped fasteners that thread onto bolts, typically found securing each bolt on the coupling ends.'
-    },
-    'washer': {
-        'num': '8',
-        'description': 'Flat circular items used with bolts and nuts to distribute the load of the fasteners, if present, they are seated between the nut and the surface of the component.'
-    },
-    'ribbed_section': {
-        'num': '1',
-        'description': 'A ribbed or grooved cylindrical section that provides a flexible connection, potentially part of the central body enhancing its ability to flex or extend when in use.'
-    }
+    'central_gear' : {'num': '1', 'description': 'A cylindrical gear with grooves along its side and a central hole, serving as the main central component in the assembly'},
+    'outer_ring' : {'num': '1', 'description': 'A large cylindrical outer ring that fits around the central gear, with external grooves for attachment'},
+    'inner_ring' : {'num': '1', 'description': 'A cylindrical inner ring, designed to fit snugly inside the outer ring, with internal grooves and a central hole'},
+    'locking_plate' : {'num': '2', 'description': 'Flat circular plates with three evenly spaced holes for bolts, used to lock the assembly components together'},
+    'groove_plate' : {'num': '2', 'description': 'Plates with series of grooves, ensuring secure fitting and movement control between the central gear and rings'},
+    'bolt' : {'num': '6', 'description': 'Slender cylindrical bolts used to fasten the locking plates and groove plates together, ensuring a tight hold'},
+    'nut' : {'num': '6', 'description': 'Hexagonal nuts corresponding to the bolts, used to securely lock the bolts in place'}
 }
             modify component list:
             component_list = {
-    'central_body': {
-        'num': '1',
-        'description': 'A cylinder with an outer ribbed surface to enhance grip or flexibility, serving as the main connecting structure.'
-    },
-    'coupling_end': {
-        'num': '2',
-        'description': 'Circular ends that interface with the central body, featuring an internal mechanism for securing components, usually flat with a raised circular section for alignment.'
-    },
-    'bolt': {
-        'num': '4',
-        'description': 'Short cylindrical shafts with threaded surfaces to fasten and securely join the coupling ends to the central body.'
-    },
-    'nut': {
-        'num': '4',
-        'description': 'Hexagonally shaped fasteners that thread onto bolts, typically found securing each bolt on the coupling ends.'
-    },
-    'washer': {
-        'num': '4',
-        'description': 'Flat circular items used with bolts and nuts to distribute the load of the fasteners, if present, they are seated between the nut and the surface of the component.'
-    }
+    'central_gear' : {'num': '1', 'description': 'A cylindrical gear with grooves along its side and a central hole, serving as the main central component in the assembly'},
+    'outer_ring' : {'num': '1', 'description': 'A large cylindrical outer ring that fits around the central gear, with external grooves for attachment'},
+    'inner_ring' : {'num': '1', 'description': 'A cylindrical inner ring, designed to fit snugly inside the outer ring, with internal grooves and a central hole'},
+    'locking_plate' : {'num': '2', 'description': 'Flat circular plates with three evenly spaced holes for bolts, used to lock the assembly components together'},
+    'groove_plate' : {'num': '2', 'description': 'Plates with series of grooves, ensuring secure fitting and movement control between the central gear and rings'},
+    'bolt' : {'num': '6', 'description': 'Slender cylindrical bolts used to fasten the locking plates and groove plates together, ensuring a tight hold'},
+    'nut' : {'num': '6', 'description': 'Hexagonal nuts corresponding to the bolts, used to securely lock the bolts in place'}
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['coupling_end_1', 'bolt_1', 'bolt_2', 'bolt_3', 'bolt_4', 'nut_1', 'nut_2', 'nut_3', 'nut_4', 'washer_1', 'washer_2', 'washer_3', 'washer_4'],
-        'description': 'This layer includes coupling_end_1, secured using bolts passing through it and affixed with nuts on the outer side. Washers are placed between the nuts and the surface for load distribution.'
+        'involved_components': ['locking_plate_1', 'bolt_1', 'bolt_2', 'bolt_3', 'nut_1', 'nut_2', 'nut_3'],
+        'description': 'The upper locking plate is fastened using three bolts inserted through its holes, secured by corresponding nuts.'
     },
     'layer_2': {
-        'involved_components': ['central_body'],
-        'description': 'The central body serves as the structural core of the model, located directly below coupling_end_1 and interfacing with it to ensure stability.'
+        'involved_components': ['groove_plate_1'],
+        'description': 'The first groove plate is positioned directly beneath the upper locking plate, ensuring alignment and secure fitting of components.'
     },
     'layer_3': {
-        'involved_components': ['coupling_end_2', 'bolt_1', 'bolt_2', 'bolt_3', 'bolt_4', 'nut_1', 'nut_2', 'nut_3', 'nut_4', 'washer_1', 'washer_2', 'washer_3', 'washer_4'],
-        'description': 'This layer includes coupling_end_2, similar to coupling_end_1, secured with bolts that pass through it and affixed externally with nuts backed by washers for load distribution.'
+        'involved_components': ['central_gear'],
+        'description': 'The central gear lies at the core of the assembly, interconnected with the groove plate above and fitting snugly inside the inner ring and outer ring.'
+    },
+    'layer_4': {
+        'involved_components': ['groove_plate_2'],
+        'description': 'The second groove plate is placed beneath the central gear, providing secure fitting and movement control between the central gear and rings.'
+    },
+    'layer_5': {
+        'involved_components': ['locking_plate_2', 'bolt_4', 'bolt_5', 'bolt_6', 'nut_4', 'nut_5', 'nut_6'],
+        'description': 'The lower locking plate is fastened using three bolts inserted through its holes, secured by corresponding nuts.'
+    },
+    'layer_6': {
+        'involved_components': ['outer_ring', 'inner_ring'],
+        'description': 'The outer ring fits snugly around the entire assembly, ensuring external security, while the inner ring provides internal alignment and stabilization.'
     }
 }
         

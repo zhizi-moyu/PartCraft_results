@@ -1,91 +1,86 @@
-// Define module for the cylindrical coupling body
-module cylindrical_coupling_body() {
-    difference() {
-        // Main solid cylinder (adjusting height)
-        cylinder(h=18, d=18, $fn=100);
-        // Hollow center (ensuring alignment)
-        translate([0, 0, -1]) 
-        cylinder(h=20, d=10, $fn=100);
-    }
-}
 
-// Define module for the flexible grooved segment
-module flexible_grooved_segment() {
+// Define dimensions for components
+module central_gear() {
+    // Adjusting central gear with deeper grooves and refined dimensions
     difference() {
-        // Main grooved cylinder
-        cylinder(h=30, d=18, $fn=100);
-        // Adjusting groove depth and spacing
-        for (i = [5:5:25]) {
-            translate([0, 0, i])
-            cylinder(h=3, d=20, $fn=100); // Deeper grooves
+        cylinder(d = 21, h = 10);
+        cylinder(d = 5.5, h = 12);  // Central hole resized and realigned
+        for (i = [0:360/12:360]) {  // Example groove pattern
+            rotate([0,0,i]) translate([10.5,0,5]) cylinder(d = 1, h = 5); 
         }
     }
 }
 
-// Define module for the internal gear interface
-module internal_gear_interface() {
+module outer_ring() {
+    // Correcting outer ring's grooves and thickness
     difference() {
-        // Outer solid disk
-        cylinder(h=6, d=18, $fn=100);
-        // Subtract inner hollow and sharpen gear teeth
-        translate([0, 0, -1])
-        cylinder(h=8, d=10, $fn=100);
-        for (i = [0:60:300]) {
-            rotate([0, 0, i])
-            translate([6, 0, 1])
-            cube([5, 2, 6], center=true); // Adjusted gear teeth size
+        cylinder(d = 25, h = 13);  // Reduced thickness
+        cylinder(d = 21, h = 13);
+
+        for (i = [0:360/8:360]) {
+            rotate([0,0,i]) translate([12.5,0,7]) cylinder(d = 0.8, h = 15);
         }
     }
 }
 
-// Define module for a hexagonal bolt
-module hexagonal_bolt() {
-    translate([0, 0, -6]) {
-        union() {
-            // Hexagonal head
-            cylinder(h=3, d1=6, d2=6, $fn=6);
-            // Bolt shaft (adjusting length for correct flush positioning)
-            cylinder(h=10, d=2, $fn=100);
-        }
-    }
-}
-
-// Define module for a circular washer
-module circular_washer() {
+module inner_ring() {
+    // Adding internal grooves for a snug fit
     difference() {
-        // Outer washer disk (increased diameter for better force distribution)
-        cylinder(h=1, d=8, $fn=100);
-        // Inner ring hole
-        translate([0, 0, -0.5])
-        cylinder(h=2, d=3, $fn=100);
-    }
-}
+        cylinder(d = 22, h = 10);
+        cylinder(d = 20, h = 10);  
 
-// Assembly of the flexible coupling
-module flexible_coupling() {
-    // Cylindrical coupling body
-    cylindrical_coupling_body();
-
-    // Flexible grooved segment
-    translate([0, 0, 18]) // Adjusted translation to match new height
-    flexible_grooved_segment();
-
-    // Internal gear interfaces
-    translate([0, 0, -6])
-    internal_gear_interface();
-    translate([0, 0, 48]) // Adjusted translation to align with assembly
-    internal_gear_interface();
-
-    // Bolts and washers (4 placements around the perimeter)
-    for (i = [0:90:270]) {
-        rotate([0, 0, i]) {
-            translate([10, 0, 5])
-            hexagonal_bolt();
-            translate([10, 0, -1.5])
-            circular_washer();
+        for (i = [0:360/6:360]) {
+            rotate([0,0,i]) translate([11,0,5]) cylinder(d = 0.6, h = 10);
         }
     }
 }
 
-// Call the assembly
-flexible_coupling();
+module locking_plate() {
+    // Correcting bolt hole spacing and surface flatness
+    difference() {
+        cylinder(d = 25, h = 2);
+        for (i = [0:120:360]) {
+            rotate([0, 0, i]) translate([10.5, 0, 0]) cylinder(d = 3.5, h = 3);  // Adjusted bolt holes
+        }
+    }
+}
+
+module groove_plate() {
+    // Aligning grooves correctly
+    difference() {
+        cylinder(d = 22, h = 2);
+        for (i = [0:360/8:360]) {
+            rotate([0,0,i]) translate([11,0,1]) cylinder(d = 0.5, h = 2);
+        }
+    }
+}
+
+module bolt() {
+    // Resizing bolts for thicker and longer profile
+    difference() {
+        cylinder(d = 3.5, h = 7);
+        translate([0,0,5]) rotate([0,0,30]) cylinder(d = 4, h = 3);  // Hexagonal head correction
+    }
+}
+
+module nut() {
+    // Resizing nuts for accurate fit and hexagon shape
+    cylinder(d = 5, h = 3);
+    translate([0,0,1.5]) rotate([0,0,30]) cylinder(d = 4, h = 2);
+}
+
+// Assembly of components based on positional relationship
+module assembly() {
+    translate([0, 0, 0]) locking_plate();
+    translate([0, 0, 2]) groove_plate();
+    translate([0, 0, 4]) central_gear();
+    translate([0, 0, 14]) groove_plate();
+    translate([0, 0, 16]) locking_plate();
+    translate([-12, 0, 0]) bolt();  
+    translate([0, 0, 19]) inner_ring();
+    translate([0, 0, 19]) outer_ring();
+}
+
+// Render assembly
+assembly();
+
