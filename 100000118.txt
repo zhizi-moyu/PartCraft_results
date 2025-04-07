@@ -1,0 +1,26 @@
+
+
+            component_list = {
+    'square_box': {
+        'num': '1',
+        'description': 'A symmetrical square box with evenly proportioned sides, featuring an open top and a solid bottom, similar to a cubic container.'
+    },
+    'rectangle_box': {
+        'num': '1',
+        'description': 'A slightly elongated rectangular box, wider than its square counterpart, with an open top and a fully enclosed bottom, resembling a standard rectangular vessel.'
+    }
+}
+            modify component list:
+            component_list = {
+    'square_box': {
+        'num': '1',
+        'description': 'A symmetrical square box with evenly proportioned sides, featuring an open top and a solid bottom, similar to a cubic container.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['square_box'],
+        'description': 'The square box is located in this layer alone as a single symmetrical container with an open top and a solid bottom.'
+    }
+}
+        
