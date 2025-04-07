@@ -1,0 +1,42 @@
+
+
+            component_list = {
+    'central_body': {'num': '1', 'description': 'A chunky cylindrical core body with holes for bolts.'},
+    'end_cap': {'num': '2', 'description': 'Circular end caps with bolt holes and a central hole for shaft pass-through.'},
+    'spacer_ring': {'num': '2', 'description': 'Flat and thin rings that serve as spacers between flanges.'},
+    'flange_plate': {'num': '4', 'description': 'Circular flange plates with multiple bolt holes around the outer edge.'},
+    'nut': {'num': '8', 'description': 'Small hexagonal nuts designed to secure bolts through flange plates.'},
+    'bolt': {'num': '8', 'description': 'Slender cylindrical bolts that fit through the flange and spacer, securing the setup.'}
+}
+            modify component list:
+            component_list = {
+    'central_body': {'num': '1', 'description': 'A chunky cylindrical core body with holes for bolts.'},
+    'end_cap': {'num': '2', 'description': 'Circular end caps with bolt holes and a central hole for shaft pass-through.'},
+    'spacer_ring': {'num': '2', 'description': 'Flat and thin rings that serve as spacers between flanges.'},
+    'flange_plate': {'num': '4', 'description': 'Circular flange plates with multiple bolt holes around the outer edge.'},
+    'nut': {'num': '8', 'description': 'Small hexagonal nuts designed to secure bolts through flange plates.'},
+    'bolt': {'num': '8', 'description': 'Slender cylindrical bolts that fit through the flange and spacer, securing the setup.'}
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['end_cap_1', 'flange_plate_1', 'nut_1', 'nut_2'],
+        'description': 'The first end cap is secured at the top with a flange plate, and nuts are used to lock the bolts in place.'
+    },
+    'layer_2': {
+        'involved_components': ['spacer_ring_1', 'bolt_1', 'bolt_2'],
+        'description': 'The first spacer ring aligns with the bolts connecting the upper flange to the central body underneath.'
+    },
+    'layer_3': {
+        'involved_components': ['central_body'],
+        'description': 'The central body forms the core of the assembly, aligning centrally between the two spacer rings and end caps.'
+    },
+    'layer_4': {
+        'involved_components': ['spacer_ring_2', 'bolt_3', 'bolt_4'],
+        'description': 'The second spacer ring sits below the central body, allowing bolts to pass through and secure the lower assembly.'
+    },
+    'layer_5': {
+        'involved_components': ['end_cap_2', 'flange_plate_2', 'nut_3', 'nut_4'],
+        'description': 'The second end cap is secured with another flange plate and additional nuts, completing the structural symmetry.'
+    }
+}
+        
