@@ -1,0 +1,50 @@
+
+
+            component_list = {
+    'cylinder_body': {
+        'num': '2',
+        'description': 'A cylindrical body with a central hole extending throughout its length. The surface features a smooth texture, visible cuts or slots around the circumference for alignment, and locking grooves to hold internal mechanisms tightly.'
+    },
+    'internal_spacer': {
+        'num': '1',
+        'description': 'A small, flat disc-shaped component placed between the two cylinder bodies. It ensures spacing and prevents direct contact between the cylinder bodies. The spacer is very thin and has a hole at its center for alignment.'
+    },
+    'locking_groove_mechanism': {
+        'num': '1',
+        'description': 'A slightly protruding segment integrated onto both cylinder bodies. It features a geometric slot or groove designed to ensure the components interlock firmly during assembly.'
+    }
+}
+            modify component list:
+            component_list = {
+    'cylinder_body': {
+        'num': '2',
+        'description': 'A cylindrical body with a central hole extending throughout its length. The surface features a smooth texture, visible cuts or slots around the circumference for alignment, and locking grooves to hold internal mechanisms tightly.'
+    },
+    'internal_spacer': {
+        'num': '1',
+        'description': 'A small, flat disc-shaped component placed between the two cylinder bodies. It ensures spacing and prevents direct contact between the cylinder bodies. The spacer is very thin and has a hole at its center for alignment.'
+    },
+    'locking_groove_mechanism': {
+        'num': '1',
+        'description': 'A slightly protruding segment integrated onto both cylinder bodies. It features a geometric slot or groove designed to ensure the components interlock firmly during assembly.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['cylinder_body_1'],
+        'description': 'The first cylindrical body (cylinder_body_1) is positioned at the top, featuring visible grooves and slots for alignment.'
+    },
+    'layer_2': {
+        'involved_components': ['internal_spacer'],
+        'description': 'The internal spacer is positioned between the two cylindrical bodies, ensuring spacing and preventing direct contact.'
+    },
+    'layer_3': {
+        'involved_components': ['cylinder_body_2'],
+        'description': 'The second cylindrical body (cylinder_body_2) is positioned below the internal spacer, mirroring the first cylindrical body in structure and features.'
+    },
+    'layer_4': {
+        'involved_components': ['locking_groove_mechanism'],
+        'description': 'The locking groove mechanism is integrated across both cylindrical bodies, ensuring a firm interlock during assembly.'
+    }
+}
+        
