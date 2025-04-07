@@ -1,0 +1,78 @@
+
+
+            component_list = {
+    'central_shaft' : {
+        'num': '1', 
+        'description':'A cylindrical shaft that serves as the central component. It connects the input and output shafts through couplings.'
+    },
+    'input_shaft' : {
+        'num': '1', 
+        'description':'A cylindrical shaft designed to be connected to the driving equipment, transferring torque to the central shaft.'
+    },
+    'output_shaft' : {
+        'num': '1', 
+        'description':'A cylindrical shaft that receives torque from the central shaft and is connected to the driven equipment.'
+    },
+    'spacer_ring' : {
+        'num': '2', 
+        'description':'Flat rings used to maintain precise spacing between other components, ensuring alignment and stability.'
+    },
+    'flange_plate' : {
+        'num': '4', 
+        'description':'Flat, round plates with bolt holes, used to facilitate the connection between the shafts and provide structural integrity.'
+    },
+    'nut' : {
+        'num': '16', 
+        'description':'Small hexagonal nuts designed to secure bolts in place, ensuring tight and stable connections.'
+    },
+    'bolt' : {
+        'num': '8', 
+        'description':'Long, slender cylindrical bolts with threaded ends, used to fasten components together by passing through flange plates and secured with nuts.'
+    },
+    'key' : {
+        'num': '1', 
+        'description':'A small, uniquely shaped component designed to fit into a keyway to secure the rotation between connected parts, preventing relative motion.'
+    }
+}
+            modify component list:
+            component_list = {
+    'central_shaft' : {
+        'num': '1', 
+        'description':'A cylindrical shaft that serves as the central component. It connects the input and output shafts through couplings.'
+    },
+    'input_shaft' : {
+        'num': '1', 
+        'description':'A cylindrical shaft designed to be connected to the driving equipment, transferring torque to the central shaft.'
+    },
+    'output_shaft' : {
+        'num': '1', 
+        'description':'A cylindrical shaft that receives torque from the central shaft and is connected to the driven equipment.'
+    },
+    'spacer_ring' : {
+        'num': '2', 
+        'description':'Flat rings used to maintain precise spacing between other components, ensuring alignment and stability.'
+    },
+    'flange_plate' : {
+        'num': '4', 
+        'description':'Flat, round plates with bolt holes, used to facilitate the connection between the shafts and provide structural integrity.'
+    },
+    'nut' : {
+        'num': '16', 
+        'description':'Small hexagonal nuts designed to secure bolts in place, ensuring tight and stable connections.'
+    },
+    'bolt' : {
+        'num': '8', 
+        'description':'Long, slender cylindrical bolts with threaded ends, used to fasten components together by passing through flange plates and secured with nuts.'
+    },
+    'key' : {
+        'num': '1', 
+        'description':'A small, uniquely shaped component designed to fit into a keyway to secure the rotation between connected parts, preventing relative motion.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['key'],
+        'description': 'This component is positioned alone. It appears to serve the function of securing rotation between connected parts by fitting into a keyway.'
+    }
+}
+        
