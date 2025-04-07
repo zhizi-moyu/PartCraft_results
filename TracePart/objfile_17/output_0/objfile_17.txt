@@ -1,0 +1,102 @@
+
+
+            component_list = {
+    'central_shaft': {
+        'num': '1',
+        'description': 'A cylindrical shaft situated centrally, appears solid with a narrow circular central hole on each end for mounting input and output flanges.'
+    },
+    'input_flange': {
+        'num': '1',
+        'description': 'A rounded cylinder piece mounted to one side of the central shaft, with a hollow core and a flat circular base featuring bolt holes for attachment.'
+    },
+    'output_flange': {
+        'num': '1',
+        'description': 'A rounded cylinder identical to the input flange, but located on the opposite side of the central shaft, with a hollow core and bolt holes on its flat base.'
+    },
+    'spacer_ring': {
+        'num': '2',
+        'description': 'Flat and thin circular rings placed symmetrically on both sides of the model, partially sandwiched between the sets of flange plates.'
+    },
+    'flange_plate': {
+        'num': '4',
+        'description': 'Thin, flat circular discs with a central hole and multiple smaller holes arranged in a circular pattern near the edges for securing bolts and nuts.'
+    },
+    'bolt': {
+        'num': '8',
+        'description': 'Long, slender cylindrical rods with threading along most of their length and a rounded head on one side, used to fasten the flange plates.'
+    },
+    'nut': {
+        'num': '16',
+        'description': 'Small, hexagonal cylindrical pieces with an inner thread, designed to secure the bolts in place by tightening against the flange plates.'
+    }
+}
+            modify component list:
+            component_list = {
+    'central_shaft': {
+        'num': '1',
+        'description': 'A cylindrical shaft situated centrally, appears solid with a narrow circular central hole on each end for mounting input and output flanges.'
+    },
+    'input_flange': {
+        'num': '1',
+        'description': 'A rounded cylinder piece mounted to one side of the central shaft, with a hollow core and a flat circular base featuring bolt holes for attachment.'
+    },
+    'output_flange': {
+        'num': '1',
+        'description': 'A rounded cylinder identical to the input flange, but located on the opposite side of the central shaft, with a hollow core and bolt holes on its flat base.'
+    },
+    'spacer_ring': {
+        'num': '2',
+        'description': 'Flat and thin circular rings placed symmetrically on both sides of the model, partially sandwiched between the sets of flange plates.'
+    },
+    'flange_plate': {
+        'num': '4',
+        'description': 'Thin, flat circular discs with a central hole and multiple smaller holes arranged in a circular pattern near the edges for securing bolts and nuts.'
+    },
+    'bolt': {
+        'num': '8',
+        'description': 'Long, slender cylindrical rods with threading along most of their length and a rounded head on one side, used to fasten the flange plates.'
+    },
+    'nut': {
+        'num': '8',
+        'description': 'Small, hexagonal cylindrical pieces with an inner thread, designed to secure the bolts in place by tightening against the flange plates.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['input_flange'],
+        'description': 'The input flange is located at the topmost layer of the assembly and is mounted onto the central shaft.'
+    },
+    'layer_2': {
+        'involved_components': ['flange_plate_1', 'nut_1', 'nut_2', 'nut_3', 'nut_4'],
+        'description': 'The flange plate is secured onto the input flange with four nuts, distributed evenly in concentric circles.'
+    },
+    'layer_3': {
+        'involved_components': ['spacer_ring_1', 'bolt_1', 'bolt_2', 'bolt_3', 'bolt_4'],
+        'description': 'The first spacer ring is positioned below the flange plate. Four bolts penetrate the ring, holding it in place.'
+    },
+    'layer_4': {
+        'involved_components': ['flange_plate_2', 'nut_5', 'nut_6', 'nut_7', 'nut_8'],
+        'description': 'Another flange plate is mounted and secured with four nuts using the bolts from the previous layer.'
+    },
+    'layer_5': {
+        'involved_components': ['central_shaft'],
+        'description': 'The central shaft runs through the entire assembly and acts as the core structural component.'
+    },
+    'layer_6': {
+        'involved_components': ['flange_plate_3', 'nut_9', 'nut_10', 'nut_11', 'nut_12'],
+        'description': 'On the opposite side of the central shaft, another flange plate is secured with four nuts.'
+    },
+    'layer_7': {
+        'involved_components': ['spacer_ring_2', 'bolt_5', 'bolt_6', 'bolt_7', 'bolt_8'],
+        'description': 'Another spacer ring is positioned symmetrically below, held in place by bolts.'
+    },
+    'layer_8': {
+        'involved_components': ['flange_plate_4', 'nut_13', 'nut_14', 'nut_15', 'nut_16'],
+        'description': 'The final flange plate is secured with nuts distributed evenly in concentric circles, completing the symmetrical design.'
+    },
+    'layer_9': {
+        'involved_components': ['output_flange'],
+        'description': 'The output flange is located at the bottommost layer and is mounted onto the central shaft, aligned with the input flange.'
+    }
+}
+        
