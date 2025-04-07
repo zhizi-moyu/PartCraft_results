@@ -1,0 +1,46 @@
+
+
+            component_list = {
+    'bracket_A': {
+        'num': '2',
+        'description': 'A rectangular plate with two perpendicular arms; one arm is longer, and the other is shorter with a rounded edge.'
+    },
+    'bracket_B': {
+        'num': '2',
+        'description': 'Similar to bracket A, a rectangular plate with two perpendicular arms; however, the proportions slightly differ, with a more pronounced corner curve.'
+    },
+    'bracket_C': {
+        'num': '2',
+        'description': 'Another L-shaped bracket with rectangular features and a distinct corner rounding, differing in length and angle from brackets A and B.'
+    }
+}
+            modify component list:
+            component_list = {
+    'bracket_A': {
+        'num': '2',
+        'description': 'A rectangular plate with two perpendicular arms; one arm is longer, and the other is shorter with a rounded edge.'
+    },
+    'bracket_B': {
+        'num': '2',
+        'description': 'Similar to bracket A, a rectangular plate with two perpendicular arms; however, the proportions slightly differ, with a more pronounced corner curve.'
+    },
+    'bracket_C': {
+        'num': '2',
+        'description': 'Another L-shaped bracket with rectangular features and a distinct corner rounding, differing in length and angle from brackets A and B.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['bracket_A'],
+        'description': 'Bracket A is positioned at the topmost layer, with its two perpendicular arms forming a distinct structure.'
+    },
+    'layer_2': {
+        'involved_components': ['bracket_B'],
+        'description': 'Bracket B is directly beneath Bracket A, showcasing similar rectangular features but with slightly differing proportions and corner rounding.'
+    },
+    'layer_3': {
+        'involved_components': ['bracket_C'],
+        'description': 'Bracket C occupies the bottommost layer, differentiated by its distinct corner rounding and angular characteristics.'
+    }
+}
+        
