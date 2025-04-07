@@ -1,37 +1,54 @@
 
 
             component_list = {
-    'main_cylindrical_body': {
+    'coupling_body': {
+        'num': '1',
+        'description': 'A cylindrical component with two internal sections enabling connection. It has smooth exterior surfaces and precision-cut openings for secure assembly.'
+    },
+    'clamping_socket': {
         'num': '2',
-        'description': 'A cylindrical structure with two slits running sideways for connecting bolts. Each has a smooth finish and is hollowed to accommodate the insert.'
+        'description': 'Half-cylinder components designed to clamp around rods or shafts, featuring precise cutouts to hold tightly without slipping.'
     },
     'bolt': {
-        'num': '4',
-        'description': 'Slender cylindrical fasteners with threaded ends that go through slits in the main cylindrical body to hold the structure.'
+        'num': '2',
+        'description': 'Slender cylindrical metal fasteners with hexagonal heads, used to secure components together through matching holes.'
     },
     'nut': {
-        'num': '4',
-        'description': 'Small hexagonal nuts designed to fit the threaded ends of the bolts, securing the assembly tightly.'
-    },
-    'separating_insert': {
         'num': '2',
-        'description': 'Thin flat rings inserted between the main cylindrical body pieces to prevent direct contact and allow some degree of structural flexibility.'
+        'description': 'Small hexagonal metal piece, designed to thread onto bolts to secure components, featuring inner threading that matches the bolt shaft.'
     }
 }
             modify component list:
-            None
+            component_list = {
+    'coupling_body': {
+        'num': '1',
+        'description': 'A cylindrical component with two internal sections enabling connection. It has smooth exterior surfaces and precision-cut openings for secure assembly.'
+    },
+    'clamping_socket': {
+        'num': '2',
+        'description': 'Half-cylinder components designed to clamp around rods or shafts, featuring precise cutouts to hold tightly without slipping.'
+    },
+    'bolt': {
+        'num': '2',
+        'description': 'Slender cylindrical metal fasteners with hexagonal heads, used to secure components together through matching holes.'
+    },
+    'nut': {
+        'num': '2',
+        'description': 'Small hexagonal metal piece, designed to thread onto bolts to secure components, featuring inner threading that matches the bolt shaft.'
+    }
+}
             graph_dict = {
     'layer_1': {
-        'involved_components': ['top_component'],
-        'description': 'The topmost layer appears to have a cylindrical component with a cut pattern.'
+        'involved_components': ['clamping_socket_1', 'bolt_1', 'nut_1'],
+        'description': 'The first clamping socket is securely fastened using a bolt and nut, forming the top layer.'
     },
     'layer_2': {
-        'involved_components': ['middle_component'],
-        'description': 'This layer contains the middle cylindrical body with slots and holes.'
+        'involved_components': ['coupling_body'],
+        'description': 'The coupling body is positioned centrally and connects seamlessly with the clamping sockets at both ends.'
     },
     'layer_3': {
-        'involved_components': ['bottom_component'],
-        'description': 'The bottommost layer appears to be another cylindrical part connected to the structure with similar slots.'
+        'involved_components': ['clamping_socket_2', 'bolt_2', 'nut_2'],
+        'description': 'The second clamping socket is also fastened securely using a bolt and nut, forming the bottom layer.'
     }
 }
         
