@@ -1,38 +1,54 @@
 
 
             component_list = {
-    'cylindrical_body': {
+    'central_cylinder': {
         'num': '1',
-        'description': 'A long central cylinder featuring multiple recessed areas where bolts and nuts can secure other components. It is segmented with grooves, possibly indicating areas for flexible movement or adjustment.'
+        'description': 'A cylindrical core, with smooth surfaces, featuring an inner hollow for mounting attachments. It has visible slotted grooves along its length for coupling with external rings.'
     },
-    'bolt': {
-        'num': '4',
-        'description': 'Slender cylindrical pieces with threaded sections, designed to fasten components together by passing through holes and securing with nuts. The bolt head is likely hexagonal for wrench engagement.'
+    'slotted_ring': {
+        'num': '2',
+        'description': 'A flat circular ring with precisely engineered slots that align with grooves on the central cylinder. They are designed to temporarily hold components together during assembly.'
     },
-    'nut': {
+    'connecting_bolt': {
         'num': '4',
-        'description': 'Hexagonal cylinders designed to pair with the bolts, providing secure fastening. The inside is threaded to match the bolt with a hexagonal outer shape for gripping with a wrench.'
+        'description': 'A slender threaded rod, featuring a circular head on one end, designed for connecting slotted rings and holding the assembly tightly together.'
+    },
+    'hexagonal_nut': {
+        'num': '4',
+        'description': 'Small hexagonal prism-shaped pieces, used to securely fasten the bolts in place, ensuring stability for the entire assembled model.'
+    },
+    'end_cap': {
+        'num': '2',
+        'description': 'A cylindrical cap-like unit attached at both ends of the central cylinder. It has a smooth outer surface with a slight inward curvature. The caps are hollow to allow bolt passage.'
     }
 }
             modify component list:
             component_list = {
-    'cylindrical_body': {
+    'central_cylinder': {
         'num': '1',
-        'description': 'A long central cylinder featuring multiple recessed areas where bolts and nuts can secure other components. It is segmented with grooves, possibly indicating areas for flexible movement or adjustment.'
+        'description': 'A cylindrical core, with smooth surfaces, featuring an inner hollow for mounting attachments. It has visible slotted grooves along its length for coupling with external rings.'
     },
-    'bolt': {
-        'num': '4',
-        'description': 'Slender cylindrical pieces with threaded sections, designed to fasten components together by passing through holes and securing with nuts. The bolt head is likely hexagonal for wrench engagement.'
+    'slotted_ring': {
+        'num': '2',
+        'description': 'A flat circular ring with precisely engineered slots that align with grooves on the central cylinder. They are designed to temporarily hold components together during assembly.'
     },
-    'nut': {
+    'connecting_bolt': {
         'num': '4',
-        'description': 'Hexagonal cylinders designed to pair with the bolts, providing secure fastening. The inside is threaded to match the bolt with a hexagonal outer shape for gripping with a wrench.'
+        'description': 'A slender threaded rod, featuring a circular head on one end, designed for connecting slotted rings and holding the assembly tightly together.'
+    },
+    'hexagonal_nut': {
+        'num': '4',
+        'description': 'Small hexagonal prism-shaped pieces, used to securely fasten the bolts in place, ensuring stability for the entire assembled model.'
+    },
+    'end_cap': {
+        'num': '2',
+        'description': 'A cylindrical cap-like unit attached at both ends of the central cylinder. It has a smooth outer surface with a slight inward curvature. The caps are hollow to allow bolt passage.'
     }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['cylindrical_body'],
-        'description': 'The cylindrical body serves as the central component. It has multiple recessed areas which are likely meant for securing bolts and nuts.'
+        'involved_components': ['central_cylinder'],
+        'description': 'The central cylinder is positioned with visible slotted grooves along its length. No other components are attached or visible in this particular setup.'
     }
 }
         
