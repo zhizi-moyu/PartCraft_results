@@ -1,0 +1,54 @@
+
+
+            component_list = {
+    'ring_spacer': {
+        'num': '2',
+        'description': 'A flat circular ring with a uniform width. It has a central hollow section and is very thin compared to its diameter.'
+    },
+    'flange_plate': {
+        'num': '4',
+        'description': 'A flat hollow cylinder-like disk with smooth edges. It has multiple small holes placed along its circumference for assembly purposes.'
+    },
+    'central_cylinder': {
+        'num': '1',
+        'description': 'A cylindrical central piece that is solid and serves as the main connecting shaft in the model.'
+    },
+    'nut': {
+        'num': '16',
+        'description': 'Small hexagonal cylinders with an internal threading system for attaching to bolts. Used as fastening components.'
+    },
+    'bolt': {
+        'num': '8',
+        'description': 'Slender cylindrical pieces with threading along the shaft and a flat top, designed for insertion through holes in the flange plates and secured with nuts.'
+    }
+}
+            modify component list:
+            component_list = {
+    'ring_spacer': {
+        'num': '2',
+        'description': 'A flat circular ring with a uniform width. It has a central hollow section and is very thin compared to its diameter.'
+    },
+    'flange_plate': {
+        'num': '4',
+        'description': 'A flat hollow cylinder-like disk with smooth edges. It has multiple small holes placed along its circumference for assembly purposes.'
+    },
+    'central_cylinder': {
+        'num': '1',
+        'description': 'A cylindrical central piece that is solid and serves as the main connecting shaft in the model.'
+    },
+    'nut': {
+        'num': '16',
+        'description': 'Small hexagonal cylinders with an internal threading system for attaching to bolts. Used as fastening components.'
+    },
+    'bolt': {
+        'num': '8',
+        'description': 'Slender cylindrical pieces with threading along the shaft and a flat top, designed for insertion through holes in the flange plates and secured with nuts.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['ring_spacer_1', 'ring_spacer_2'],
+        'description': 'These components are flat circular rings arranged concentrically or stacked, as commonly needed in layered assemblies. Their hollow center may be oriented towards a central axis expected to house other components like bolts or a cylinder.'
+    }
+}
+        
