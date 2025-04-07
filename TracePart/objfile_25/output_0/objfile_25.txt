@@ -3,44 +3,40 @@
             component_list = {
     'central_shaft': {
         'num': '1',
-        'description': 'A long cylindrical shaft with three major sections visible: two outer sections are smooth cylinders while the middle section has slight steps and variations. The shaft has cuts and grooves that perhaps indicate assembly points for other components.'
+        'description': 'A long cylindrical component with slotted sections and features for mounting. The shaft includes circular notches at regular intervals to fit other parts securely.'
     },
-    'end_cap': {
+    'clamp_rings': {
         'num': '2',
-        'description': 'Caps for the ends of the central shaft, they are cylindrical with bolt holes for securing to the shaft. They feature detailed grooving for alignment and assembly.'
+        'description': 'Ring-like structures that wrap around the shaft, with drilled holes for bolt insertion. These rings appear to serve as clamping elements to secure the assembly together.'
     },
-    'spacer_ring': {
-        'num': '2',
-        'description': 'Thin, circular spacers likely used to provide precise gaps in assembly. They are flat with a central hole to allow passage of bolts or parts of the shaft.'
-    },
-    'mounting_hole': {
-        'num': 'included in other components',
-        'description': 'Circular holes distributed along the components, specifically in the end caps and parts of the central shaft, for mounting and securing purposes.'
+    'bolts': {
+        'num': '4',
+        'description': 'Standard hexagonal bolts designed to fit into the clamp rings, ensuring strong attachments between components. Each bolt has a smooth cylindrical body ending in a threaded section to fasten securely.'
     }
 }
             modify component list:
             component_list = {
     'central_shaft': {
         'num': '1',
-        'description': 'A long cylindrical shaft with three major sections visible: two outer sections are smooth cylinders while the middle section has slight steps and variations. The shaft has cuts and grooves that perhaps indicate assembly points for other components.'
+        'description': 'A long cylindrical component with slotted sections and features for mounting. The shaft includes circular notches at regular intervals to fit other parts securely.'
     },
-    'end_cap': {
+    'clamp_rings': {
         'num': '2',
-        'description': 'Caps for the ends of the central shaft, they are cylindrical with bolt holes for securing to the shaft. They feature detailed grooving for alignment and assembly.'
+        'description': 'Ring-like structures that wrap around the shaft, with drilled holes for bolt insertion. These rings appear to serve as clamping elements to secure the assembly together.'
     },
-    'spacer_ring': {
-        'num': '2',
-        'description': 'Thin, circular spacers likely used to provide precise gaps in assembly. They are flat with a central hole to allow passage of bolts or parts of the shaft.'
-    },
-    'mounting_hole': {
-        'num': 'included in other components',
-        'description': 'Circular holes distributed along the components, specifically in the end caps and parts of the central shaft, for mounting and securing purposes.'
+    'bolts': {
+        'num': '4',
+        'description': 'Standard hexagonal bolts designed to fit into the clamp rings, ensuring strong attachments between components. Each bolt has a smooth cylindrical body ending in a threaded section to fasten securely.'
     }
 }
             graph_dict = {
     'layer_1': {
         'involved_components': ['central_shaft'],
-        'description': 'The central shaft is displayed independently; it exhibits grooves and steps which indicate connection points for other assembly components.'
+        'description': 'The central shaft forms the core structure of the model. It includes slots and notches for mounting additional components.'
+    },
+    'layer_2': {
+        'involved_components': ['clamp_rings', 'bolts'],
+        'description': 'The clamp rings are positioned around the central shaft, secured by the bolts to maintain a tight assembly. The rings are likely affixed in the slotted sections of the shaft for added stability.'
     }
 }
         

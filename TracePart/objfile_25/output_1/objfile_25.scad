@@ -1,57 +1,58 @@
 
-// Constants defining dimensions
-central_shaft_length = 100; // Length adjusted
-central_shaft_diameter = 15; // Diameter thickened for better centering
-
-clamping_section_length = 25; // Shortened length for improved alignment
-clamping_section_diameter = 20; // Diameter remains unchanged
-screw_hole_diameter = 4; // Increased diameter for countersunk precision
-
-groove_depth = 2; // Groove depth for enhanced splits
-groove_width = 3; // Groove width as per the original model
-
-// Functions to create individual components
-
+// Central Shaft Component
 module central_shaft() {
-    // Central shaft properly centered and thickened
-    cylinder(h = central_shaft_length, d = central_shaft_diameter, center = true);
-}
-
-module clamping_section() {
     difference() {
-        // Clamping cylinder
-        cylinder(h = clamping_section_length, d = clamping_section_diameter, center = true);
-        
-        // Countersunk screw holes aligned correctly
-        for (i = [0 : 3]) {
-            rotate([0, 0, i * 90]) {
-                translate([clamping_section_diameter / 2, 0, 0])
-                {
-                  cylinder(h = clamping_section_length, d1 = screw_hole_diameter, d2 = screw_hole_diameter / 1.5, center = true); // Countersunk design
-                }
-            }
-        }
-
-        // Groove splits repositioned and enhanced
-        for (j = [-1, 1]) {
-            translate([0, j * clamping_section_diameter / 4, 0]) {
-                cube([groove_width, groove_depth, clamping_section_length], center = true);
-            }
+        // Create a full cylindrical shaft without slots
+        cylinder(h = 60, r = 10, center = true); 
+        // Add correctly positioned notches for alignment
+        for (i = [-20, 0, 20]) {
+            translate([i, 0, -5])
+                rotate([90, 0, 0])
+                cylinder(h = 10, r = 2.5, center = true);
         }
     }
 }
 
-// Assembly of the components
+// Clamp Ring Component
+module clamp_ring() {
+    difference() {
+        cylinder(h = 15, r = 13, center = true); // Thickened outer ring
+        cylinder(h = 15, r = 11, center = true); // Inner cut to create the ring
+        // Correctly positioned and sized holes for bolts
+        rotate([90, 0, 0])
+        translate([0, 0, -7.5])
+            cylinder(h = 15, r = 2.5, center = true);
+    }
+}
 
-// Layer 1: Central Shaft
-translate([0, 0, 0])
-central_shaft();
+// Bolt Component
+module bolt() {
+    union() {
+        cylinder(h = 6, r = 3, center = false); // Bolt head
+        translate([0, 0, 6])
+            difference() {
+                cylinder(h = 25, r = 1.5, center = false); // Length adjusted cylindrical body
+                // Threaded section added
+                translate([0, 0, 20])
+                cylinder(h = 5, r = 1, center = false);
+            }
+    }
+}
 
-// Layer 2: First Clamping Section
-translate([0, 0, central_shaft_length / 2 - clamping_section_length / 2])
-clamping_section();
+// Building the Assembly
+module flexible_coupling() {
+    // Place central shaft
+    central_shaft();
 
-// Layer 3: Second Clamping Section
-translate([0, 0, -central_shaft_length / 2 + clamping_section_length / 2])
-clamping_section();
+    // Corrected placement of clamp rings for symmetry
+    translate([-30, 0, 0]) clamp_ring(); // First clamp ring
+    translate([30, 0, 0]) clamp_ring();  // Second clamp ring
+
+    // Corrected alignment of bolts with clamp rings
+    translate([-30, 0, 0]) bolt(); // First bolt for the first clamp ring
+    translate([30, 0, 0]) bolt();  // First bolt for the second clamp ring
+}
+
+// Render the model
+flexible_coupling();
 

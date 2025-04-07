@@ -1,54 +1,55 @@
 
-// Define dimensions
-central_shaft_length = 60;
-central_shaft_diameter = 20;
-end_cap_length = 10;
-end_cap_diameter = 22;
-end_cap_hole_diameter = 2;
-spacer_ring_thickness = 2;
-spacer_ring_diameter = 22;
-mounting_hole_diameter = 4;
-
-// Central Shaft
+// Central Shaft Component
 module central_shaft() {
-    cylinder(h = central_shaft_length, d = central_shaft_diameter);
-    // Grooves and steps can be added here
-}
-
-// End Cap
-module end_cap() {
     difference() {
-        cylinder(h = end_cap_length, d = end_cap_diameter);
-        translate([0, 0, -1])
-            cylinder(h = end_cap_length + 2, d = end_cap_hole_diameter);
-        // Bolt holes
-        for (angle = [0, 120, 240]) {
-            rotate([0, 0, angle])
-                translate([end_cap_diameter/3, 0, end_cap_length/2])
-                    cylinder(h = end_cap_length + 2, d = mounting_hole_diameter);
+        cylinder(h = 60, r = 10, center = true); // Main cylindrical shaft
+        // Slots along the shaft
+        for (i = [-20, 0, 20]) {
+            rotate([0, 90, 0])
+            translate([i, 0, 0])
+                cube([10, 20, 5], center = true);
+        }
+        // Holes for bolts at notches
+        for (i = [-20, 20]) {
+            translate([i, 0, 0])
+                rotate([90, 0, 0])
+                cylinder(h = 20, r = 2.5, center = true);
         }
     }
 }
 
-// Spacer Ring
-module spacer_ring() {
+// Clamp Ring Component
+module clamp_ring() {
     difference() {
-        cylinder(h = spacer_ring_thickness, d = spacer_ring_diameter);
-        translate([0, 0, -1])
-            cylinder(h = spacer_ring_thickness + 2, d = end_cap_diameter - 2);
+        cylinder(h = 10, r = 12, center = true); // Outer ring
+        cylinder(h = 10, r = 10, center = true); // Inner cut to create the ring
+        rotate([90, 0, 0])
+        translate([0, 0, -5])
+            cylinder(h = 20, r = 2.5, center = true); // Hole for the bolt
     }
 }
 
-// Assembling the model
-module flexible_coupling() {
-    translate([0, 0, end_cap_length + spacer_ring_thickness])
-        central_shaft();
-    for (i = [0, 1]) {
-        translate([0, 0, i * (central_shaft_length + end_cap_length)])
-            end_cap();
-        translate([0, 0, i * (central_shaft_length) + end_cap_length])
-            spacer_ring();
+// Bolt Component
+module bolt() {
+    union() {
+        cylinder(h = 6, r = 3, center = false); // Bolt head
+        translate([0, 0, 6])
+            cylinder(h = 20, r = 1.5, center = false); // Smooth cylindrical body
     }
+}
+
+// Building the Assembly
+module flexible_coupling() {
+    // Place central shaft
+    central_shaft();
+
+    // Place clamp rings
+    translate([-20, 0, 0]) clamp_ring(); // First clamp ring
+    translate([20, 0, 0]) clamp_ring();  // Second clamp ring
+
+    // Place bolts
+    translate([-20, 0, 0]) bolt(); // First bolt for first clamp ring
+    translate([20, 0, 0]) bolt();  // First bolt for second clamp ring
 }
 
 // Render the model
