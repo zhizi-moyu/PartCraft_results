@@ -3,72 +3,72 @@
             component_list = {
     'base_block': {
         'num': '1',
-        'description': 'A rectangular solid block with multiple protrusions and cavities for mounting other components. It has cylindrical holes for bolts and features a slightly rounded edge design on one side.'
+        'description': 'A rectangular solid block with threaded holes on two sides and flat surfaces. The front face has two circular recesses for proper alignment of other parts.'
     },
-    'clamping_arm': {
+    'clamp_arm_left': {
         'num': '2',
-        'description': 'Long curved components that form a clamping mechanism. Each arm has an elongated profile with a split end and a hollow cylindrical section at the pivot point. These components appear smooth but feature beveled edges for grip and alignment.'
+        'description': 'A curved L-shaped component with an inward-facing grip, designed to clamp onto the central cylinder. Features a threaded hole for bolt insertion.'
     },
-    'rotational_pin': {
+    'clamp_arm_right': {
         'num': '2',
-        'description': 'Slender cylindrical rods used to create a pivot joint between the clamping arms and the base block. These pins are smooth and have uniform thickness across their lengths.'
+        'description': 'A mirrored version of the "Clamp arm (left)" component but designed for the opposite side, ensuring symmetry with identical threaded holes.'
+    },
+    'central_hollow_cylinder': {
+        'num': '1',
+        'description': 'A cylindrical core with a smooth hollow center, allowing for alignment or passage through another structure. It features circular grooves along its body for connection with clamp arms.'
     },
     'bolt': {
         'num': '4',
-        'description': 'Standard cylindrical screws with hexagonal heads, used to fasten various components together. The threading along their bodies is visible, adding a textured detail.'
+        'description': 'A slender cylindrical fastener with threading along most of its length. Each bolt features a hexagonal head for tightening and fits through recesses in the clamp arms.'
     },
     'nut': {
         'num': '4',
-        'description': 'Small hexagonal components paired with bolts. These nuts feature a flat surface for secure tightening and a circular hollow threaded interior for proper alignment with the bolts.'
-    },
-    'washer': {
-        'num': '4',
-        'description': 'Thin, flat, circular rings placed beneath nuts and bolts for reinforcement. These washers have a smooth surface and are slightly wider than the bolts they accompany.'
+        'description': 'A hexagonal component with an internal thread to secure bolts. Designed to fit neatly into the threaded holes in the base block.'
     }
 }
             modify component list:
             component_list = {
     'base_block': {
         'num': '1',
-        'description': 'A rectangular solid block with multiple protrusions and cavities for mounting other components. It has cylindrical holes for bolts and features a slightly rounded edge design on one side.'
+        'description': 'A rectangular solid block with threaded holes on two sides and flat surfaces. The front face has two circular recesses for proper alignment of other parts.'
     },
-    'clamping_arm': {
+    'clamp_arm_left': {
         'num': '2',
-        'description': 'Long curved components that form a clamping mechanism. Each arm has an elongated profile with a split end and a hollow cylindrical section at the pivot point. These components appear smooth but feature beveled edges for grip and alignment.'
+        'description': 'A curved L-shaped component with an inward-facing grip, designed to clamp onto the central cylinder. Features a threaded hole for bolt insertion.'
     },
-    'rotational_pin': {
+    'clamp_arm_right': {
         'num': '2',
-        'description': 'Slender cylindrical rods used to create a pivot joint between the clamping arms and the base block. These pins are smooth and have uniform thickness across their lengths.'
+        'description': 'A mirrored version of the "Clamp arm (left)" component but designed for the opposite side, ensuring symmetry with identical threaded holes.'
+    },
+    'central_hollow_cylinder': {
+        'num': '1',
+        'description': 'A cylindrical core with a smooth hollow center, allowing for alignment or passage through another structure. It features circular grooves along its body for connection with clamp arms.'
     },
     'bolt': {
         'num': '4',
-        'description': 'Standard cylindrical screws with hexagonal heads, used to fasten various components together. The threading along their bodies is visible, adding a textured detail.'
+        'description': 'A slender cylindrical fastener with threading along most of its length. Each bolt features a hexagonal head for tightening and fits through recesses in the clamp arms.'
     },
     'nut': {
         'num': '4',
-        'description': 'Small hexagonal components paired with bolts. These nuts feature a flat surface for secure tightening and a circular hollow threaded interior for proper alignment with the bolts.'
-    },
-    'washer': {
-        'num': '4',
-        'description': 'Thin, flat, circular rings placed beneath nuts and bolts for reinforcement. These washers have a smooth surface and are slightly wider than the bolts they accompany.'
+        'description': 'A hexagonal component with an internal thread to secure bolts. Designed to fit neatly into the threaded holes in the base block.'
     }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['clamping_arm_1', 'clamping_arm_2'],
-        'description': 'The clamping arms are positioned at the top of the assembly and appear symmetrical. They pivot on rotational pins connected to the base block.'
+        'involved_components': ['clamp_arm_left', 'clamp_arm_right'],
+        'description': 'The clamp arms (left and right) are positioned symmetrically on either side of the central hollow cylinder, gripping it firmly. Bolts pass through threaded holes in the arms for secure attachment.'
     },
     'layer_2': {
-        'involved_components': ['rotational_pin_1', 'rotational_pin_2'],
-        'description': 'Rotational pins are inserted through the hollow cylindrical sections of the clamping arms, connecting them to the base block securely.'
+        'involved_components': ['central_hollow_cylinder'],
+        'description': 'The central hollow cylinder is located at the core of the structure, providing alignment for other components. It is firmly gripped by the clamp arms and features circular grooves for connection.'
     },
     'layer_3': {
-        'involved_components': ['bolt_1', 'bolt_2', 'bolt_3', 'bolt_4', 'washer_1', 'washer_2', 'washer_3', 'washer_4', 'nut_1', 'nut_2', 'nut_3', 'nut_4'],
-        'description': 'Bolts pass through cylindrical cavities in the base block and other components, with washers and nuts used to secure them tightly.'
+        'involved_components': ['bolt', 'nut'],
+        'description': 'Bolts pass through the threaded holes in the clamp arms and engage the nuts at the base for a tight connection, securing all components together.'
     },
     'layer_4': {
         'involved_components': ['base_block'],
-        'description': 'The base block acts as the foundation component of the assembly, providing structural support and houses cavities for connecting other components.'
+        'description': 'The base block sits at the bottom of the structure and provides a stable foundation for the assembly. Threaded holes secure the bolts and nuts, while circular recesses ensure proper alignment.'
     }
 }
         
