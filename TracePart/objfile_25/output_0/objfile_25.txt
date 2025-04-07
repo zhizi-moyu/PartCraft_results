@@ -1,54 +1,42 @@
 
 
             component_list = {
-    'central_cylinder': {
+    'coupling_cylinder': {
         'num': '1',
-        'description': 'A cylindrical core, with smooth surfaces, featuring an inner hollow for mounting attachments. It has visible slotted grooves along its length for coupling with external rings.'
+        'description': 'A cylindrical component that forms the main body of the assembly. It has a central hollow axial cavity for alignment and features four equally spaced threaded holes near each end for securing the bolts and nuts. The surface includes subtle grooves for functional stress relief.'
     },
-    'slotted_ring': {
-        'num': '2',
-        'description': 'A flat circular ring with precisely engineered slots that align with grooves on the central cylinder. They are designed to temporarily hold components together during assembly.'
-    },
-    'connecting_bolt': {
+    'bolt': {
         'num': '4',
-        'description': 'A slender threaded rod, featuring a circular head on one end, designed for connecting slotted rings and holding the assembly tightly together.'
+        'description': 'Slender cylindrical fasteners with threading on one end. These bolts are used to secure the coupling cylinder assembly and require nuts for tightening. Heads are flat and slightly elevated for proper placement.'
     },
-    'hexagonal_nut': {
+    'nut': {
         'num': '4',
-        'description': 'Small hexagonal prism-shaped pieces, used to securely fasten the bolts in place, ensuring stability for the entire assembled model.'
-    },
-    'end_cap': {
-        'num': '2',
-        'description': 'A cylindrical cap-like unit attached at both ends of the central cylinder. It has a smooth outer surface with a slight inward curvature. The caps are hollow to allow bolt passage.'
+        'description': 'Small hexagonal cylinders used to tighten the bolts. They pair with the threaded ends of the bolts and provide clamping force to keep the assembly intact.'
     }
 }
             modify component list:
             component_list = {
-    'central_cylinder': {
+    'coupling_cylinder': {
         'num': '1',
-        'description': 'A cylindrical core, with smooth surfaces, featuring an inner hollow for mounting attachments. It has visible slotted grooves along its length for coupling with external rings.'
+        'description': 'A cylindrical component that forms the main body of the assembly. It has a central hollow axial cavity for alignment and features four equally spaced threaded holes near each end for securing the bolts and nuts. The surface includes subtle grooves for functional stress relief.'
     },
-    'slotted_ring': {
-        'num': '2',
-        'description': 'A flat circular ring with precisely engineered slots that align with grooves on the central cylinder. They are designed to temporarily hold components together during assembly.'
-    },
-    'connecting_bolt': {
+    'bolt': {
         'num': '4',
-        'description': 'A slender threaded rod, featuring a circular head on one end, designed for connecting slotted rings and holding the assembly tightly together.'
+        'description': 'Slender cylindrical fasteners with threading on one end. These bolts are used to secure the coupling cylinder assembly and require nuts for tightening. Heads are flat and slightly elevated for proper placement.'
     },
-    'hexagonal_nut': {
+    'nut': {
         'num': '4',
-        'description': 'Small hexagonal prism-shaped pieces, used to securely fasten the bolts in place, ensuring stability for the entire assembled model.'
-    },
-    'end_cap': {
-        'num': '2',
-        'description': 'A cylindrical cap-like unit attached at both ends of the central cylinder. It has a smooth outer surface with a slight inward curvature. The caps are hollow to allow bolt passage.'
+        'description': 'Small hexagonal cylinders used to tighten the bolts. They pair with the threaded ends of the bolts and provide clamping force to keep the assembly intact.'
     }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['central_cylinder'],
-        'description': 'The central cylinder is positioned with visible slotted grooves along its length. No other components are attached or visible in this particular setup.'
+        'involved_components': ['coupling_cylinder'],
+        'description': 'The coupling cylinder forms the central body of the assembly. It contains threaded holes near both ends for securing bolts and nuts.'
+    },
+    'layer_2': {
+        'involved_components': ['bolt', 'nut'],
+        'description': 'Bolts pass through the threaded holes of the coupling cylinder, and nuts are secured onto the threaded ends of the bolts. These components work together to ensure the coupling cylinder is tightly fastened.'
     }
 }
         
