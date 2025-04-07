@@ -1,0 +1,17 @@
+
+
+            component_list = {
+    'rectangular_block': {
+        'num': '6',
+        'description': 'A solid rectangular prism with rounded edges and corners. The top and bottom faces are flat and smooth, while the sides curve gently into rounded corners. The block has uniform thickness, consistent with all edges being slightly softened rather than sharp.'
+    }
+}
+            modify component list:
+            component_list = {
+    'rectangular_block': {
+        'num': '6',
+        'description': 'A solid rectangular prism with rounded edges and corners. The top and bottom faces are flat and smooth, while the sides curve gently into rounded corners. The block has uniform thickness, consistent with all edges being slightly softened rather than sharp.'
+    }
+}
+            None
+        
