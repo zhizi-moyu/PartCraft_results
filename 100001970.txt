@@ -1,0 +1,34 @@
+
+
+            component_list = {
+    'solid_cylinder': {
+        'num': '1',
+        'description': 'A robust, uniform cylinder structure that appears solid, with a smooth surface and consistent circumference. It has a slight taper around its base visible in the images.'
+    },
+    'hollow_cylinder': {
+        'num': '1',
+        'description': 'A cylinder with a hollow middle section. It has a cut-out area at its bottom, giving it a recessed appearance. The hollow portion is circular and aligns symmetrically along the central axis.'
+    }
+}
+            modify component list:
+            component_list = {
+    'solid_cylinder': {
+        'num': '1',
+        'description': 'A robust, uniform cylinder structure that appears solid, with a smooth surface and consistent circumference. It has a slight taper around its base visible in the images.'
+    },
+    'hollow_cylinder': {
+        'num': '1',
+        'description': 'A cylinder with a hollow middle section. It has a cut-out area at its bottom, giving it a recessed appearance. The hollow portion is circular and aligns symmetrically along the central axis.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['solid_cylinder'],
+        'description': 'The solid cylinder is positioned at the topmost layer and forms the visible top of the structure. It appears robust and slightly tapered at its base.'
+    },
+    'layer_2': {
+        'involved_components': ['hollow_cylinder'],
+        'description': 'The hollow cylinder is located below the solid cylinder. Its hollow middle section and recessed base are symmetrically aligned along the central axis. It appears to support the solid cylinder structurally at the base.'
+    }
+}
+        
