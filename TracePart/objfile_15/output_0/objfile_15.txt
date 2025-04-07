@@ -1,0 +1,24 @@
+
+
+            component_list = {
+    'central_body': {
+        'num': '1',
+        'description': 'A cylindrical central component with a flat surface, featuring notches or grooves for attaching other parts.'
+    },
+    'coupler_segments': {
+        'num': '2',
+        'description': 'Two semi-circular segments that complete a coupling shape around the central body, with provision for bolt insertion to secure them together.'
+    },
+    'clamping_bolts': {
+        'num': '8',
+        'description': 'Long bolts designed to pass through coupler segments to clamp securely onto the central body, bending throughout varied angles.'
+    },
+    'mounting_holes': {
+        'num': 'integrated',
+        'description': 'Circular apertures within the central body and segments for aligning and securing other components, ensuring structural integrity.'
+    }
+}
+            modify component list:
+            None
+            None
+        
