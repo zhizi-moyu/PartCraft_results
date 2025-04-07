@@ -1,0 +1,66 @@
+
+
+            component_list = {
+    'curved_block': {
+        'num': '1', 
+        'description': 'A trapezoid-like block with one face featuring an outward curve and the opposite face flat. The sides are straight, creating a wedge-like geometry.'
+    },
+    'flat_triangular_prism': {
+        'num': '1', 
+        'description': 'A slender triangular prism with completely flat sides and sharp edges, resembling a thin wedge.'
+    },
+    'slightly_curved_rectangular_block': {
+        'num': '1', 
+        'description': 'A rectangular block with one face exhibiting a subtle inward curve while the remaining faces are flat and perpendicular to each other.'
+    },
+    'semi_cylindrical_cap': {
+        'num': '1', 
+        'description': 'A half-cylinder structure with a smooth curved surface on one side and a flat base on the opposite side.'
+    },
+    'small_triangular_pyramid': {
+        'num': '1', 
+        'description': 'A small pyramid with triangular faces and sharp apex, creating a pointed and firm geometric structure.'
+    }
+}
+            modify component list:
+            component_list = {
+    'curved_block': {
+        'num': '1', 
+        'description': 'A trapezoid-like block with one face featuring an outward curve and the opposite face flat. The sides are straight, creating a wedge-like geometry.'
+    },
+    'flat_triangular_prism': {
+        'num': '1', 
+        'description': 'A slender triangular prism with completely flat sides and sharp edges, resembling a thin wedge.'
+    },
+    'slightly_curved_rectangular_block': {
+        'num': '1', 
+        'description': 'A rectangular block with one face exhibiting a subtle inward curve while the remaining faces are flat and perpendicular to each other.'
+    },
+    'semi_cylindrical_cap': {
+        'num': '1', 
+        'description': 'A half-cylinder structure with a smooth curved surface on one side and a flat base on the opposite side.'
+    },
+    'small_triangular_pyramid': {
+        'num': '1', 
+        'description': 'A small pyramid with triangular faces and sharp apex, creating a pointed and firm geometric structure.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['small_triangular_pyramid'],
+        'description': 'The small triangular pyramid forms the apex of the structure, placed at the topmost position.'
+    },
+    'layer_2': {
+        'involved_components': ['semi_cylindrical_cap'],
+        'description': 'The semi-cylindrical cap is positioned directly below the small triangular pyramid and provides a smooth curved transition between layers.'
+    },
+    'layer_3': {
+        'involved_components': ['curved_block'],
+        'description': 'The curved block is oriented with its outward curved face upwards and directly supports the semi-cylindrical cap.'
+    },
+    'layer_4': {
+        'involved_components': ['flat_triangular_prism', 'slightly_curved_rectangular_block'],
+        'description': 'The flat triangular prism and the slightly curved rectangular block occupy the same vertical position, forming the base layer of the structure. The flat triangular prism has sharp edges, while the slightly curved rectangular block features a subtle curving face.'
+    }
+}
+        
