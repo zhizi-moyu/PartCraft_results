@@ -1,38 +1,70 @@
 
 
             component_list = {
-    'central_cylindrical_body': {
-        'num': '2',
-        'description': 'A cylindrical component, featuring a narrow slot along its length and multiple threaded holes for clamping bolts. It is designed to connect or hold objects firmly.'
+    'coupling_body': {
+        'num': '1',
+        'description': 'A cylindrical hollow body with slots and two cut-outs for fastening bolts. The surface is smooth with circular symmetry.'
     },
-    'clamping_bolt': {
+    'input_shaft_adapter': {
+        'num': '1',
+        'description': 'A smaller cylindrical component attached to one end of the coupling body, featuring a central hole for shaft interfacing and a visible opening for bolt insertion.'
+    },
+    'output_shaft_adapter': {
+        'num': '1',
+        'description': 'A mirrored cylindrical adapter resembling the input shaft adapter, connected to the opposite side of the coupling body and designed to interface the output shaft.'
+    },
+    'fastening_bolt': {
         'num': '4',
-        'description': 'Small hexagonal bolts designed for clamping the central body. Each bolt has a threaded shaft and is used to secure the assembly tightly.'
+        'description': 'Slender cylindrical bolts with external threading. Designed for securing the coupling body and adapters through the slots and openings.'
     },
-    'internal_circular_plate': {
-        'num': '2',
-        'description': 'Thin circular plates designed to reside internally for alignment or separation purposes. These plates feature smooth edges and may contain openings central to their structure.'
+    'hexagonal_nut': {
+        'num': '4',
+        'description': 'Small hexagonal nuts with internal threading, accompanying the fastening bolts to provide a firm lock between components.'
     }
 }
             modify component list:
             component_list = {
-    'central_cylindrical_body': {
-        'num': '2',
-        'description': 'A cylindrical component, featuring a narrow slot along its length and multiple threaded holes for clamping bolts. It is designed to connect or hold objects firmly.'
+    'coupling_body': {
+        'num': '1',
+        'description': 'A cylindrical hollow body with slots and two cut-outs for fastening bolts. The surface is smooth with circular symmetry.'
     },
-    'clamping_bolt': {
+    'input_shaft_adapter': {
+        'num': '1',
+        'description': 'A smaller cylindrical component attached to one end of the coupling body, featuring a central hole for shaft interfacing and a visible opening for bolt insertion.'
+    },
+    'output_shaft_adapter': {
+        'num': '1',
+        'description': 'A mirrored cylindrical adapter resembling the input shaft adapter, connected to the opposite side of the coupling body and designed to interface the output shaft.'
+    },
+    'fastening_bolt': {
         'num': '4',
-        'description': 'Small hexagonal bolts designed for clamping the central body. Each bolt has a threaded shaft and is used to secure the assembly tightly.'
+        'description': 'Slender cylindrical bolts with external threading. Designed for securing the coupling body and adapters through the slots and openings.'
+    },
+    'hexagonal_nut': {
+        'num': '4',
+        'description': 'Small hexagonal nuts with internal threading, accompanying the fastening bolts to provide a firm lock between components.'
     }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['central_cylindrical_body_1', 'clamping_bolt_1', 'clamping_bolt_2'],
-        'description': 'Clamping bolts are inserted into the threaded holes of the top central cylindrical body for secure attachment.'
+        'involved_components': ['input_shaft_adapter'],
+        'description': 'The input_shaft_adapter is connected to one end of the coupling_body, featuring openings for bolt insertion and aligning with the central hole for shaft interfacing.'
     },
     'layer_2': {
-        'involved_components': ['central_cylindrical_body_2', 'clamping_bolt_3', 'clamping_bolt_4'],
-        'description': 'The lower central cylindrical body is aligned and connected with clamping bolts, ensuring a robust hold.'
+        'involved_components': ['fastening_bolt', 'hexagonal_nut'],
+        'description': 'The fastening_bolts are inserted through the slots on the coupling_body and secured tightly with hexagonal_nuts to ensure the assembly is fixed.'
+    },
+    'layer_3': {
+        'involved_components': ['coupling_body'],
+        'description': 'The coupling_body acts as the central hollow cylindrical structure that connects the input and output shaft adapters, providing circular symmetry with fastening slots.'
+    },
+    'layer_4': {
+        'involved_components': ['fastening_bolt', 'hexagonal_nut'],
+        'description': 'Similar to layer_2, fastening_bolts pass through the coupling_body and are locked with hexagonal_nuts for a secure connection.'
+    },
+    'layer_5': {
+        'involved_components': ['output_shaft_adapter'],
+        'description': 'The output_shaft_adapter is connected to the opposite end of the coupling_body, mirroring the input_shaft_adapter functionality with a central hole and bolt insertions.'
     }
 }
         
