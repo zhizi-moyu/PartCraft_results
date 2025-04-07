@@ -1,0 +1,30 @@
+
+
+            component_list = {
+    'shaft_coupling_body': {
+        'num': '1',
+        'description': 'A cylindrical hollow body with an outer surface featuring multiple slotted grooves for flexibility, typically used to transmit torque while accommodating minor misalignments.'
+    },
+    'tightening_screw': {
+        'num': '3',
+        'description': 'A small cylindrical bolt-like component, inserted through holes on the shaft coupling body to secure it to the respective shafts, featuring a hexagonal head for wrenching.'
+    }
+}
+            modify component list:
+            component_list = {
+    'shaft_coupling_body': {
+        'num': '1',
+        'description': 'A cylindrical hollow body with an outer surface featuring multiple slotted grooves for flexibility, typically used to transmit torque while accommodating minor misalignments.'
+    },
+    'tightening_screw': {
+        'num': '3',
+        'description': 'A small cylindrical bolt-like component, inserted through holes on the shaft coupling body to secure it to the respective shafts, featuring a hexagonal head for wrenching.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['shaft_coupling_body', 'tightening_screw_1', 'tightening_screw_2', 'tightening_screw_3'],
+        'description': 'The shaft coupling body is the main structure, and the three tightening screws are inserted through holes on the surface of the shaft coupling body to secure it. The screws are evenly distributed around the circumference.'
+    }
+}
+        
