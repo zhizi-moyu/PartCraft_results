@@ -1,0 +1,70 @@
+
+
+            component_list = {
+    'cylinder_body': {
+        'num': '1',
+        'description': 'A central cylindrical component with a smooth surface, featuring grooves for mechanical engagement and aesthetics.'
+    },
+    'shaft': {
+        'num': '1',
+        'description': 'A protruding cylindrical shaft from the central body, slightly smaller in diameter, designed for rotational support and connection to other mechanical parts.'
+    },
+    'groove_section': {
+        'num': '1',
+        'description': 'This section showcases multiple evenly spaced circumferential grooves, which could serve both functional and aesthetic purposes.'
+    },
+    'end_cap': {
+        'num': '2',
+        'description': 'Circular components that cap the ends of the cylinder, with one featuring a centered hole to accommodate the shaft, and the other being solid.'
+    },
+    'mounting_hole': {
+        'num': '2',
+        'description': 'Holes present on the side surface of the cylinder, possibly intended for securing the component to another structure or for integration with additional parts.'
+    }
+}
+            modify component list:
+            component_list = {
+    'cylinder_body': {
+        'num': '1',
+        'description': 'A central cylindrical component with a smooth surface, featuring grooves for mechanical engagement and aesthetics.'
+    },
+    'shaft': {
+        'num': '1',
+        'description': 'A protruding cylindrical shaft from the central body, slightly smaller in diameter, designed for rotational support and connection to other mechanical parts.'
+    },
+    'groove_section': {
+        'num': '1',
+        'description': 'This section showcases multiple evenly spaced circumferential grooves, which could serve both functional and aesthetic purposes.'
+    },
+    'end_cap': {
+        'num': '2',
+        'description': 'Circular components that cap the ends of the cylinder, with one featuring a centered hole to accommodate the shaft, and the other being solid.'
+    },
+    'mounting_hole': {
+        'num': '2',
+        'description': 'Holes present on the side surface of the cylinder, possibly intended for securing the component to another structure or for integration with additional parts.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['end_cap_1'],
+        'description': 'The uppermost layer features one end cap with a hole to accommodate the shaft, acting as a protective covering for the shaft end.'
+    },
+    'layer_2': {
+        'involved_components': ['shaft'],
+        'description': 'The shaft protrudes horizontally from the central body, designed for rotational support and connection.'
+    },
+    'layer_3': {
+        'involved_components': ['cylinder_body', 'groove_section'],
+        'description': 'The central cylindrical component serves as the main structure, with the groove section providing both mechanical engagement and aesthetic attributes.'
+    },
+    'layer_4': {
+        'involved_components': ['mounting_hole_1', 'mounting_hole_2'],
+        'description': 'Positioned on the side surface of the cylinder, these holes facilitate securing the component to other structures or integrating it with additional parts.'
+    },
+    'layer_5': {
+        'involved_components': ['end_cap_2'],
+        'description': 'The bottom layer features a solid end cap, providing closure to the cylinder and completing the structural form.'
+    }
+}
+        
