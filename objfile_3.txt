@@ -1,46 +1,46 @@
 
 
             component_list = {
-    'coupling_shell': {
-        'num': '2',
-        'description': 'A cylindrical hollow shell with two angular cutouts to secure components, and openings for screws. The exterior surface is smooth, while the interior aligns to grip the central cylinder.'
-    },
-    'tightening_screw': {
-        'num': '4',
-        'description': 'Slender screws featuring hexagonal heads for tightening into the coupling shell. Used for securing the shell and maintaining alignment.'
-    },
-    'central_cylinder': {
-        'num': '1',
-        'description': 'A solid cylindrical element positioned at the center. Smooth surface for seamless alignment with the shells and designed to distribute torque between the connected parts.'
-    }
-}
+       'coupler_body': {
+           'num': '1',
+           'description': 'A cylindrical component with a slot running along part of its length allowing flexibility. It has two larger holes for clamping screws and a smaller hole for a set screw on one side.'
+       },
+       'clamping_screw': {
+           'num': '2',
+           'description': 'Standard hexagonal-headed screws designed for tightening within the larger holes, used to clamp the coupler body to shafts.'
+       },
+       'set_screw': {
+           'num': '1',
+           'description': 'A small, typically Allen-keyed screw placed in the smaller hole to secure the position on the shaft.'
+       }
+   }
             modify component list:
             component_list = {
-    'coupling_shell': {
-        'num': '2',
-        'description': 'A cylindrical hollow shell with two angular cutouts to secure components, and openings for screws. The exterior surface is smooth, while the interior aligns to grip the central cylinder.'
-    },
-    'tightening_screw': {
-        'num': '2',
-        'description': 'Slender screws featuring hexagonal heads for tightening into the coupling shell. Used for securing the shell and maintaining alignment.'
-    },
-    'central_cylinder': {
+    'coupler_body': {
         'num': '1',
-        'description': 'A solid cylindrical element positioned at the center. Smooth surface for seamless alignment with the shells and designed to distribute torque between the connected parts.'
+        'description': 'A cylindrical component with a slot running along part of its length allowing flexibility. It has two larger holes for clamping screws and a smaller hole for a set screw on one side.'
+    },
+    'clamping_screw': {
+        'num': '2',
+        'description': 'Standard hexagonal-headed screws designed for tightening within the larger holes, used to clamp the coupler body to shafts.'
+    },
+    'set_screw': {
+        'num': '1',
+        'description': 'A small, typically Allen-keyed screw placed in the smaller hole to secure the position on the shaft.'
     }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['coupling_shell_1', 'tightening_screw_1'],
-        'description': 'The first coupling shell is secured by the tightening screw inserted through one of its openings at the top.'
+        'involved_components': ['set_screw'],
+        'description': 'The set screw is positioned at the smaller hole on the coupler body to secure its position on a shaft.'
     },
     'layer_2': {
-        'involved_components': ['central_cylinder'],
-        'description': 'The central cylinder is positioned at the middle, aligning perfectly with both coupling shells for torque distribution.'
+        'involved_components': ['coupler_body'],
+        'description': 'The main cylindrical component. It serves as the base structure to connect the shafts and hold the screws.'
     },
     'layer_3': {
-        'involved_components': ['coupling_shell_2', 'tightening_screw_2'],
-        'description': 'The second coupling shell and tightening screw are positioned at the bottom, mirroring the setup of the top shell.'
+        'involved_components': ['clamping_screw_1', 'clamping_screw_2'],
+        'description': 'The clamping screws are inserted into the larger holes on the coupler body for tightening, ensuring the body attaches firmly to the shafts.'
     }
 }
         
