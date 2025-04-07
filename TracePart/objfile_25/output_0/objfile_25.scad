@@ -1,41 +1,56 @@
 
-// Constants defining dimensions
-central_shaft_length = 100; // Example length
-central_shaft_diameter = 10; // Example diameter
+// Define dimensions
+central_shaft_length = 60;
+central_shaft_diameter = 20;
+end_cap_length = 10;
+end_cap_diameter = 22;
+end_cap_hole_diameter = 2;
+spacer_ring_thickness = 2;
+spacer_ring_diameter = 22;
+mounting_hole_diameter = 4;
 
-clamping_section_length = 30; // Length of each clamp section
-clamping_section_diameter = 20; // Diameter of the clamps
-screw_hole_diameter = 3; // Diameter of screw holes
-
-// Functions to create individual components
-
+// Central Shaft
 module central_shaft() {
-    cylinder(h = central_shaft_length, d = central_shaft_diameter, center = true);
+    cylinder(h = central_shaft_length, d = central_shaft_diameter);
+    // Grooves and steps can be added here
 }
 
-module clamping_section() {
+// End Cap
+module end_cap() {
     difference() {
-        cylinder(h = clamping_section_length, d = clamping_section_diameter, center = true);
-        for (i = [0 : 3]) {
-            rotate([0, 0, i * 90]) {
-                translate([clamping_section_diameter/2 - screw_hole_diameter, 0, 0])
-                cylinder(h = clamping_section_length, d = screw_hole_diameter, center = true);
-            }
-        }
-        translate([clamping_section_diameter/4, 0, 0]) {
-            cube([clamping_section_diameter/2, clamping_section_diameter, clamping_section_length], center = true);
+        cylinder(h = end_cap_length, d = end_cap_diameter);
+        translate([0, 0, -1])
+            cylinder(h = end_cap_length + 2, d = end_cap_hole_diameter);
+        // Bolt holes
+        for (angle = [0, 120, 240]) {
+            rotate([0, 0, angle])
+                translate([end_cap_diameter/3, 0, end_cap_length/2])
+                    cylinder(h = end_cap_length + 2, d = mounting_hole_diameter);
         }
     }
 }
 
-// Assembly of the components
-    
-translate([0, 0, 0])
-central_shaft(); // Layer 1: Central Shaft
+// Spacer Ring
+module spacer_ring() {
+    difference() {
+        cylinder(h = spacer_ring_thickness, d = spacer_ring_diameter);
+        translate([0, 0, -1])
+            cylinder(h = spacer_ring_thickness + 2, d = end_cap_diameter - 2);
+    }
+}
 
-translate([0, 0, central_shaft_length/2 - clamping_section_length/2])
-clamping_section(); // Layer 2: First Clamping Section
+// Assembling the model
+module flexible_coupling() {
+    translate([0, 0, end_cap_length + spacer_ring_thickness])
+        central_shaft();
+    for (i = [0, 1]) {
+        translate([0, 0, i * (central_shaft_length + end_cap_length)])
+            end_cap();
+        translate([0, 0, i * (central_shaft_length) + end_cap_length])
+            spacer_ring();
+    }
+}
 
-translate([0, 0, -central_shaft_length/2 + clamping_section_length/2])
-clamping_section(); // Layer 3: Second Clamping Section
+// Render the model
+flexible_coupling();
 
