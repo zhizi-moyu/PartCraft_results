@@ -1,57 +1,66 @@
 
 
             component_list = {
-    'central_craft': {
+    'central_body': {
         'num': '1',
-        'description': 'A cylindrical component with a grooved surface, designed to form the central part of the model. It has external ridges for possible mechanical connection.'
+        'description': 'A cylinder with an outer ribbed surface to enhance grip or flexibility, serving as the main connecting structure.'
     },
-    'input_craft': {
-        'num': '1',
-        'description': 'A cylindrical object on one side of the model, featuring an embedded circular groove and bolts for secure attachment.'
-    },
-    'output_craft': {
-        'num': '1',
-        'description': 'A similar cylindrical component mirroring the input craft, located on the opposite end of the main assembly.'
-    },
-    'spacer_ring': {
+    'coupling_end': {
         'num': '2',
-        'description': 'Flat ring-shaped components positioned between the central craft and the external flange plates to ensure spacing and structural integrity.'
-    },
-    'nut': {
-        'num': '4',
-        'description': 'Small hexagonal nuts that are fastened onto bolts to hold the assembly components together securely.'
+        'description': 'Circular ends that interface with the central body, featuring an internal mechanism for securing components, usually flat with a raised circular section for alignment.'
     },
     'bolt': {
-        'num': '4',
-        'description': 'Slender cylindrical bolts with external threading, inserted through the flange plates and secured with nuts.'
+        'num': '8',
+        'description': 'Short cylindrical shafts with threaded surfaces to fasten and securely join the coupling ends to the central body.'
+    },
+    'nut': {
+        'num': '8',
+        'description': 'Hexagonally shaped fasteners that thread onto bolts, typically found securing each bolt on the coupling ends.'
+    },
+    'washer': {
+        'num': '8',
+        'description': 'Flat circular items used with bolts and nuts to distribute the load of the fasteners, if present, they are seated between the nut and the surface of the component.'
+    },
+    'ribbed_section': {
+        'num': '1',
+        'description': 'A ribbed or grooved cylindrical section that provides a flexible connection, potentially part of the central body enhancing its ability to flex or extend when in use.'
     }
 }
             modify component list:
             component_list = {
-    'central_craft': {
+    'central_body': {
         'num': '1',
-        'description': 'A cylindrical component with a grooved surface, designed to form the central part of the model. It has external ridges for possible mechanical connection.'
+        'description': 'A cylinder with an outer ribbed surface to enhance grip or flexibility, serving as the main connecting structure.'
     },
-    'input_craft': {
-        'num': '1',
-        'description': 'A cylindrical object on one side of the model, featuring an embedded circular groove and bolts for secure attachment.'
-    },
-    'output_craft': {
-        'num': '1',
-        'description': 'A similar cylindrical component mirroring the input craft, located on the opposite end of the main assembly.'
-    },
-    'spacer_ring': {
+    'coupling_end': {
         'num': '2',
-        'description': 'Flat ring-shaped components positioned between the central craft and the external flange plates to ensure spacing and structural integrity.'
-    },
-    'nut': {
-        'num': '4',
-        'description': 'Small hexagonal nuts that are fastened onto bolts to hold the assembly components together securely.'
+        'description': 'Circular ends that interface with the central body, featuring an internal mechanism for securing components, usually flat with a raised circular section for alignment.'
     },
     'bolt': {
         'num': '4',
-        'description': 'Slender cylindrical bolts with external threading, inserted through the flange plates and secured with nuts.'
+        'description': 'Short cylindrical shafts with threaded surfaces to fasten and securely join the coupling ends to the central body.'
+    },
+    'nut': {
+        'num': '4',
+        'description': 'Hexagonally shaped fasteners that thread onto bolts, typically found securing each bolt on the coupling ends.'
+    },
+    'washer': {
+        'num': '4',
+        'description': 'Flat circular items used with bolts and nuts to distribute the load of the fasteners, if present, they are seated between the nut and the surface of the component.'
     }
 }
-            None
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['coupling_end_1', 'bolt_1', 'bolt_2', 'bolt_3', 'bolt_4', 'nut_1', 'nut_2', 'nut_3', 'nut_4', 'washer_1', 'washer_2', 'washer_3', 'washer_4'],
+        'description': 'This layer includes coupling_end_1, secured using bolts passing through it and affixed with nuts on the outer side. Washers are placed between the nuts and the surface for load distribution.'
+    },
+    'layer_2': {
+        'involved_components': ['central_body'],
+        'description': 'The central body serves as the structural core of the model, located directly below coupling_end_1 and interfacing with it to ensure stability.'
+    },
+    'layer_3': {
+        'involved_components': ['coupling_end_2', 'bolt_1', 'bolt_2', 'bolt_3', 'bolt_4', 'nut_1', 'nut_2', 'nut_3', 'nut_4', 'washer_1', 'washer_2', 'washer_3', 'washer_4'],
+        'description': 'This layer includes coupling_end_2, similar to coupling_end_1, secured with bolts that pass through it and affixed externally with nuts backed by washers for load distribution.'
+    }
+}
         
