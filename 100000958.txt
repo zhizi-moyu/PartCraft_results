@@ -1,0 +1,62 @@
+
+
+            component_list = {
+    'central_hub': {
+        'num': '2',
+        'description': 'A cylindrical piece with a flat circular base, featuring a narrow slot and a central bore for fitting onto a shaft.'
+    },
+    'outer_sleeve': {
+        'num': '2',
+        'description': 'A hollow cylindrical component, open-ended with ribbed texture on its sides, and a flange at one end for attachment.'
+    },
+    'locking_cap': {
+        'num': '2',
+        'description': 'A disc-like cap with a center hole and a short, wide cylindrical rim, designed to secure and conceal the end of an assembly.'
+    },
+    'inner_ring': {
+        'num': '2',
+        'description': 'A smaller cylindrical ring with a central hole, serving as a spacer or aligning element within the assembly.'
+    }
+}
+            modify component list:
+            component_list = {
+    'central_hub': {
+        'num': '6',
+        'description': 'A cylindrical piece with a flat circular base, featuring a narrow slot and a central bore for fitting onto a shaft.'
+    },
+    'outer_sleeve': {
+        'num': '2',
+        'description': 'A hollow cylindrical component, open-ended with ribbed texture on its sides, and a flange at one end for attachment.'
+    },
+    'locking_cap': {
+        'num': '8',
+        'description': 'A disc-like cap with a center hole and a short, wide cylindrical rim, designed to secure and conceal the end of an assembly.'
+    },
+    'inner_ring': {
+        'num': '2',
+        'description': 'A smaller cylindrical ring with a central hole, serving as a spacer or aligning element within the assembly.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['locking_cap'],
+        'description': 'The locking cap is positioned at the topmost layer to secure the assembly.'
+    },
+    'layer_2': {
+        'involved_components': ['outer_sleeve', 'inner_ring'],
+        'description': 'The outer sleeve and an inner ring are aligned for structural support and alignment.'
+    },
+    'layer_3': {
+        'involved_components': ['central_hub'],
+        'description': 'A central hub is placed centrally, serving as the core structural piece.'
+    },
+    'layer_4': {
+        'involved_components': ['outer_sleeve'],
+        'description': 'Another outer sleeve component forming the outer structure with ribbed design.'
+    },
+    'layer_5': {
+        'involved_components': ['locking_cap'],
+        'description': 'A locking cap at the bottom secures and encloses the assembly.'
+    }
+}
+        
