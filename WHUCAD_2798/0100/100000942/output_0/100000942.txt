@@ -1,0 +1,30 @@
+
+
+            component_list = {
+    'rectangular_block_with_holes': {
+        'num': '3',
+        'description': 'This component is a simple rectangular block. It features a flat, smooth surface with two distinctly visible holes towards one end. These holes pass through the block, suggesting they are for fastening purposes, like accommodating bolts or screws. The block has a consistent rectangular shape when viewed from the top, bottom, and sides.'
+    }
+}
+            modify component list:
+            component_list = {
+    'rectangular_block_with_holes': {
+        'num': '3',
+        'description': 'This component is a simple rectangular block. It features a flat, smooth surface with two distinctly visible holes towards one end. These holes pass through the block, suggesting they are for fastening purposes, like accommodating bolts or screws. The block has a consistent rectangular shape when viewed from the top, bottom, and sides.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['rectangular_block_with_holes_1'],
+        'description': 'The first block is positioned at the topmost layer.'
+    },
+    'layer_2': {
+        'involved_components': ['rectangular_block_with_holes_2'],
+        'description': 'The second block is positioned below the first block in the vertical setup.'
+    },
+    'layer_3': {
+        'involved_components': ['rectangular_block_with_holes_3'],
+        'description': 'The third block is positioned at the bottom, completing the vertical arrangement.'
+    }
+}
+        
