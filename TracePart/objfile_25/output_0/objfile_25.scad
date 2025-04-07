@@ -1,57 +1,42 @@
 
-// Central Shaft Component
-module central_shaft() {
-    difference() {
-        cylinder(h = 60, r = 10, center = true); // Main cylindrical shaft
-        // Slots along the shaft
-        for (i = [-20, 0, 20]) {
-            rotate([0, 90, 0])
-            translate([i, 0, 0])
-                cube([10, 20, 5], center = true);
-        }
-        // Holes for bolts at notches
-        for (i = [-20, 20]) {
-            translate([i, 0, 0])
-                rotate([90, 0, 0])
-                cylinder(h = 20, r = 2.5, center = true);
-        }
-    }
-}
+// Define parameters
+cylinder_diameter = 20; // Example diameter for the cylindrical body
+cylinder_length = 60; // Length of the cylindrical body
+bolt_diameter = 3; // Diameter of the bolt
+bolt_length = 15; // Length of the bolt
+nut_diameter = 5; // Diameter of the nut
+nut_height = 3; // Height of the nut
+recess_depth = 2; // Depth of the recessed areas
 
-// Clamp Ring Component
-module clamp_ring() {
-    difference() {
-        cylinder(h = 10, r = 12, center = true); // Outer ring
-        cylinder(h = 10, r = 10, center = true); // Inner cut to create the ring
-        rotate([90, 0, 0])
-        translate([0, 0, -5])
-            cylinder(h = 20, r = 2.5, center = true); // Hole for the bolt
-    }
-}
-
-// Bolt Component
+// Function to create a bolt
 module bolt() {
-    union() {
-        cylinder(h = 6, r = 3, center = false); // Bolt head
-        translate([0, 0, 6])
-            cylinder(h = 20, r = 1.5, center = false); // Smooth cylindrical body
+    cylinder(d = bolt_diameter, h = bolt_length);
+}
+
+// Function to create a nut
+module nut() {
+    translate([0, 0, bolt_length])
+    rotate([0, 0, 30])
+    cylinder(d = nut_diameter, h = nut_height, $fn = 6); // using $fn to make it hexagonal
+}
+
+// Function to create the cylindrical body with recessed areas
+module cylindrical_body() {
+    // Create cylinder with grooves
+    difference() {
+        cylinder(d = cylinder_diameter, h = cylinder_length);
+        for (i = [0:cylinder_length/5:cylinder_length]) {
+            translate([0, 0, i])
+            cylinder(d = cylinder_diameter + recess_depth, h = recess_depth);
+        }
     }
 }
 
-// Building the Assembly
-module flexible_coupling() {
-    // Place central shaft
-    central_shaft();
-
-    // Place clamp rings
-    translate([-20, 0, 0]) clamp_ring(); // First clamp ring
-    translate([20, 0, 0]) clamp_ring();  // Second clamp ring
-
-    // Place bolts
-    translate([-20, 0, 0]) bolt(); // First bolt for first clamp ring
-    translate([20, 0, 0]) bolt();  // First bolt for second clamp ring
+// Main assembly
+cylindrical_body();
+for (j = [10, 20, 40, 50]) { // positions for bolts around the cylinder at recessed areas
+    translate([cylinder_diameter/2, 0, j])
+    bolt();
+    nut();
 }
-
-// Render the model
-flexible_coupling();
 

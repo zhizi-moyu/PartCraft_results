@@ -1,42 +1,38 @@
 
 
             component_list = {
-    'central_shaft': {
+    'cylindrical_body': {
         'num': '1',
-        'description': 'A long cylindrical component with slotted sections and features for mounting. The shaft includes circular notches at regular intervals to fit other parts securely.'
+        'description': 'A long central cylinder featuring multiple recessed areas where bolts and nuts can secure other components. It is segmented with grooves, possibly indicating areas for flexible movement or adjustment.'
     },
-    'clamp_rings': {
-        'num': '2',
-        'description': 'Ring-like structures that wrap around the shaft, with drilled holes for bolt insertion. These rings appear to serve as clamping elements to secure the assembly together.'
-    },
-    'bolts': {
+    'bolt': {
         'num': '4',
-        'description': 'Standard hexagonal bolts designed to fit into the clamp rings, ensuring strong attachments between components. Each bolt has a smooth cylindrical body ending in a threaded section to fasten securely.'
+        'description': 'Slender cylindrical pieces with threaded sections, designed to fasten components together by passing through holes and securing with nuts. The bolt head is likely hexagonal for wrench engagement.'
+    },
+    'nut': {
+        'num': '4',
+        'description': 'Hexagonal cylinders designed to pair with the bolts, providing secure fastening. The inside is threaded to match the bolt with a hexagonal outer shape for gripping with a wrench.'
     }
 }
             modify component list:
             component_list = {
-    'central_shaft': {
+    'cylindrical_body': {
         'num': '1',
-        'description': 'A long cylindrical component with slotted sections and features for mounting. The shaft includes circular notches at regular intervals to fit other parts securely.'
+        'description': 'A long central cylinder featuring multiple recessed areas where bolts and nuts can secure other components. It is segmented with grooves, possibly indicating areas for flexible movement or adjustment.'
     },
-    'clamp_rings': {
-        'num': '2',
-        'description': 'Ring-like structures that wrap around the shaft, with drilled holes for bolt insertion. These rings appear to serve as clamping elements to secure the assembly together.'
-    },
-    'bolts': {
+    'bolt': {
         'num': '4',
-        'description': 'Standard hexagonal bolts designed to fit into the clamp rings, ensuring strong attachments between components. Each bolt has a smooth cylindrical body ending in a threaded section to fasten securely.'
+        'description': 'Slender cylindrical pieces with threaded sections, designed to fasten components together by passing through holes and securing with nuts. The bolt head is likely hexagonal for wrench engagement.'
+    },
+    'nut': {
+        'num': '4',
+        'description': 'Hexagonal cylinders designed to pair with the bolts, providing secure fastening. The inside is threaded to match the bolt with a hexagonal outer shape for gripping with a wrench.'
     }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['central_shaft'],
-        'description': 'The central shaft forms the core structure of the model. It includes slots and notches for mounting additional components.'
-    },
-    'layer_2': {
-        'involved_components': ['clamp_rings', 'bolts'],
-        'description': 'The clamp rings are positioned around the central shaft, secured by the bolts to maintain a tight assembly. The rings are likely affixed in the slotted sections of the shaft for added stability.'
+        'involved_components': ['cylindrical_body'],
+        'description': 'The cylindrical body serves as the central component. It has multiple recessed areas which are likely meant for securing bolts and nuts.'
     }
 }
         
