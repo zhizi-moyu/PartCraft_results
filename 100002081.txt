@@ -1,0 +1,22 @@
+
+
+            component_list = {
+    'hollow_cube': {
+        'num': '1',
+        'description': 'A cube-shaped component with a hollow underside featuring four evenly spaced square holes. The top face is solid while the bottom face is open, showing the interior structure that leads up to the hollow sections.'
+    }
+}
+            modify component list:
+            component_list = {
+    'hollow_cube': {
+        'num': '1',
+        'description': 'A cube-shaped component with a hollow underside featuring four evenly spaced square holes. The top face is solid while the bottom face is open, showing the interior structure that leads up to the hollow sections.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['hollow_cube'],
+        'description': 'The hollow cube is positioned alone in this layer. The top face of the hollow cube is solid, while the underside reveals four evenly spaced square holes leading to the hollow sections.'
+    }
+}
+        
