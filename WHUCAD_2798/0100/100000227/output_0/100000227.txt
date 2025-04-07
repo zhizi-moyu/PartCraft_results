@@ -1,0 +1,42 @@
+
+
+            component_list = {
+    'Component A': {
+        'num': '1',
+        'description': 'A Y-shaped component with two parallel arms connected at one end and forming a "U" at the other. The bottom part is cylindrical acting as a base or connection point.'
+    },
+    'Component B': {
+        'num': '1',
+        'description': 'This is a T-shaped piece where the top part resembles a thick rectangular block, with two circular holes on its surface for attachment, and a cylindrical rod extending downwards.'
+    },
+    'Component C': {
+        'num': '1',
+        'description': 'This component appears as a flattened T, with a stout rectangular top that has two holes for secure attachments, supported by a cylindrical rod underneath.'
+    },
+    'Component D': {
+        'num': '1',
+        'description': 'Shaped similarly to a reverse Y or wishbone, the top is forked with two holes, suitable for mounting, while a cylinder extends down for integration with other components.'
+    }
+}
+            modify component list:
+            component_list = {
+    'Component A': {
+        'num': '2',
+        'description': 'A Y-shaped component with two parallel arms connected at one end and forming a "U" at the other. The bottom part is cylindrical acting as a base or connection point.'
+    },
+    'Component B': {
+        'num': '2',
+        'description': 'This is a T-shaped piece where the top part resembles a thick rectangular block, with two circular holes on its surface for attachment, and a cylindrical rod extending downwards.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['Component B'],
+        'description': 'Component B sits at the top, with its T-shaped structure positioned above the cylindrical base.'
+    },
+    'layer_2': {
+        'involved_components': ['Component A'],
+        'description': 'Below Component B, Component A is positioned with its "Y"-shaped structure forming a connection with the base extending downwards.'
+    }
+}
+        
