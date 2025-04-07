@@ -1,42 +1,37 @@
 
 
             component_list = {
-    'coupling_shell': {
-        'num': '1',
-        'description': 'A robust cylindrical structure with two distinct halves divided by a slit. Each half has a smooth surface and includes two circular apertures aligned for fastening.'
+    'main_cylindrical_body': {
+        'num': '2',
+        'description': 'A cylindrical structure with two slits running sideways for connecting bolts. Each has a smooth finish and is hollowed to accommodate the insert.'
     },
     'bolt': {
-        'num': '2',
-        'description': 'A slender cylindrical component featuring a threaded surface on one side for secure insertion into the coupling shell apertures, used to hold the two halves together.'
+        'num': '4',
+        'description': 'Slender cylindrical fasteners with threaded ends that go through slits in the main cylindrical body to hold the structure.'
     },
     'nut': {
+        'num': '4',
+        'description': 'Small hexagonal nuts designed to fit the threaded ends of the bolts, securing the assembly tightly.'
+    },
+    'separating_insert': {
         'num': '2',
-        'description': 'A hexagonal cylindrical piece designed to fit onto the bolt, enabling tightening and providing structural integrity to the assembled coupling shell.'
+        'description': 'Thin flat rings inserted between the main cylindrical body pieces to prevent direct contact and allow some degree of structural flexibility.'
     }
 }
             modify component list:
-            component_list = {
-    'coupling_shell': {
-        'num': '1',
-        'description': 'A robust cylindrical structure with two distinct halves divided by a slit. Each half has a smooth surface and includes two circular apertures aligned for fastening.'
-    },
-    'bolt': {
-        'num': '2',
-        'description': 'A slender cylindrical component featuring a threaded surface on one side for secure insertion into the coupling shell apertures, used to hold the two halves together.'
-    },
-    'nut': {
-        'num': '2',
-        'description': 'A hexagonal cylindrical piece designed to fit onto the bolt, enabling tightening and providing structural integrity to the assembled coupling shell.'
-    }
-}
+            None
             graph_dict = {
     'layer_1': {
-        'involved_components': ['bolt_1', 'bolt_2', 'nut_1', 'nut_2'],
-        'description': 'The bolts are inserted through the circular apertures on the coupling shell, securing both halves with nuts. The bolts and nuts form a fastened connection to hold the structure together.'
+        'involved_components': ['top_component'],
+        'description': 'The topmost layer appears to have a cylindrical component with a cut pattern.'
     },
     'layer_2': {
-        'involved_components': ['coupling_shell'],
-        'description': 'The coupling shell consists of two halves joined together by bolts and nuts, with a visible slit dividing the halves. The structure is robust and cylindrical, and the bolts pass through its aligned apertures for fastening.'
+        'involved_components': ['middle_component'],
+        'description': 'This layer contains the middle cylindrical body with slots and holes.'
+    },
+    'layer_3': {
+        'involved_components': ['bottom_component'],
+        'description': 'The bottommost layer appears to be another cylindrical part connected to the structure with similar slots.'
     }
 }
         
