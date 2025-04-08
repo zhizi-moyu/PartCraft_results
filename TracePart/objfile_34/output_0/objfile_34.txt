@@ -1,0 +1,78 @@
+
+
+            component_list = {
+    'flange_plate': {
+        'num': '4',
+        'description': 'Flat circular plates with multiple evenly spaced holes along the outer edge for bolts to pass through. Each plate has a central hole for alignment and attachment.'
+    },
+    'spacer_ring': {
+        'num': '2',
+        'description': 'Thin cylindrical rings with flat surfaces and a hollow center. These are used to maintain spacing between other components.'
+    },
+    'central_hub': {
+        'num': '1',
+        'description': 'A solid cylindrical core with a central bore for shaft alignment. The outer surface has provisions for attaching other components securely.'
+    },
+    'bolt': {
+        'num': '8',
+        'description': 'Slender cylindrical rods with threaded ends, designed to fit through the holes in the flange plates and secure the assembly.'
+    },
+    'nut': {
+        'num': '8',
+        'description': 'Hexagonal components designed to thread onto the bolts to tighten and secure the assembly. They match the thread size of the bolts.'
+    }
+}
+            modify component list:
+            component_list = {
+    'flange_plate': {
+        'num': '4',
+        'description': 'Flat circular plates with multiple evenly spaced holes along the outer edge for bolts to pass through. Each plate has a central hole for alignment and attachment.'
+    },
+    'spacer_ring': {
+        'num': '2',
+        'description': 'Thin cylindrical rings with flat surfaces and a hollow center. These are used to maintain spacing between other components.'
+    },
+    'central_hub': {
+        'num': '1',
+        'description': 'A solid cylindrical core with a central bore for shaft alignment. The outer surface has provisions for attaching other components securely.'
+    },
+    'bolt': {
+        'num': '8',
+        'description': 'Slender cylindrical rods with threaded ends, designed to fit through the holes in the flange plates and secure the assembly.'
+    },
+    'nut': {
+        'num': '8',
+        'description': 'Hexagonal components designed to thread onto the bolts to tighten and secure the assembly. They match the thread size of the bolts.'
+    }
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['flange_plate_1', 'nut_1', 'nut_2', 'nut_3', 'nut_4'],
+        'description': 'The first flange plate is at the topmost position, and the nuts are evenly distributed around the plate to secure it.'
+    },
+    'layer_2': {
+        'involved_components': ['spacer_ring_1', 'bolt_1', 'bolt_2', 'bolt_3', 'bolt_4'],
+        'description': 'The spacer ring is positioned below the first flange plate, with bolts evenly distributed and passing through the ring.'
+    },
+    'layer_3': {
+        'involved_components': ['flange_plate_2', 'nut_5', 'nut_6', 'nut_7', 'nut_8'],
+        'description': 'The second flange plate is secured below the spacer ring, with nuts tightened to hold the bolts in place.'
+    },
+    'layer_4': {
+        'involved_components': ['central_hub'],
+        'description': 'The central hub is located in the middle of the assembly, providing a solid core for alignment and attachment.'
+    },
+    'layer_5': {
+        'involved_components': ['flange_plate_3', 'nut_9', 'nut_10', 'nut_11', 'nut_12'],
+        'description': 'The third flange plate is positioned below the central hub, secured with nuts around the bolts.'
+    },
+    'layer_6': {
+        'involved_components': ['spacer_ring_2', 'bolt_5', 'bolt_6', 'bolt_7', 'bolt_8'],
+        'description': 'The second spacer ring is located below the third flange plate, with bolts passing through to maintain spacing.'
+    },
+    'layer_7': {
+        'involved_components': ['flange_plate_4', 'nut_13', 'nut_14', 'nut_15', 'nut_16'],
+        'description': 'The fourth flange plate is at the bottommost position, secured with nuts evenly distributed around the plate.'
+    }
+}
+        
