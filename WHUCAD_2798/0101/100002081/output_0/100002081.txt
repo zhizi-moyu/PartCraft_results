@@ -1,22 +1,34 @@
 
 
             component_list = {
-    'hollow_cube': {
+    'hollow_cube_base': {
         'num': '1',
-        'description': 'A cube-shaped component with a hollow underside featuring four evenly spaced square holes. The top face is solid while the bottom face is open, showing the interior structure that leads up to the hollow sections.'
+        'description': 'A cube with four evenly spaced square hollow cutouts on one side, while the other sides are solid.'
+    },
+    'hollow_cube_top': {
+        'num': '1',
+        'description': 'A cube similar to the base, featuring four evenly spaced square hollow cutouts on one side, with the other sides solid. It is positioned to align with the base cube.'
     }
 }
             modify component list:
             component_list = {
-    'hollow_cube': {
+    'hollow_cube_base': {
         'num': '1',
-        'description': 'A cube-shaped component with a hollow underside featuring four evenly spaced square holes. The top face is solid while the bottom face is open, showing the interior structure that leads up to the hollow sections.'
+        'description': 'A cube with four evenly spaced square hollow cutouts on one side, while the other sides are solid.'
+    },
+    'hollow_cube_top': {
+        'num': '1',
+        'description': 'A cube similar to the base, featuring four evenly spaced square hollow cutouts on one side, with the other sides solid. It is positioned to align with the base cube.'
     }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['hollow_cube'],
-        'description': 'The hollow cube is positioned alone in this layer. The top face of the hollow cube is solid, while the underside reveals four evenly spaced square holes leading to the hollow sections.'
+        'involved_components': ['hollow_cube_top'],
+        'description': 'The hollow_cube_top is positioned at the top of the assembly, with its hollow cutouts facing downward to align with the base.'
+    },
+    'layer_2': {
+        'involved_components': ['hollow_cube_base'],
+        'description': 'The hollow_cube_base is positioned below the hollow_cube_top, with its hollow cutouts facing upward to align with the top component.'
     }
 }
         
