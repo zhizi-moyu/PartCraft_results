@@ -2,11 +2,11 @@
 // Parameters
 u_shaped_connector_width = 20; // Width of the U-shaped connector
 u_shaped_connector_height = 10; // Height of the U arms
-u_shaped_connector_thickness = 5; // Thickness of the U arms
+u_shaped_connector_thickness = 3; // Adjusted thickness for thinner arms
 u_hole_diameter = 5; // Diameter of the holes in the U arms
-u_hole_offset = 5; // Offset of the holes from the edge
+u_hole_offset = 2; // Adjusted offset for holes closer to the ends
 cylindrical_base_diameter = 10; // Diameter of the cylindrical base
-cylindrical_base_height = 20; // Height of the cylindrical base
+cylindrical_base_height = 18; // Reduced height for correct alignment
 
 // U-shaped connector
 module u_shaped_connector() {
@@ -49,7 +49,7 @@ module flexible_coupling() {
 
     // U-shaped connector
     translate([0, 0, cylindrical_base_height])
-        rotate([90, 0, 0])
+        rotate([0, 0, 0]) // Adjusted rotation for straight alignment
             u_shaped_connector();
 }
 

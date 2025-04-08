@@ -1,42 +1,38 @@
 
 
             component_list = {
-    'Component A': {
+    'u_shaped_connector': {
         'num': '1',
-        'description': 'A Y-shaped component with two parallel arms connected at one end and forming a "U" at the other. The bottom part is cylindrical acting as a base or connection point.'
+        'description': 'A U-shaped component with two parallel arms, each with a hole near the end, allowing for connection with other parts. The base of the U is attached to a cylindrical structure.'
     },
-    'Component B': {
+    'cylindrical_base': {
         'num': '1',
-        'description': 'This is a T-shaped piece where the top part resembles a thick rectangular block, with two circular holes on its surface for attachment, and a cylindrical rod extending downwards.'
+        'description': 'A vertical cylindrical structure that supports the U-shaped connector at its top. It serves as the primary support for the connector assembly.'
     },
-    'Component C': {
+    'connector_plate': {
         'num': '1',
-        'description': 'This component appears as a flattened T, with a stout rectangular top that has two holes for secure attachments, supported by a cylindrical rod underneath.'
-    },
-    'Component D': {
-        'num': '1',
-        'description': 'Shaped similarly to a reverse Y or wishbone, the top is forked with two holes, suitable for mounting, while a cylinder extends down for integration with other components.'
+        'description': 'A flat plate with two holes on either side for fastening purposes. This component is designed to attach to the U-shaped connector, providing a surface for mounting or additional connection.'
     }
 }
             modify component list:
             component_list = {
-    'Component A': {
-        'num': '2',
-        'description': 'A Y-shaped component with two parallel arms connected at one end and forming a "U" at the other. The bottom part is cylindrical acting as a base or connection point.'
+    'u_shaped_connector': {
+        'num': '1',
+        'description': 'A U-shaped component with two parallel arms, each with a hole near the end, allowing for connection with other parts. The base of the U is attached to a cylindrical structure.'
     },
-    'Component B': {
-        'num': '2',
-        'description': 'This is a T-shaped piece where the top part resembles a thick rectangular block, with two circular holes on its surface for attachment, and a cylindrical rod extending downwards.'
+    'cylindrical_base': {
+        'num': '1',
+        'description': 'A vertical cylindrical structure that supports the U-shaped connector at its top. It serves as the primary support for the connector assembly.'
     }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['Component B'],
-        'description': 'Component B sits at the top, with its T-shaped structure positioned above the cylindrical base.'
+        'involved_components': ['u_shaped_connector'],
+        'description': 'The U-shaped connector is positioned at the top of the assembly, with its base attached to the cylindrical structure.'
     },
     'layer_2': {
-        'involved_components': ['Component A'],
-        'description': 'Below Component B, Component A is positioned with its "Y"-shaped structure forming a connection with the base extending downwards.'
+        'involved_components': ['cylindrical_base'],
+        'description': 'The cylindrical base is located below the U-shaped connector and serves as the primary support for the structure.'
     }
 }
         
