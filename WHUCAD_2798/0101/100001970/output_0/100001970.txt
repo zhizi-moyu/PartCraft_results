@@ -1,34 +1,34 @@
 
 
             component_list = {
-    'solid_cylinder': {
+    'cylindrical_body': {
         'num': '1',
-        'description': 'A robust, uniform cylinder structure that appears solid, with a smooth surface and consistent circumference. It has a slight taper around its base visible in the images.'
+        'description': 'A vertically oriented cylinder with smooth sides and a flat top surface. The body has a consistent diameter along its height and features a recessed hollow at the bottom.'
     },
-    'hollow_cylinder': {
+    'base_cylinder': {
         'num': '1',
-        'description': 'A cylinder with a hollow middle section. It has a cut-out area at its bottom, giving it a recessed appearance. The hollow portion is circular and aligns symmetrically along the central axis.'
+        'description': 'A smaller cylinder attached concentrically to the bottom of the cylindrical body. It has a narrower diameter compared to the main cylindrical body and protrudes downward slightly.'
     }
 }
             modify component list:
             component_list = {
-    'solid_cylinder': {
+    'cylindrical_body': {
         'num': '1',
-        'description': 'A robust, uniform cylinder structure that appears solid, with a smooth surface and consistent circumference. It has a slight taper around its base visible in the images.'
+        'description': 'A vertically oriented cylinder with smooth sides and a flat top surface. The body has a consistent diameter along its height and features a recessed hollow at the bottom.'
     },
-    'hollow_cylinder': {
+    'base_cylinder': {
         'num': '1',
-        'description': 'A cylinder with a hollow middle section. It has a cut-out area at its bottom, giving it a recessed appearance. The hollow portion is circular and aligns symmetrically along the central axis.'
+        'description': 'A smaller cylinder attached concentrically to the bottom of the cylindrical body. It has a narrower diameter compared to the main cylindrical body and protrudes downward slightly.'
     }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['solid_cylinder'],
-        'description': 'The solid cylinder is positioned at the topmost layer and forms the visible top of the structure. It appears robust and slightly tapered at its base.'
+        'involved_components': ['cylindrical_body'],
+        'description': 'The cylindrical body is positioned at the top with a flat surface and smooth sides.'
     },
     'layer_2': {
-        'involved_components': ['hollow_cylinder'],
-        'description': 'The hollow cylinder is located below the solid cylinder. Its hollow middle section and recessed base are symmetrically aligned along the central axis. It appears to support the solid cylinder structurally at the base.'
+        'involved_components': ['base_cylinder'],
+        'description': 'The base cylinder is attached concentrically at the bottom of the cylindrical body, with a narrower diameter and protruding downward slightly.'
     }
 }
         

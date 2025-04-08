@@ -1,37 +1,32 @@
 
-// Parameters for the components
-$fn = 100; // Smoothing parameter for rounded shapes
+// Parameters for cylindrical body
+cylindrical_body_diameter = 50; // Diameter of the cylindrical body
+cylindrical_body_height = 30;   // Height of the cylindrical body
+recess_diameter = 30;           // Diameter of the recessed hollow at the bottom
+recess_depth = 10;              // Depth of the recessed hollow
 
-// 1. Solid Cylinder
-module solid_cylinder() {
-    union() {
-        // The main solid cylinder with slight taper
-        cylinder(h = 20, r1 = 10, r2 = 9, center = true);
-    }
-}
+// Parameters for base cylinder
+base_cylinder_diameter = 20;    // Diameter of the base cylinder
+base_cylinder_height = 10;      // Height of the base cylinder
 
-// 2. Hollow Cylinder
-module hollow_cylinder() {
+// Main cylindrical body
+module cylindrical_body() {
     difference() {
-        // Base cylinder
-        cylinder(h = 10, r = 9, center = true);
-        
-        // Hollow inside (recessed area)
-        translate([0, 0, -5]) 
-            cylinder(h = 15, r = 6, center = true);
+        cylinder(d = cylindrical_body_diameter, h = cylindrical_body_height, center = true);
+        translate([0, 0, -cylindrical_body_height / 2])
+            cylinder(d = recess_diameter, h = recess_depth, center = false);
     }
 }
 
-// Assemble the model layers
-module model() {
-    // Layer 1: Solid Cylinder (Topmost layer)
-    translate([0, 0, 15]) 
-        solid_cylinder();
-    
-    // Layer 2: Hollow Cylinder (Base layer)
-    hollow_cylinder();
+// Base cylinder
+module base_cylinder() {
+    cylinder(d = base_cylinder_diameter, h = base_cylinder_height, center = true);
 }
 
-// Render the final model
-model();
+// Combine components
+translate([0, 0, base_cylinder_height / 2])
+    cylindrical_body();
+
+translate([0, 0, -cylindrical_body_height / 2 - base_cylinder_height / 2])
+    base_cylinder();
 

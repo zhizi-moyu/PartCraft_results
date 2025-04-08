@@ -1,38 +1,39 @@
 
-// Parameters for the components
-$fn = 100; // Smoothing parameter for rounded shapes
+// Parameters for cylindrical body
+cylindrical_body_diameter = 40; // Reduced diameter of the cylindrical body
+cylindrical_body_height = 25;   // Reduced height of the cylindrical body
+recess_diameter = 30;           // Diameter of the recessed hollow at the bottom
+recess_depth = 5;               // Depth of the recessed hollow
 
-// 1. Solid Cylinder
-module solid_cylinder() {
-    union() {
-        // Adjusted taper to be more subtle and increased base width
-        cylinder(h = 20, r1 = 10, r2 = 9.8, center = true); 
-    }
-}
+// Parameters for base cylinder
+base_cylinder_diameter = 20;    // Reduced diameter of the base cylinder
+base_cylinder_height = 5;       // Reduced height of the base cylinder
 
-// 2. Hollow Cylinder
-module hollow_cylinder() {
+// Parameters for smoothing
+smooth_edges_radius = 2;        // Radius for edge smoothing
+
+// Main cylindrical body
+module cylindrical_body() {
     difference() {
-        // Adjusted base cylinder dimensions and hollow section
-        cylinder(h = 10, r = 9, center = true);
+        // Outer cylindrical body with rounded edges
+        cylinder(d = cylindrical_body_diameter, h = cylindrical_body_height, center = true, $fn = 100);
         
-        // Enlarged recessed hollow area to match the original model
-        translate([0, 0, -4]) 
-            cylinder(h = 14, r = 7, center = true); 
+        // Recessed hollow at the bottom
+        translate([0, 0, -cylindrical_body_height / 2])
+            cylinder(d = recess_diameter, h = recess_depth, center = false, $fn = 100);
     }
 }
 
-// Assemble the model layers
-module model() {
-    // Layer 1: Adjusted position of Solid Cylinder (lowered slightly)
-    translate([0, 0, 14]) 
-        solid_cylinder();
-    
-    // Layer 2: Adjusted position of Hollow Cylinder (raised slightly for better separation)
-    translate([0, 0, -0.5])
-        hollow_cylinder();
+// Base cylinder
+module base_cylinder() {
+    // Base cylinder with rounded edges
+    cylinder(d = base_cylinder_diameter, h = base_cylinder_height, center = true, $fn = 100);
 }
 
-// Render the final model
-model();
+// Combine components
+translate([0, 0, base_cylinder_height / 2 - smooth_edges_radius])
+    cylindrical_body();
+
+translate([0, 0, -cylindrical_body_height / 2 - base_cylinder_height / 2 + smooth_edges_radius])
+    base_cylinder();
 
