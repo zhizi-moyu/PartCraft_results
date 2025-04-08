@@ -1,17 +1,46 @@
 
 
             component_list = {
-    'rectangular_block': {
-        'num': '6',
-        'description': 'A solid rectangular prism with rounded edges and corners. The top and bottom faces are flat and smooth, while the sides curve gently into rounded corners. The block has uniform thickness, consistent with all edges being slightly softened rather than sharp.'
-    }
+    'cuboid_component_1': {'num': '1', 'description': 'A rectangular cuboid with rounded edges on all corners. The surface is smooth and uniform, with no visible openings or patterns.'},
+    'cuboid_component_2': {'num': '1', 'description': 'A rectangular cuboid with rounded edges on all corners. Identical to cuboid_component_1, with a smooth and uniform surface.'},
+    'cuboid_component_3': {'num': '1', 'description': 'A rectangular cuboid with rounded edges on all corners. Identical to cuboid_component_1, maintaining the same dimensions and appearance.'},
+    'cuboid_component_4': {'num': '1', 'description': 'A rectangular cuboid with rounded edges on all corners. Identical to cuboid_component_1, with consistent proportions and smooth surfaces.'},
+    'cuboid_component_5': {'num': '1', 'description': 'A rectangular cuboid with rounded edges on all corners. Identical to cuboid_component_1, featuring no additional features or markings.'},
+    'cuboid_component_6': {'num': '1', 'description': 'A rectangular cuboid with rounded edges on all corners. Identical to cuboid_component_1, perfectly symmetrical and uniform in design.'}
 }
             modify component list:
             component_list = {
-    'rectangular_block': {
-        'num': '6',
-        'description': 'A solid rectangular prism with rounded edges and corners. The top and bottom faces are flat and smooth, while the sides curve gently into rounded corners. The block has uniform thickness, consistent with all edges being slightly softened rather than sharp.'
+    'cuboid_component_1': {'num': '1', 'description': 'A rectangular cuboid with rounded edges on all corners. The surface is smooth and uniform, with no visible openings or patterns.'},
+    'cuboid_component_2': {'num': '1', 'description': 'A rectangular cuboid with rounded edges on all corners. Identical to cuboid_component_1, with a smooth and uniform surface.'},
+    'cuboid_component_3': {'num': '1', 'description': 'A rectangular cuboid with rounded edges on all corners. Identical to cuboid_component_1, maintaining the same dimensions and appearance.'},
+    'cuboid_component_4': {'num': '1', 'description': 'A rectangular cuboid with rounded edges on all corners. Identical to cuboid_component_1, with consistent proportions and smooth surfaces.'},
+    'cuboid_component_5': {'num': '1', 'description': 'A rectangular cuboid with rounded edges on all corners. Identical to cuboid_component_1, featuring no additional features or markings.'},
+    'cuboid_component_6': {'num': '1', 'description': 'A rectangular cuboid with rounded edges on all corners. Identical to cuboid_component_1, perfectly symmetrical and uniform in design.'}
+}
+            graph_dict = {
+    'layer_1': {
+        'involved_components': ['cuboid_component_6'],
+        'description': 'This component is positioned at the topmost layer, isolated from the other components.'
+    },
+    'layer_2': {
+        'involved_components': ['cuboid_component_5'],
+        'description': 'This component is directly below cuboid_component_6, forming the second layer in the vertical arrangement.'
+    },
+    'layer_3': {
+        'involved_components': ['cuboid_component_4'],
+        'description': 'This component is positioned below cuboid_component_5, creating the third layer in the structure.'
+    },
+    'layer_4': {
+        'involved_components': ['cuboid_component_3'],
+        'description': 'This component is located below cuboid_component_4, forming the fourth layer in the vertical stack.'
+    },
+    'layer_5': {
+        'involved_components': ['cuboid_component_2'],
+        'description': 'This component is positioned below cuboid_component_3, making up the fifth layer of the arrangement.'
+    },
+    'layer_6': {
+        'involved_components': ['cuboid_component_1'],
+        'description': 'This component is at the bottommost layer, directly below cuboid_component_2.'
     }
 }
-            None
         
