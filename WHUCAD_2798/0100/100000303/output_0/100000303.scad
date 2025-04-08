@@ -2,49 +2,75 @@
 // Base Frame
 module base_frame() {
     difference() {
-        union() {
-            translate([0, 0, 0]) cube([80, 20, 2]); // Main frame
-            translate([0, 0, 0]) cube([2, 18, 10]); // Elongated legs
-            translate([78, 0, 0]) cube([2, 18, 10]);
-        }
-        translate([8, 4, 0.1]) cube([64, 12, 2.1]); // Cut-out windows
+        // Main rectangular frame
+        rounded_rectangle([80, 40], 5);
+        // Slots for attachments
+        translate([10, 15, 0]) rounded_rectangle([60, 10], 2);
+        translate([10, 25, 0]) rounded_rectangle([60, 10], 2);
     }
 }
 
-// Support Wedge
-module support_wedge() {
+// Side Support
+module side_support() {
     difference() {
-        translate([0, 0, 0]) {
-            cube([10, 30, 10], true); // Base
-            translate([0, 0, 5]) rotate([0, -45, 0]) cube([10, 30, 10], true); // Sloped surface
-        }
-        translate([-3, 0, 10.1]) cube([6, 6, 2.1]); // Hollow connecting slot
+        // Triangular structure
+        linear_extrude(height = 20) polygon(points = [[0, 0], [40, 0], [20, 20]]);
+        // Ridge
+        translate([18, 0, 10]) cube([4, 40, 10]);
     }
 }
 
-// Inner Bracket
-module inner_bracket() {
+// Connector Frame
+module connector_frame() {
     difference() {
-        union() {
-            translate([5, 5, 0]) cube([70, 20, 2]); // Flat piece
-            translate([10, 9, 0.1]) cube([60, 14, 2.1]); // Central cutout
-        }
+        // Hollow rectangular frame
+        rounded_rectangle([60, 30], 5);
+        translate([5, 5, 0]) rounded_rectangle([50, 20], 2);
+        // Thin bars for connection
+        translate([5, 0, 0]) cube([5, 30, 5]);
+        translate([50, 0, 0]) cube([5, 30, 5]);
+    }
+}
+
+// Fastening Clips
+module fastening_clips() {
+    difference() {
+        // Curved edge
+        translate([0, 0, 0]) cylinder(r = 5, h = 10);
+        // Hooks
+        translate([-2, 2, 0]) cube([4, 6, 10]);
+    }
+}
+
+// Utility function for rounded rectangle
+module rounded_rectangle(size, radius) {
+    hull() {
+        translate([radius, radius]) circle(radius);
+        translate([size[0] - radius, radius]) circle(radius);
+        translate([radius, size[1] - radius]) circle(radius);
+        translate([size[0] - radius, size[1] - radius]) circle(radius);
     }
 }
 
 // Assembly
-module assembly() {
-    // Base Frame at the bottom
+module flexible_coupling() {
+    // Layer 4: Base Frame
     translate([0, 0, 0]) base_frame();
 
-    // Support Wedges layer above base frame
-    translate([15, -5, 2]) support_wedge(); // Left wedge
-    translate([65, -5, 2]) support_wedge(); // Right wedge
+    // Layer 3: Side Supports
+    translate([-40, 0, 20]) side_support();
+    translate([40, 0, 20]) mirror([1, 0, 0]) side_support();
 
-    // Inner Bracket at the top
-    translate([0, 0, 12]) inner_bracket();
+    // Layer 2: Connector Frame
+    translate([0, 0, 40]) connector_frame();
+
+    // Layer 1: Fastening Clips
+    translate([-30, 15, 50]) fastening_clips();
+    translate([30, 15, 50]) fastening_clips();
+    translate([-30, -15, 50]) fastening_clips();
+    translate([30, -15, 50]) fastening_clips();
 }
 
-// Render the assembly
-assembly();
+// Render the model
+flexible_coupling();
 

@@ -3,44 +3,56 @@
             component_list = {
     'base_frame': {
         'num': '1',
-        'description': 'A rectangular frame with cut-out windows, elongated legs, and thin structural edges. It serves as the main foundation for the entire assembly.'
+        'description': 'A flat rectangular frame with rounded edges and multiple slots for attachments.'
     },
-    'support_wedge': {
+    'side_support': {
         'num': '2',
-        'description': 'Triangular-shaped wedges with a flat base and sloped surfaces. The top has a hollow connecting slot for stabilizing assemblies above them.'
+        'description': 'Triangular structures with a slanted edge and a small ridge, used for providing support and stability.'
     },
-    'inner_bracket': {
+    'connector_frame': {
         'num': '1',
-        'description': 'A flat piece with detailed central cutouts and raised edges. This component is designed for internal stabilization and alignment within the assembly.'
+        'description': 'A rectangular frame with a hollow center, featuring thin bars on the sides for connecting other components.'
+    },
+    'fastening_clips': {
+        'num': '4',
+        'description': 'Small clips with a curved edge and hooks, designed for fastening and securing other parts together.'
     }
 }
             modify component list:
             component_list = {
     'base_frame': {
         'num': '1',
-        'description': 'A rectangular frame with cut-out windows, elongated legs, and thin structural edges. It serves as the main foundation for the entire assembly.'
+        'description': 'A flat rectangular frame with rounded edges and multiple slots for attachments.'
     },
-    'support_wedge': {
+    'side_support': {
         'num': '2',
-        'description': 'Triangular-shaped wedges with a flat base and sloped surfaces. The top has a hollow connecting slot for stabilizing assemblies above them.'
+        'description': 'Triangular structures with a slanted edge and a small ridge, used for providing support and stability.'
     },
-    'inner_bracket': {
+    'connector_frame': {
         'num': '1',
-        'description': 'A flat piece with detailed central cutouts and raised edges. This component is designed for internal stabilization and alignment within the assembly.'
+        'description': 'A rectangular frame with a hollow center, featuring thin bars on the sides for connecting other components.'
+    },
+    'fastening_clips': {
+        'num': '4',
+        'description': 'Small clips with a curved edge and hooks, designed for fastening and securing other parts together.'
     }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['inner_bracket'],
-        'description': 'The inner_bracket is positioned at the top of the assembly, providing internal stabilization and alignment.'
+        'involved_components': ['fastening_clips'],
+        'description': 'The fastening clips are positioned at the top, securing other components together.'
     },
     'layer_2': {
-        'involved_components': ['support_wedge_1', 'support_wedge_2'],
-        'description': 'Two support wedges are symmetrically positioned beneath the inner_bracket, stabilizing and connecting it to the base frame.'
+        'involved_components': ['connector_frame'],
+        'description': 'The connector frame is directly beneath the fastening clips, serving as a central structural element.'
     },
     'layer_3': {
+        'involved_components': ['side_support'],
+        'description': 'The two side supports are positioned symmetrically on either side of the connector frame, providing stability and support.'
+    },
+    'layer_4': {
         'involved_components': ['base_frame'],
-        'description': 'The base_frame serves as the foundation and is located at the bottom of the assembly.'
+        'description': 'The base frame is at the bottom, acting as the foundational layer for the entire structure.'
     }
 }
         
