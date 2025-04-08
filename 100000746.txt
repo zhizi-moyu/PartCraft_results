@@ -1,22 +1,82 @@
 
 
             component_list = {
-    'rectangular_loop': {
-        'num': '6',
-        'description': 'A slender rectangular loop with smooth, uniform edges. The cross-section appears rectangular and the shape is slightly elongated with rounded corners on one side. It has precise dimensions and appears designed for structural or connection purposes.'
+    'u_shaped_component_1': {
+        'num': '1',
+        'description': 'A thin, flat U-shaped piece with rounded edges and a consistent thickness. The bottom edge is slightly longer than the vertical sides.'
+    },
+    'u_shaped_component_2': {
+        'num': '1',
+        'description': 'A U-shaped piece with a rectangular profile. The edges are flat, and the vertical sides are symmetrical with a consistent width.'
+    },
+    'u_shaped_component_3': {
+        'num': '1',
+        'description': 'A U-shaped piece with rounded corners and slightly tapered sides. The bottom edge is flat and horizontal.'
+    },
+    'u_shaped_component_4': {
+        'num': '1',
+        'description': 'A U-shaped piece with an elongated bottom edge and narrower vertical sides. The corners are rounded, giving it a smooth appearance.'
+    },
+    'u_shaped_component_5': {
+        'num': '1',
+        'description': 'A thin U-shaped piece with sharp corners and flat edges. The bottom edge is straight and slightly longer than the vertical sides.'
+    },
+    'u_shaped_component_6': {
+        'num': '1',
+        'description': 'A symmetrical U-shaped piece with flat edges and rounded corners. The bottom edge and vertical sides are of equal thickness.'
     }
 }
             modify component list:
             component_list = {
-    'rectangular_loop': {
-        'num': '6',
-        'description': 'A slender rectangular loop with smooth, uniform edges. The cross-section appears rectangular and the shape is slightly elongated with rounded corners on one side. It has precise dimensions and appears designed for structural or connection purposes.'
+    'u_shaped_component_1': {
+        'num': '1',
+        'description': 'A U-shaped piece with a rectangular profile. The edges are flat, and the vertical sides are symmetrical with a consistent width.'
+    },
+    'u_shaped_component_2': {
+        'num': '1',
+        'description': 'A U-shaped piece with rounded corners and slightly tapered sides. The bottom edge is flat and horizontal.'
+    },
+    'u_shaped_component_3': {
+        'num': '1',
+        'description': 'A thin U-shaped piece with sharp corners and flat edges. The bottom edge is straight and slightly longer than the vertical sides.'
+    },
+    'u_shaped_component_4': {
+        'num': '1',
+        'description': 'A symmetrical U-shaped piece with flat edges and rounded corners. The bottom edge and vertical sides are of equal thickness.'
+    },
+    'u_shaped_component_5': {
+        'num': '1',
+        'description': 'A thin, flat U-shaped piece with rounded edges and a consistent thickness. The bottom edge is slightly longer than the vertical sides.'
+    },
+    'u_shaped_component_6': {
+        'num': '1',
+        'description': 'A U-shaped piece with an elongated bottom edge and narrower vertical sides. The corners are rounded, giving it a smooth appearance.'
     }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['rectangular_loop_1', 'rectangular_loop_2', 'rectangular_loop_3', 'rectangular_loop_4', 'rectangular_loop_5', 'rectangular_loop_6'],
-        'description': 'The six rectangular loops are arranged vertically in a layered manner, with each loop occupying the same vertical position in the structure. They appear to be aligned and evenly spaced.'
+        'involved_components': ['u_shaped_component_1'],
+        'description': 'The topmost component, a U-shaped piece with a rectangular profile and flat edges.'
+    },
+    'layer_2': {
+        'involved_components': ['u_shaped_component_2'],
+        'description': 'Located below the topmost component, a U-shaped piece with rounded corners and slightly tapered sides.'
+    },
+    'layer_3': {
+        'involved_components': ['u_shaped_component_3'],
+        'description': 'Positioned below the second component, a thin U-shaped piece with sharp corners and flat edges.'
+    },
+    'layer_4': {
+        'involved_components': ['u_shaped_component_4'],
+        'description': 'Situated below the third component, a symmetrical U-shaped piece with flat edges and rounded corners.'
+    },
+    'layer_5': {
+        'involved_components': ['u_shaped_component_5'],
+        'description': 'Located below the fourth component, a thin, flat U-shaped piece with rounded edges.'
+    },
+    'layer_6': {
+        'involved_components': ['u_shaped_component_6'],
+        'description': 'The bottommost component, a U-shaped piece with an elongated bottom edge and narrower vertical sides.'
     }
 }
         
