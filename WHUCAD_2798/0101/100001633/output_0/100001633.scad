@@ -1,40 +1,54 @@
 
-// Define dimensions
-tabletop_length = 60;
-tabletop_width = 40;
+// Parameters for the table components
+tabletop_length = 100;
+tabletop_width = 60;
 tabletop_thickness = 2;
-leg_radius = 1;
-leg_height = 30;
-crossbar_radius = 0.5;
-crossbar_height = tabletop_length - 2 * leg_radius;  // The length of the crossbar
 
-// Module definitions
+leg_diameter = 2;
+leg_height = 40;
+
+support_beam_length = 80;
+support_beam_width = 2;
+support_beam_height = 2;
+
+// Tabletop
 module tabletop() {
     translate([0, 0, leg_height])
-        cube([tabletop_length, tabletop_width, tabletop_thickness], center = true);
+        cube([tabletop_length, tabletop_width, tabletop_thickness]);
 }
 
+// Leg
 module leg() {
-    cylinder(h = leg_height, r = leg_radius, center = false);
+    cylinder(h = leg_height, d = leg_diameter);
 }
 
-module crossbar() {
-    cylinder(h = crossbar_height, r = crossbar_radius, center = false);
+// Support Beam
+module support_beam() {
+    cube([support_beam_length, support_beam_width, support_beam_height]);
 }
 
 // Assemble the table
-translate([-tabletop_length/2, -tabletop_width/2, 0]) {
-    // Create the tabletop
+module table() {
+    // Layer 1: Tabletop
     tabletop();
-    
-    // Create the legs
-    translate([leg_radius, leg_radius, 0]) rotate([90, 0, 0]) leg(); // Leg 1
-    translate([tabletop_length - leg_radius, leg_radius, 0]) rotate([90, 0, 0]) leg(); // Leg 2
-    translate([leg_radius, tabletop_width - leg_radius, 0]) rotate([90, 0, 0]) leg(); // Leg 3
-    translate([tabletop_length - leg_radius, tabletop_width - leg_radius, 0]) rotate([90, 0, 0]) leg(); // Leg 4
 
-    // Create the horizontal crossbars
-    translate([leg_radius, leg_radius, leg_height/2]) rotate([0, 90, 0]) crossbar(); // Crossbar 1
-    translate([tabletop_length - leg_radius, leg_radius, leg_height/2]) rotate([0, 90, 0]) crossbar(); // Crossbar 2
+    // Layer 2: Support Beams
+    translate([10, tabletop_width/2 - support_beam_width/2, leg_height - support_beam_height])
+        support_beam();
+    translate([10, -tabletop_width/2 + support_beam_width/2, leg_height - support_beam_height])
+        support_beam();
+
+    // Layer 3: Legs
+    translate([0, 0, 0])
+        leg();
+    translate([tabletop_length - leg_diameter, 0, 0])
+        leg();
+    translate([0, tabletop_width - leg_diameter, 0])
+        leg();
+    translate([tabletop_length - leg_diameter, tabletop_width - leg_diameter, 0])
+        leg();
 }
+
+// Render the table
+table();
 

@@ -7,7 +7,7 @@ tabletop_thickness = 2;
 leg_diameter = 2;
 leg_height = 40;
 
-support_beam_length = 80;
+support_beam_length = tabletop_length - 10; // Adjusted to fit between the legs
 support_beam_width = 2;
 support_beam_height = 2;
 
@@ -33,19 +33,19 @@ module table() {
     tabletop();
 
     // Layer 2: Support Beams
-    translate([5, tabletop_width/2 - support_beam_width/2, leg_height - support_beam_height])
+    translate([leg_diameter, tabletop_width / 2 - support_beam_width / 2, leg_height - support_beam_height])
         support_beam();
-    translate([5, -tabletop_width/2 + support_beam_width/2, leg_height - support_beam_height])
+    translate([leg_diameter, -tabletop_width / 2 + support_beam_width / 2, leg_height - support_beam_height])
         support_beam();
 
     // Layer 3: Legs
-    translate([0, 0, 0])
+    translate([leg_diameter / 2, leg_diameter / 2, 0])
         leg();
-    translate([tabletop_length - leg_diameter, 0, 0])
+    translate([tabletop_length - leg_diameter / 2, leg_diameter / 2, 0])
         leg();
-    translate([0, tabletop_width - leg_diameter, 0])
+    translate([leg_diameter / 2, tabletop_width - leg_diameter / 2, 0])
         leg();
-    translate([tabletop_length - leg_diameter, tabletop_width - leg_diameter, 0])
+    translate([tabletop_length - leg_diameter / 2, tabletop_width - leg_diameter / 2, 0])
         leg();
 }
 

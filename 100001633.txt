@@ -3,44 +3,44 @@
             component_list = {
     'tabletop': {
         'num': '1',
-        'description': 'A flat rectangular slab representing the surface of the table, with smooth edges and a solid appearance. It appears to have metallic properties and a uniform finish.'
+        'description': 'A flat rectangular surface with a smooth finish, forming the top of the table.'
     },
     'leg': {
         'num': '4',
-        'description': 'Slender cylindrical rods acting as table legs. They have smooth surfaces and equal lengths, designed to support the tabletop at each corner.'
+        'description': 'Slender cylindrical rods, each with a consistent diameter and length, serving as the table legs.'
     },
-    'crossbar': {
+    'support_beam': {
         'num': '2',
-        'description': 'Thin cylindrical bars designed to connect the legs horizontally, providing structural reinforcement and stability to the table.'
+        'description': 'Long, narrow beams with a rectangular cross-section, used to provide additional support between the legs.'
     }
 }
             modify component list:
             component_list = {
     'tabletop': {
         'num': '1',
-        'description': 'A flat rectangular slab representing the surface of the table, with smooth edges and a solid appearance. It appears to have metallic properties and a uniform finish.'
+        'description': 'A flat rectangular surface with a smooth finish, forming the top of the table.'
     },
     'leg': {
         'num': '4',
-        'description': 'Slender cylindrical rods acting as table legs. They have smooth surfaces and equal lengths, designed to support the tabletop at each corner.'
+        'description': 'Slender cylindrical rods, each with a consistent diameter and length, serving as the table legs.'
     },
-    'crossbar': {
+    'support_beam': {
         'num': '2',
-        'description': 'Thin cylindrical bars designed to connect the legs horizontally, providing structural reinforcement and stability to the table.'
+        'description': 'Long, narrow beams with a rectangular cross-section, used to provide additional support between the legs.'
     }
 }
             graph_dict = {
     'layer_1': {
         'involved_components': ['tabletop'],
-        'description': 'The tabletop serves as the topmost surface, lying flat and supported by the legs beneath it.'
+        'description': 'The tabletop forms the topmost surface of the table, providing a flat rectangular surface.'
     },
     'layer_2': {
-        'involved_components': ['leg_1', 'leg_2', 'leg_3', 'leg_4'],
-        'description': 'The legs are located beneath the tabletop at the four corners, providing vertical support for the tabletop.'
+        'involved_components': ['support_beam_1', 'support_beam_2'],
+        'description': 'The support beams are positioned horizontally beneath the tabletop, connecting the legs and providing structural support.'
     },
     'layer_3': {
-        'involved_components': ['crossbar_1', 'crossbar_2'],
-        'description': 'The crossbars are positioned horizontally between the legs on opposing sides, reinforcing the structural stability of the legs.'
+        'involved_components': ['leg_1', 'leg_2', 'leg_3', 'leg_4'],
+        'description': 'The legs are vertically attached to the corners of the tabletop and connected via the support beams, forming the base of the table.'
     }
 }
         
