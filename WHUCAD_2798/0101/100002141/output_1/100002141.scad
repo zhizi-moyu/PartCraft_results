@@ -3,10 +3,10 @@
 l_bracket_length = 60; // Length of the L-bracket base
 l_bracket_width = 60;  // Width of the L-bracket base
 l_bracket_height = 30; // Height of the vertical section
-thickness = 5;         // Thickness of the bracket
-hole_diameter = 10;    // Diameter of the central hole
+thickness = 8;         // Increased thickness for better structure
+hole_diameter = 12;    // Increased diameter of the central hole
 mounting_hole_diameter = 5; // Diameter of the smaller mounting holes
-mounting_hole_offset = 10;  // Distance from the edges to the mounting holes
+mounting_hole_offset = 12;  // Adjusted distance from the edges to the mounting holes
 
 // Function to create a hole
 module create_hole(diameter, depth) {
@@ -19,10 +19,10 @@ module l_bracket() {
     // Base section
     difference() {
         cube([l_bracket_length, l_bracket_width, thickness], center=false);
-        // Central hole
+        // Central hole (aligned and enlarged)
         translate([l_bracket_length / 2, l_bracket_width / 2, thickness / 2])
             create_hole(hole_diameter, thickness);
-        // Mounting holes
+        // Mounting holes (symmetrical placement)
         for (x = [-1, 1])
             for (y = [-1, 1])
                 translate([
@@ -37,7 +37,7 @@ module l_bracket() {
     translate([0, 0, thickness]) {
         difference() {
             cube([thickness, l_bracket_width, l_bracket_height], center=false);
-            // Mounting holes on the vertical section
+            // Mounting holes on the vertical section (aligned and symmetrical)
             for (y = [-1, 1])
                 translate([
                     thickness / 2,

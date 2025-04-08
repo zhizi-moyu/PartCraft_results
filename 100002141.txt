@@ -1,22 +1,42 @@
 
 
             component_list = {
-    'mounting_bracket': {
-        'num': '6',
-        'description': 'A rectangular bracket with an L-shaped profile. It features a flat base with four circular mounting holes in each corner for screws or bolts. A hollow cylindrical cut-out sits in the center, likely for alignment or securing a cylindrical object. The side profile forms a perpendicular wall with two elongated rectangular holes for additional mounting options. Edges and faces are smooth and precision-cut for a perfect fit into an assembly structure.'
+    'l_shaped_bracket': {
+        'num': '1',
+        'description': 'A sturdy L-shaped bracket with a large central hole and four smaller mounting holes on the flat surfaces. It has a rectangular base with two perpendicular sides.'
+    },
+    'mounting_plate': {
+        'num': '1',
+        'description': 'A flat, rectangular mounting plate with a central circular hole and four smaller holes for securing bolts. The edges are slightly rounded for safety.'
+    },
+    'bolt': {
+        'num': '4',
+        'description': 'A slender cylindrical bolt with threading along the shaft and a hexagonal head for tightening. The length is adequate for securing components together.'
+    },
+    'nut': {
+        'num': '4',
+        'description': 'A small hexagonal nut designed to fit the bolts, providing a secure fastening when tightened. It is a standard size for mechanical assemblies.'
     }
 }
             modify component list:
             component_list = {
-    'mounting_bracket': {
-        'num': '6',
-        'description': 'A rectangular bracket with an L-shaped profile. It features a flat base with four circular mounting holes in each corner for screws or bolts. A hollow cylindrical cut-out sits in the center, likely for alignment or securing a cylindrical object. The side profile forms a perpendicular wall with two elongated rectangular holes for additional mounting options. Edges and faces are smooth and precision-cut for a perfect fit into an assembly structure.'
+    'l_shaped_bracket': {
+        'num': '1',
+        'description': 'A sturdy L-shaped bracket with a large central hole and four smaller mounting holes on the flat surfaces. It has a rectangular base with two perpendicular sides.'
+    },
+    'bolt': {
+        'num': '4',
+        'description': 'A slender cylindrical bolt with threading along the shaft and a hexagonal head for tightening. The length is adequate for securing components together.'
+    },
+    'nut': {
+        'num': '4',
+        'description': 'A small hexagonal nut designed to fit the bolts, providing a secure fastening when tightened. It is a standard size for mechanical assemblies.'
     }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['mounting_bracket_1', 'mounting_bracket_2', 'mounting_bracket_3', 'mounting_bracket_4', 'mounting_bracket_5', 'mounting_bracket_6'],
-        'description': 'All six mounting brackets are positioned identically in the same vertical layer. The flat base lies horizontally, while the L-shaped profile provides perpendicular support. Each bracket maintains alignment across the structure for a secure connection.'
+        'involved_components': ['l_shaped_bracket'],
+        'description': 'The L-shaped bracket is the main structural component in this assembly, featuring a large central hole and four smaller mounting holes. It is positioned as a single unit with no additional components attached.'
     }
 }
         
