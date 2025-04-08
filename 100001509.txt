@@ -1,42 +1,22 @@
 
 
             component_list = {
-    'rectangular_plate': {
+    'square_plate': {
         'num': '6',
-        'description': 'A thin, flat rectangular plate with a smooth surface and rounded edges. The dimensions are uniform, and it contains a single circular hole at the center for secure attachment or assembly purposes.'
+        'description': 'A flat, square plate with a small central hole. The edges are slightly rounded, and the surface is smooth. The thickness is uniform, and the central hole is perfectly circular, allowing for potential fastening or assembly with other components.'
     }
 }
             modify component list:
             component_list = {
-    'rectangular_plate': {
-        'num': '6',
-        'description': 'A thin, flat rectangular plate with a smooth surface and rounded edges. The dimensions are uniform, and it contains a single circular hole at the center for secure attachment or assembly purposes.'
+    'square_plate': {
+        'num': '1',
+        'description': 'A flat, square plate with a small central hole. The edges are slightly rounded, and the surface is smooth. The thickness is uniform, and the central hole is perfectly circular, allowing for potential fastening or assembly with other components.'
     }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['rectangular_plate_1'],
-        'description': 'The topmost rectangular plate with a central circular hole positioned alone.'
-    },
-    'layer_2': {
-        'involved_components': ['rectangular_plate_2'],
-        'description': 'The second rectangular plate stacked directly below the topmost plate.'
-    },
-    'layer_3': {
-        'involved_components': ['rectangular_plate_3'],
-        'description': 'The third rectangular plate positioned below the second plate in the vertical stack.'
-    },
-    'layer_4': {
-        'involved_components': ['rectangular_plate_4'],
-        'description': 'The fourth rectangular plate positioned below the third plate in the vertical stack.'
-    },
-    'layer_5': {
-        'involved_components': ['rectangular_plate_5'],
-        'description': 'The fifth rectangular plate positioned below the fourth plate in the vertical stack.'
-    },
-    'layer_6': {
-        'involved_components': ['rectangular_plate_6'],
-        'description': 'The bottommost rectangular plate with a central circular hole positioned alone.'
+        'involved_components': ['square_plate'],
+        'description': 'The square plate is positioned alone in this layer. It is flat, with a small central hole, smooth surface, and uniform thickness.'
     }
 }
         
