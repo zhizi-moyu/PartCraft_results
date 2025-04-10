@@ -1,58 +1,42 @@
 
 
             component_list = {
-    'main_body': {
+    'left_coupling_half': {
         'num': '1',
-        'description': 'A cylindrical component with multiple slots and threaded holes for bolts. The surface has evenly spaced cutouts, and the cylinder itself is solid with one internal chamber.'
+        'description': 'A cylindrical component with a central bore for shaft insertion, featuring a slit along its length for clamping flexibility. It has a threaded hole for a clamping screw and a curved slot cut into the face to allow torsional flexibility.'
     },
-    'clamping_bolt': {
-        'num': '2',
-        'description': 'Small cylindrical bolts with hexagonal heads and threaded shafts. These are used to secure the main body in place at specific slots.'
-    },
-    'side_hole_connector': {
+    'right_coupling_half': {
         'num': '1',
-        'description': 'A cylindrical connector with a smooth hollow chamber and side slots for alignment and securing other components.'
+        'description': 'A mirror-symmetric cylindrical component to the left half, also with a central bore, a longitudinal slit, and a curved slot. It includes a threaded hole for a clamping screw and mates with the left half to form a complete coupling.'
     },
-    'end_cap': {
+    'clamping_screw': {
         'num': '2',
-        'description': 'Flat cylindrical discs with smooth surfaces and a central hole for axis alignment. These caps serve as covers at the ends.'
+        'description': 'Hex socket head cap screws inserted into the threaded holes of each coupling half. These screws are used to tighten the slitted ends of the coupling halves onto the shafts, ensuring a secure grip.'
     }
 }
             modify component list:
             component_list = {
-    'main_body': {
+    'left_coupling_half': {
         'num': '1',
-        'description': 'A cylindrical component with multiple slots and threaded holes for bolts. The surface has evenly spaced cutouts, and the cylinder itself is solid with one internal chamber.'
+        'description': 'A cylindrical component with a central bore for shaft insertion, featuring a slit along its length for clamping flexibility. It has a threaded hole for a clamping screw and a curved slot cut into the face to allow torsional flexibility.'
     },
-    'clamping_bolt': {
-        'num': '2',
-        'description': 'Small cylindrical bolts with hexagonal heads and threaded shafts. These are used to secure the main body in place at specific slots.'
-    },
-    'side_hole_connector': {
+    'right_coupling_half': {
         'num': '1',
-        'description': 'A cylindrical connector that may accompany the main body for proper alignment. While its full scope isn’t visible in images, ensure it matches any internal or side feature.'
+        'description': 'A mirror-symmetric cylindrical component to the left half, also with a central bore, a longitudinal slit, and a curved slot. It includes a threaded hole for a clamping screw and mates with the left half to form a complete coupling.'
     },
-    'end_cap': {
+    'clamping_screw': {
         'num': '2',
-        'description': 'Flat cylindrical discs with smooth surfaces and a central hole for axis alignment. These caps serve as covers at the ends.'
+        'description': 'Hex socket head cap screws inserted into the threaded holes of each coupling half. These screws are used to tighten the slitted ends of the coupling halves onto the shafts, ensuring a secure grip.'
     }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['end_cap_1'],
-        'description': 'The first end cap is located at the topmost position, covering the main body and aligning the axis.'
+        'involved_components': ['left_coupling_half', 'clamping_screw'],
+        'description': 'The left_coupling_half is positioned on the left side of the coupling assembly and contains one clamping_screw inserted into its threaded hole to secure a shaft.'
     },
     'layer_2': {
-        'involved_components': ['main_body', 'side_hole_connector'],
-        'description': 'The main body is the central cylindrical component, with the side hole connector used for proper alignment or additional connectivity features.'
-    },
-    'layer_3': {
-        'involved_components': ['clamping_bolt_1', 'clamping_bolt_2'],
-        'description': 'Two clamping bolts are threaded into designated slots on the main body to secure it firmly.'
-    },
-    'layer_4': {
-        'involved_components': ['end_cap_2'],
-        'description': 'The second end cap is positioned at the bottommost layer, securely covering the main body and ensuring alignment.'
+        'involved_components': ['right_coupling_half', 'clamping_screw'],
+        'description': 'The right_coupling_half is positioned on the right side of the coupling assembly and contains the second clamping_screw inserted into its threaded hole to secure a shaft. It mates with the left_coupling_half to form a complete cylindrical coupling.'
     }
 }
         
