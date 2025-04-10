@@ -1,42 +1,38 @@
 
 
             component_list = {
-    'coupling_cylinder': {
+    'central_body': {
         'num': '1',
-        'description': 'A cylindrical component that forms the main body of the assembly. It has a central hollow axial cavity for alignment and features four equally spaced threaded holes near each end for securing the bolts and nuts. The surface includes subtle grooves for functional stress relief.'
+        'description': 'A single cylindrical body with a central bulge and multiple helical and straight slots cut into it, forming a flexible shaft coupling. The body has two clamping sections on either end, each with a through-hole for a screw. The slots are precision-machined to allow torsional flexibility while maintaining axial alignment.'
     },
-    'bolt': {
+    'clamping_screw': {
         'num': '4',
-        'description': 'Slender cylindrical fasteners with threading on one end. These bolts are used to secure the coupling cylinder assembly and require nuts for tightening. Heads are flat and slightly elevated for proper placement.'
-    },
-    'nut': {
-        'num': '4',
-        'description': 'Small hexagonal cylinders used to tighten the bolts. They pair with the threaded ends of the bolts and provide clamping force to keep the assembly intact.'
+        'description': 'Small cylindrical screws with hexagonal sockets, used to tighten the clamping sections of the coupling onto shafts. Two screws are inserted into each end of the central body, passing through threaded holes to secure the shaft in place.'
     }
 }
             modify component list:
             component_list = {
-    'coupling_cylinder': {
+    'central_body': {
         'num': '1',
-        'description': 'A cylindrical component that forms the main body of the assembly. It has a central hollow axial cavity for alignment and features four equally spaced threaded holes near each end for securing the bolts and nuts. The surface includes subtle grooves for functional stress relief.'
+        'description': 'A single cylindrical body with a central bulge and multiple helical and straight slots cut into it, forming a flexible shaft coupling. The body has two clamping sections on either end, each with a through-hole for a screw. The slots are precision-machined to allow torsional flexibility while maintaining axial alignment.'
     },
-    'bolt': {
-        'num': '4',
-        'description': 'Slender cylindrical fasteners with threading on one end. These bolts are used to secure the coupling cylinder assembly and require nuts for tightening. Heads are flat and slightly elevated for proper placement.'
-    },
-    'nut': {
-        'num': '4',
-        'description': 'Small hexagonal cylinders used to tighten the bolts. They pair with the threaded ends of the bolts and provide clamping force to keep the assembly intact.'
+    'clamping_screw': {
+        'num': '2',
+        'description': 'Small cylindrical screws with hexagonal sockets, used to tighten the clamping sections of the coupling onto shafts. One screw is inserted into each end of the central body, passing through a threaded hole to secure the shaft in place.'
     }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['coupling_cylinder'],
-        'description': 'The coupling cylinder forms the central body of the assembly. It contains threaded holes near both ends for securing bolts and nuts.'
+        'involved_components': ['clamping_screw'],
+        'description': 'One clamping screw is located at the top end of the central_body, inserted into the clamping section to secure a shaft.'
     },
     'layer_2': {
-        'involved_components': ['bolt', 'nut'],
-        'description': 'Bolts pass through the threaded holes of the coupling cylinder, and nuts are secured onto the threaded ends of the bolts. These components work together to ensure the coupling cylinder is tightly fastened.'
+        'involved_components': ['central_body'],
+        'description': 'The central_body spans the middle section of the model, featuring a central bulge and helical/straight slots for torsional flexibility. It connects the two clamping sections.'
+    },
+    'layer_3': {
+        'involved_components': ['clamping_screw'],
+        'description': 'The second clamping screw is located at the bottom end of the central_body, inserted into the opposite clamping section to secure another shaft.'
     }
 }
         

@@ -1,109 +1,79 @@
+```scad
+$fn = 100; // Smoothness
 
-// Parameters for components
-cylinder_diameter = 20;
-cylinder_length = 50;
-hole_diameter = 3;
-threaded_hole_diameter = 5;
-groove_depth = 1.5;
-groove_width = 2;
-bolt_diameter = 3;
-bolt_length = 55;
-nut_diameter = 6;
-nut_height = 3;
+// Parameters
+body_length = 60;
+body_radius = 10;
+bulge_radius = 12;
+bulge_length = 10;
+slot_width = 1;
+slot_depth = 2;
+screw_radius = 1.5;
+screw_length = 10;
+screw_offset = 25;
 
-// Coupling Cylinder Function
-module coupling_cylinder() {
-    // Main body
-    difference() {
-        cylinder(r=cylinder_diameter / 2, h=cylinder_length, center=true);
-        
-        // Central hollow cavity
-        translate([0, 0, -cylinder_length / 2])
-            cylinder(r=hole_diameter / 2, h=cylinder_length * 1.5, center=false);
-
-        // Threaded holes near each end
-        for (i=[-1, 1]) {
-            for (theta = [0, 90, 180, 270]) {
-                translate([
-                    (cylinder_diameter / 2 - 4) * cos(theta),
-                    (cylinder_diameter / 2 - 4) * sin(theta),
-                    i * (cylinder_length / 2 - 10)
-                ])
-                rotate([0, 0, theta])
-                    cylinder(r=threaded_hole_diameter / 2, h=cylinder_length, center=true);
-            }
-        }
-
-        // Functional grooves
-        for (offset = [-1, 0, 1]) {
-            translate([0, 0, offset * 15])
-                rotate([90, 0, 0])
-                    translate([-cylinder_diameter / 2, -groove_width, -groove_depth])
-                        cube([cylinder_diameter, groove_width * 2, groove_depth], center=false);
-        }
-    }
-}
-
-// Bolt Function
-module bolt() {
+// Main assembly
+module flexible_coupling() {
     union() {
-        // Bolt shaft
-        cylinder(r=bolt_diameter / 2, h=bolt_length, center=false);
-        
-        // Bolt head
-        translate([0, 0, bolt_length])
-            cylinder(r=bolt_diameter * 1.5 / 2, h=bolt_diameter, center=false);
+        central_body();
+        clamping_screw( screw_offset);
+        clamping_screw(-screw_offset);
     }
 }
 
-// Nut Function
-module nut() {
+// Central body with bulge and slots
+module central_body() {
     difference() {
-        // Outer hexagonal shape
-        rotate([0, 0, 30])
-            linear_extrude(height=nut_height)
-                polygon(points=[
-                    [nut_diameter / 2, 0],
-                    [nut_diameter / 4, nut_diameter * sqrt(3) / 4],
-                    [-nut_diameter / 4, nut_diameter * sqrt(3) / 4],
-                    [-nut_diameter / 2, 0],
-                    [-nut_diameter / 4, -nut_diameter * sqrt(3) / 4],
-                    [nut_diameter / 4, -nut_diameter * sqrt(3) / 4]
-                ]);
+        union() {
+            // Left and right cylindrical sections
+            translate([0, 0, -body_length/2 + bulge_length/2])
+                cylinder(h = (body_length - bulge_length)/2, r = body_radius);
+            translate([0, 0, body_length/2 - bulge_length/2])
+                cylinder(h = (body_length - bulge_length)/2, r = body_radius);
 
-        // Inner circular hole
-        translate([0, 0, -1])
-            cylinder(r=bolt_diameter / 2, h=nut_height + 2, center=false);
+            // Central bulge
+            translate([0, 0, -bulge_length/2])
+                cylinder(h = bulge_length, r = bulge_radius);
+        }
+
+        // Straight slots
+        for (i = [-1, 0, 1]) {
+            translate([-body_radius, 0, i * 10])
+                cube([2 * body_radius, slot_width, slot_depth], center = true);
+        }
+
+        // Helical slots (approximated with rotated straight cuts)
+        for (i = [0 : 3]) {
+            rotate([0, 0, i * 90])
+                translate([0, 0, -body_length/2])
+                    linear_extrude(height = body_length)
+                        offset(r = 0.5)
+                            polygon(points=[[body_radius-1, -slot_width/2], [body_radius+1, -slot_width/2], [body_radius+1, slot_width/2], [body_radius-1, slot_width/2]]);
+        }
+
+        // Clamping screw holes
+        translate([0, body_radius - 2, screw_offset])
+            rotate([90, 0, 0])
+                cylinder(h = 2 * body_radius, r = screw_radius, center = true);
+        translate([0, body_radius - 2, -screw_offset])
+            rotate([90, 0, 0])
+                cylinder(h = 2 * body_radius, r = screw_radius, center = true);
+
+        // Shaft clamping slit
+        translate([0, 0, -body_length/2])
+            rotate([0, 0, 0])
+                cube([slot_width, 2 * body_radius, body_length], center = true);
     }
 }
 
-// Assembly
-module assembly() {
-    // Layer 1: Coupling cylinder
-    coupling_cylinder();
-
-    // Layer 2: Bolts and nuts
-    for (theta = [0, 90, 180, 270]) {
-        // Bolts
-        translate([
-            (cylinder_diameter / 2 - 4) * cos(theta),
-            (cylinder_diameter / 2 - 4) * sin(theta),
-            -bolt_length / 2
-        ])
-        rotate([0, theta, 0])
-            bolt();
-
-        // Nuts
-        translate([
-            (cylinder_diameter / 2 - 4) * cos(theta),
-            (cylinder_diameter / 2 - 4) * sin(theta),
-            cylinder_length / 2
-        ])
-        rotate([0, theta, 0])
-            nut();
-    }
+// Clamping screw
+module clamping_screw(z_pos) {
+    translate([0, body_radius - 2, z_pos])
+        rotate([90, 0, 0])
+            cylinder(h = screw_length, r = screw_radius);
 }
 
-// Render the full assembly
-assembly();
+// Render the model
+flexible_coupling();
+```
 
