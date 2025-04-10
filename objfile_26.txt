@@ -1,62 +1,22 @@
 
 
             component_list = {
-    'shaft': {
+    'shaft_component': {
         'num': '1',
-        'description': 'A long, cylindrical rod that forms the main structure. Includes subtle indentations and grooves near both ends, possibly for alignment or connection purposes.'
-    },
-    'grooved_cylinder_section': {
-        'num': '2',
-        'description': 'Intermediate sections with visible grooves encircling the cylinder. These are designed for fitting additional components such as rings or bearings.'
-    },
-    'notched_ring': {
-        'num': '2',
-        'description': 'Circular rings with notches evenly distributed along the circumference. These notches may be intended for mounting or securing connections between segments.'
-    },
-    'bearing_interface': {
-        'num': '2',
-        'description': 'Sections resembling rolling element bearing interfaces, slightly recessed into the surface, possibly serving as anchoring points for rotational elements.'
+        'description': 'A single cylindrical shaft with multiple stepped diameters. The central section is slightly wider and smoothly transitions into narrower cylindrical ends. Each end has a set of symmetric grooves or slots, possibly for keying or locking mechanisms. The shaft also features small circular holes near both ends, likely for securing pins or fasteners. The overall geometry is rotationally symmetric and designed for torque transmission or alignment in a mechanical assembly.'
     }
 }
             modify component list:
             component_list = {
-    'shaft': {
+    'shaft_component': {
         'num': '1',
-        'description': 'A long, cylindrical rod that forms the main structure. Includes subtle indentations and grooves near both ends, possibly for alignment or connection purposes.'
-    },
-    'grooved_cylinder_section': {
-        'num': '2',
-        'description': 'Intermediate sections with visible grooves encircling the cylinder. These are designed for fitting additional components such as rings or bearings.'
-    },
-    'notched_ring': {
-        'num': '2',
-        'description': 'Circular rings with notches evenly distributed along the circumference. These notches may be intended for mounting or securing connections between segments.'
-    },
-    'bearing_interface': {
-        'num': '2',
-        'description': 'Sections resembling rolling element bearing interfaces, slightly recessed into the surface, possibly serving as anchoring points for rotational elements.'
+        'description': 'A single cylindrical shaft with multiple stepped diameters. The central section is slightly wider and smoothly transitions into narrower cylindrical ends. Each end has a set of symmetric grooves or slots, possibly for keying or locking mechanisms. The shaft also features small circular holes near both ends, likely for securing pins or fasteners. The overall geometry is rotationally symmetric and designed for torque transmission or alignment in a mechanical assembly.'
     }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['bearing_interface_1'],
-        'description': 'The bearing interface is located at the top and serves as an anchoring point for potential rotational elements.'
-    },
-    'layer_2': {
-        'involved_components': ['notched_ring_1', 'grooved_cylinder_section_1'],
-        'description': 'The notched ring and grooved cylinder section are found in the next layer, with the notched ring ensuring secure connections and the cylinder section supporting structural fitting.'
-    },
-    'layer_3': {
-        'involved_components': ['shaft'],
-        'description': 'The shaft forms the central structure of the model and stretches across multiple layers.'
-    },
-    'layer_4': {
-        'involved_components': ['grooved_cylinder_section_2', 'notched_ring_2'],
-        'description': 'Another pair of notched ring and grooved cylinder section are located, maintaining symmetry and functionality similar to the previous layer.'
-    },
-    'layer_5': {
-        'involved_components': ['bearing_interface_2'],
-        'description': 'The bearing interface at the bottom mirrors the structure of the top layer, completing the model.'
+        'involved_components': ['shaft_component'],
+        'description': 'The shaft_component is a single, continuous cylindrical part with symmetric features on both ends. It spans the entire vertical extent of the model and does not interact with any other components.'
     }
 }
         
