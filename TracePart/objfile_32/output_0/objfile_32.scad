@@ -1,59 +1,88 @@
+```scad
+$fn=100;
 
-// Define Main Body
-module main_body() {
+// Parameters
+clamp_d = 20;
+clamp_h = 10;
+bore_d = 5;
+screw_d = 3;
+screw_l = 8;
+screw_offset = 6;
+slit_w = 0.5;
+
+flex_d = 20;
+flex_h = 20;
+slot_w = 2;
+slot_d = 5;
+slot_count = 6;
+
+// Modules
+module clamp_end() {
     difference() {
-        cylinder(h=50, d=30);
-        for (i = [0 : 90 : 270]) {
-            rotate([0, 0, i])
-                translate([0, 0, 10])
-                    cube([30, 10, 25], center = true);
+        cylinder(d=clamp_d, h=clamp_h);
+        // Bore
+        translate([0,0,-1])
+            cylinder(d=bore_d, h=clamp_h+2);
+        // Screw holes
+        for (angle = [45, -45]) {
+            translate([screw_offset*cos(angle), screw_offset*sin(angle), clamp_h/2])
+                rotate([90,0,0])
+                    cylinder(d=screw_d, h=clamp_d);
         }
+        // Slit
+        translate([-clamp_d/2, -slit_w/2, 0])
+            cube([clamp_d, slit_w, clamp_h]);
     }
 }
 
-// Define Slotted Disc
-module slotted_disc() {
-    difference() {
-        cylinder(h=5, d=30);
-        for (j = [-15, 15]) {
-            rotate([0, 0, 45])
-                translate([j, 0, 0])
-                    cube([10, 30, 5], center = true);
-        }
-    }
-}
-
-// Define Fastening Bolt
-module fastening_bolt() {
+module screw() {
     union() {
-        cylinder(h=10, d=4);
-        translate([0, 0, 10])
-            cylinder(h=5, d=6);
+        cylinder(d=screw_d, h=screw_l);
+        translate([0,0,screw_l])
+            cylinder(d1=screw_d*1.2, d2=screw_d, h=1);
     }
 }
 
-// Define Screw Hole
-module screw_hole() {
-    cylinder(h=12, d=4);
-}
-
-// Assemble Components
-module assemble() {
-    main_body();
-    translate([0, 0, 0])
-        screw_hole();
-    translate([30, 0, 0])
-        screw_hole();
-    for (k = [-15 : 15 : 30]) {
-        translate([k, 0, 20])
-            slotted_disc();
+module helical_flex_body() {
+    difference() {
+        cylinder(d=flex_d, h=flex_h);
+        for (i = [0:slot_count-1]) {
+            rotate([0,0,i*360/slot_count])
+                translate([0, -flex_d/2, i*flex_h/slot_count])
+                    cube([flex_d, slot_w, slot_d], center=false);
+        }
     }
-    translate([0, 0, 48])
-        fastening_bolt();
-    translate([30, 0, 48])
-        fastening_bolt();
 }
 
-// Call to Assemble
-assemble();
+// Assembly
+module coupling() {
+    // Left clamp
+    clamp_end();
+    // Left screws
+    for (angle = [45, -45]) {
+        translate([screw_offset*cos(angle), screw_offset*sin(angle), 0])
+            rotate([90,0,0])
+                screw();
+    }
+
+    // Helical body
+    translate([0,0,clamp_h])
+        helical_flex_body();
+
+    // Right clamp
+    translate([0,0,clamp_h+flex_h])
+        rotate([180,0,0])
+            clamp_end();
+
+    // Right screws
+    for (angle = [45, -45]) {
+        translate([screw_offset*cos(angle), screw_offset*sin(angle), clamp_h*2+flex_h])
+            rotate([90,0,0])
+                screw();
+    }
+}
+
+// Render the full coupling
+coupling();
+```
 
