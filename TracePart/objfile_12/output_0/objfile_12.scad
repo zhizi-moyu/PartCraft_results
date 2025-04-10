@@ -1,69 +1,92 @@
-
+```scad
 // Parameters
-$fn = 100; // Resolution for smooth circles
+hub_length = 30;
+hub_radius = 15;
+bore_radius = 5;
+flange_thickness = 5;
+flange_radius = 20;
+groove_count = 4;
+groove_depth = 2;
+groove_width = 2;
+bolt_radius = 1.5;
+bolt_circle_radius = 12;
+bolt_count = 8;
+keyway_width = 2;
+keyway_depth = 1;
+slit_width = 1;
 
-// Functions to generate components
-
-// Circular Disk with Holes
-module circular_disk_with_holes() {
+// Modules
+module shaft_hub() {
     difference() {
-        cylinder(h=10, r=40);
-        cylinder(h=20, r=10); // Central hole
-        for (angle = [0:45:360-45]) { // Spaced holes
-            rotate([0,0,angle]) translate([30,0,0])
-                cylinder(h=20, r=5);
+        union() {
+            // Main body
+            cylinder(h = hub_length, r = hub_radius, $fn=100);
+            // Flange
+            translate([0, 0, hub_length])
+                cylinder(h = flange_thickness, r = flange_radius, $fn=100);
         }
-    }
-}
 
-// Cylinder with Flange
-module cylinder_with_flange() {
-    union() {
-        // Flange base
-        cylinder(h=10, r=40);
-        // Cylinder above the flange
-        translate([0,0,10]) cylinder(h=30, r=20);
-        // Grooved section
-        translate([0,0,12]) for (h = [12:6:30]) {
-            cylinder(h=4, r=22);
-        }
-        // Central hollow
-        translate([0,0,10]) cylinder(h=50, r=8);
-        // Bolt holes on flange
-        for (angle = [0:45:360-45]) {
-            rotate([0,0,angle]) translate([30,0,5]) cylinder(h=20, r=2.5);
-        }
-    }
-}
+        // Bore
+        translate([0, 0, -1])
+            cylinder(h = hub_length + flange_thickness + 2, r = bore_radius, $fn=100);
 
-// Slotted Cylinder
-module slotted_cylinder() {
-    difference() {
-        // Base cylinder
-        translate([0,0,-5]) cylinder(h=40, r=20);
-        // Slot along length
-        rotate([90,0,0]) translate([-10,0,-25]) cube([40,10,50], center=false);
-        // Larger hole at one end
-        translate([0,0,35]) cylinder(h=10, r=25);
-        // Central hollow
-        translate([0,0,-5]) cylinder(h=50, r=8);
+        // Grooves
+        for (i = [1:groove_count]) {
+            translate([0, 0, i * (hub_length / (groove_count + 1))])
+                rotate([0, 0, 0])
+                    cylinder(h = groove_width, r1 = hub_radius + 1, r2 = hub_radius - groove_depth, $fn=100);
+        }
+
+        // Keyway slot
+        translate([-keyway_width/2, bore_radius, hub_length/2])
+            cube([keyway_width, keyway_depth, hub_length], center=true);
+
+        // Clamping slit
+        translate([-slit_width/2, -hub_radius, 0])
+            cube([slit_width, 2*hub_radius, hub_length + flange_thickness]);
+        
         // Bolt holes
-        for (angle = [0:72:360-72]) {
-            rotate([0,0,angle]) translate([22,0,35]) cylinder(h=20, r=2.5);
+        for (i = [0:bolt_count-1]) {
+            angle = 360 / bolt_count * i;
+            x = bolt_circle_radius * cos(angle);
+            y = bolt_circle_radius * sin(angle);
+            translate([x, y, hub_length])
+                cylinder(h = flange_thickness + 2, r = bolt_radius, $fn=50);
         }
     }
 }
 
-// Assembly of Components
-module flexible_coupling() {
-    // Layer 1: Circular disk
-    circular_disk_with_holes();
-
-    // Layer 2: Cylinder and Slotted Cylinder
-    translate([0,0,-10]) cylinder_with_flange();
-    translate([0,0,-25]) slotted_cylinder();
+module bolt() {
+    union() {
+        // Shaft
+        cylinder(h = flange_thickness * 2, r = bolt_radius, $fn=30);
+        // Head
+        translate([0, 0, flange_thickness * 2])
+            cylinder(h = 2, r = bolt_radius * 1.5, $fn=6);
+    }
 }
 
-// Call the main assembly module
-flexible_coupling();
+// Assembly
+module coupling() {
+    // Input hub
+    shaft_hub();
+
+    // Output hub (mirrored)
+    translate([0, 0, hub_length + flange_thickness])
+        mirror([0, 0, 1])
+            shaft_hub();
+
+    // Bolts
+    for (i = [0:bolt_count-1]) {
+        angle = 360 / bolt_count * i;
+        x = bolt_circle_radius * cos(angle);
+        y = bolt_circle_radius * sin(angle);
+        translate([x, y, hub_length])
+            bolt();
+    }
+}
+
+// Render the full coupling
+coupling();
+```
 
