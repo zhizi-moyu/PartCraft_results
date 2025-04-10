@@ -1,50 +1,74 @@
+```scad
+// Parameters
+clamp_diameter = 40;
+clamp_length = 20;
+bore_diameter = 10;
+spider_thickness = 5;
+spider_lobe_radius = 6;
+spider_lobe_count = 3;
+keyway_width = 4;
+keyway_depth = 2;
 
-// Define dimensions
-cylinder_diameter = 20;
-cylinder_height = 20;
-hole_diameter = 5;
-groove_width = 2;
-groove_depth = 4;
-spacer_thickness = 1;
-
-// Cylinder Body
-module cylinder_body() {
+// Module: Clamp Half
+module clamp_half(mirror=false) {
     difference() {
-        cylinder(d=cylinder_diameter, h=cylinder_height, $fn=100);
-        cylinder(d=hole_diameter, h=cylinder_height, $fn=100);
-        
-        // Adding grooves
-        for (i = [-120, 0, 120]) {
-            rotate([0, 0, i]) {
-                translate([cylinder_diameter/2, -groove_width/2, cylinder_height / 4]) {
-                    cube([groove_depth, groove_width, cylinder_height / 2], center=false);
-                }
-            }
-        }
+        // Main body
+        cylinder(d=clamp_diameter, h=clamp_length, $fn=100);
+
+        // Central bore
+        translate([0, 0, -1])
+            cylinder(d=bore_diameter, h=clamp_length + 2, $fn=100);
+
+        // Semi-circular cutout for spider
+        translate([0, 0, mirror ? 0 : clamp_length - spider_thickness])
+            cylinder(d=spider_lobe_radius * 2 + 2, h=spider_thickness + 1, $fn=100);
+
+        // Keyway slot
+        translate([-keyway_width/2, clamp_diameter/2 - keyway_depth, clamp_length/2])
+            rotate([90, 0, 0])
+                cube([keyway_width, keyway_depth, clamp_length], center=true);
+
+        // Interlocking profile (simple notch)
+        translate([clamp_diameter/4, 0, clamp_length/2])
+            rotate([0, 90, 0])
+                cube([2, 6, 6], center=true);
     }
 }
 
-// Internal Spacer
-module internal_spacer() {
+// Module: Central Spider
+module central_spider() {
     difference() {
-        cylinder(d=cylinder_diameter, h=spacer_thickness, $fn=100);
-        cylinder(d=hole_diameter, h=spacer_thickness, $fn=100);
+        // Base cylinder
+        cylinder(d=clamp_diameter - 2, h=spider_thickness, $fn=100);
+
+        // Cut out center bore
+        translate([0, 0, -1])
+            cylinder(d=bore_diameter, h=spider_thickness + 2, $fn=100);
+    }
+
+    // Add lobes
+    for (i = [0 : 360/spider_lobe_count : 359]) {
+        rotate([0, 0, i])
+            translate([clamp_diameter/4, 0, 0])
+                cylinder(d=spider_lobe_radius * 2, h=spider_thickness, $fn=50);
     }
 }
 
 // Assembly
-module assembly() {
-    translate([0, 0, cylinder_height]) {
-        cylinder_body();
-    }
-    translate([0, 0, (cylinder_height - spacer_thickness) / 2]) {
-        internal_spacer();
-    }
-    translate([0, 0, 0]) {
-        cylinder_body();
-    }
+module coupling_assembly() {
+    // Left clamp half
+    clamp_half();
+
+    // Central spider
+    translate([0, 0, clamp_length - spider_thickness])
+        central_spider();
+
+    // Right clamp half (mirrored)
+    translate([0, 0, clamp_length])
+        clamp_half(mirror=true);
 }
 
-// Main Module
-assembly();
+// Render the full assembly
+coupling_assembly();
+```
 
