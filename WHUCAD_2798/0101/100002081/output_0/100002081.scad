@@ -1,4 +1,4 @@
-```scad
+
 // Parameters
 cube_size = 50;          // Size of the cube
 cutout_size = 15;        // Size of the hollow square cutouts
@@ -36,5 +36,5 @@ module flexible_coupling() {
 
 // Render the flexible coupling
 flexible_coupling();
-```
+
 
