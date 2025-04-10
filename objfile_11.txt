@@ -1,46 +1,42 @@
 
 
             component_list = {
-    'cylinder_body_with_grooves': {
+    'main_cylindrical_body': {
         'num': '1',
-        'description': 'A cylindrical body with smooth outer surfaces interspersed with horizontal grooves. It has a hollow circular center running through its length and multiple slot cutouts for screws.'
+        'description': 'A short, thick cylinder with three evenly spaced circumferential grooves around its outer surface. One end has a flat face with a central hole for the shaft, and the other end has a slot cut across the diameter. The body also has two threaded holes on the side for set screws.'
     },
-    'central_pin_shaft': {
+    'shaft': {
         'num': '1',
-        'description': 'A slender cylindrical pin that passes through the center of the main cylindrical body. It has a consistent diameter and extends slightly outside one end of the cylinder.'
+        'description': 'A slender cylindrical rod extending from the center of the main body. It is smooth and uniform in diameter, designed to transmit torque or rotational motion.'
     },
-    'adjustment_slot_with_screw': {
+    'set_screw': {
         'num': '2',
-        'description': 'A compact screw slot integrated into the side surface of the cylindrical body. Each slot contains a small fastening screw with visible threading and a hexagonal drive head.'
+        'description': 'Small cylindrical screws inserted into the threaded holes on the side of the main body. They are used to secure the shaft in place and prevent it from rotating or slipping.'
     }
 }
             modify component list:
             component_list = {
-    'cylinder_body_with_grooves': {
+    'main_cylindrical_body': {
         'num': '1',
-        'description': 'A cylindrical body with smooth outer surfaces interspersed with horizontal grooves. It has a hollow circular center running through its length and multiple slot cutouts for screws.'
+        'description': 'A short, thick cylinder with three evenly spaced circumferential grooves around its outer surface. One end has a flat face with a central hole for the shaft, and the other end has a slot cut across the diameter. The body also has two threaded holes on the side for set screws.'
     },
-    'central_pin_shaft': {
+    'shaft': {
         'num': '1',
-        'description': 'A slender cylindrical pin that passes through the center of the main cylindrical body. It has a consistent diameter and extends slightly outside one end of the cylinder.'
+        'description': 'A slender cylindrical rod extending from the center of the main body. It is smooth and uniform in diameter, designed to transmit torque or rotational motion.'
     },
-    'adjustment_slot_with_screw': {
+    'set_screw': {
         'num': '2',
-        'description': 'A compact screw slot integrated into the side surface of the cylindrical body. Each slot contains a small fastening screw with visible threading and a hexagonal drive head.'
+        'description': 'Small cylindrical screws inserted into the threaded holes on the side of the main body. They are used to secure the shaft in place and prevent it from rotating or slipping.'
     }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['adjustment_slot_with_screw_1', 'adjustment_slot_with_screw_2'],
-        'description': 'Two adjustment slots with screws are positioned on the outer surface of the cylinder body, distributed on opposite sides in horizontal alignment.'
+        'involved_components': ['shaft'],
+        'description': 'The shaft extends from the top center of the main cylindrical body, aligned axially to transmit torque.'
     },
     'layer_2': {
-        'involved_components': ['cylinder_body_with_grooves'],
-        'description': 'The cylindrical body with grooves forms the main structure of the model, with grooves running horizontally along its surface and housing the adjustment slots with screws.'
-    },
-    'layer_3': {
-        'involved_components': ['central_pin_shaft'],
-        'description': 'The central pin shaft runs through the center of the cylindrical body, extending slightly outward from one end, ensuring alignment and central stability.'
+        'involved_components': ['main_cylindrical_body', 'set_screw'],
+        'description': 'The main cylindrical body forms the central structure of the assembly. The set screws are inserted into the threaded side holes of the main body to secure the shaft in place.'
     }
 }
         
