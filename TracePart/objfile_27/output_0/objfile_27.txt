@@ -1,66 +1,62 @@
 
 
             component_list = {
-    'cylindrical_base': {
-        'num': '2',
-        'description': 'A solid elongated cylindrical component, each end is perforated for bolts. The exterior includes smooth rounded edges.'
+    'input_shaft': {
+        'num': '1',
+        'description': 'A solid cylindrical shaft with a central bore and two threaded holes on the side for bolt insertion. One end is flat, and the other interfaces with the flange.'
     },
-    'small_hollow_cylinder': {
-        'num': '2',
-        'description': 'A smaller, compact cylinder with a visible central hollow area for fitting or alignment purposes. The exterior appears smooth with a uniform finish.'
+    'output_shaft': {
+        'num': '1',
+        'description': 'A solid cylindrical shaft similar to the input shaft, with a central bore and two threaded holes on the side. It interfaces with the opposite flange.'
     },
-    'bolt_like_fastener': {
+    'spacer_ring': {
+        'num': '2',
+        'description': 'A very flat, thin ring with a large central hole. It is sandwiched between two flange plates to provide spacing and flexibility.'
+    },
+    'flange_plate': {
         'num': '4',
-        'description': 'Cylindrical screws or bolt-like objects designed to fit through the perforated ends of the cylindrical base. Each fastener has a threaded and hexagonal head.'
+        'description': 'A flat, thick ring-like disc with a central hole and multiple bolt holes around the perimeter. Used to connect the shafts via bolts and nuts.'
     },
-    'connector_cylinder_with_bolt_holes': {
-        'num': '2',
-        'description': 'A slender cylinder, drilled with aligned holes along its length for bolt fasteners. This component connects other pieces securely and ensures alignment.'
+    'bolt': {
+        'num': '8',
+        'description': 'A slender cylindrical fastener with a hexagonal socket head, used to connect flange plates through the bolt holes.'
+    },
+    'nut': {
+        'num': '8',
+        'description': 'A small hexagonal prism with a threaded hole, used in conjunction with bolts to secure the flange plates together.'
     }
 }
             modify component list:
             component_list = {
-    'cylindrical_base': {
-        'num': '2',
-        'description': 'A solid elongated cylindrical component, each end is perforated for bolts. The exterior includes smooth rounded edges.'
+    'input_shaft': {
+        'num': '1',
+        'description': 'A solid cylindrical shaft with a central bore and two threaded holes on the side for bolt insertion. One end is flat, and the other interfaces with the flange.'
     },
-    'small_hollow_cylinder': {
-        'num': '2',
-        'description': 'A smaller, compact cylinder with a visible central hollow area for fitting or alignment purposes. The exterior appears smooth with a uniform finish.'
+    'output_shaft': {
+        'num': '0',
+        'description': 'A solid cylindrical shaft similar to the input shaft, with a central bore and two threaded holes on the side. It interfaces with the opposite flange.'
     },
-    'bolt_like_fastener': {
+    'spacer_ring': {
+        'num': '2',
+        'description': 'A very flat, thin ring with a large central hole. It is sandwiched between two flange plates to provide spacing and flexibility.'
+    },
+    'flange_plate': {
         'num': '4',
-        'description': 'Cylindrical screws or bolt-like objects designed to fit through the perforated ends of the cylindrical base. Each fastener has a threaded and hexagonal head.'
+        'description': 'A flat, thick ring-like disc with a central hole and multiple bolt holes around the perimeter. Used to connect the shafts via bolts and nuts.'
     },
-    'connector_cylinder_with_bolt_holes': {
-        'num': '2',
-        'description': 'A slender cylinder, drilled with aligned holes along its length for bolt fasteners. This component connects other pieces securely and ensures alignment.'
+    'bolt': {
+        'num': '8',
+        'description': 'A slender cylindrical fastener with a hexagonal socket head, used to connect flange plates through the bolt holes.'
+    },
+    'nut': {
+        'num': '8',
+        'description': 'A small hexagonal prism with a threaded hole, used in conjunction with bolts to secure the flange plates together.'
     }
 }
             graph_dict = {
     'layer_1': {
-        'involved_components': ['cylindrical_base_1'],
-        'description': 'A solid elongated cylindrical component positioned at the top, visible with smooth rounded edges.'
-    },
-    'layer_2': {
-        'involved_components': ['small_hollow_cylinder_1'],
-        'description': 'A smaller, compact cylinder with a central hollow area situated just below the first cylindrical base, aiding in alignment.'
-    },
-    'layer_3': {
-        'involved_components': ['connector_cylinder_with_bolt_holes_1'],
-        'description': 'A slender cylinder with bolt holes, used to connect to subsequent components, positioned under the small hollow cylinder.'
-    },
-    'layer_4': {
-        'involved_components': ['bolt_like_fastener_1', 'bolt_like_fastener_2'],
-        'description': 'Bolt-like fasteners run through the connector cylinder, ensuring tight connection and alignment with the lower layers.'
-    },
-    'layer_5': {
-        'involved_components': ['small_hollow_cylinder_2'],
-        'description': 'Another small hollow cylinder positioned below the fasteners, providing further alignment or fitting.'
-    },
-    'layer_6': {
-        'involved_components': ['cylindrical_base_2'],
-        'description': 'The lower end of the structure, featuring another cylindrical base that mirrors the topmost base, concluding the assembly.'
+        'involved_components': ['input_shaft'],
+        'description': 'The input_shaft is a cylindrical component with a central bore and two threaded holes on the side. It is positioned as a standalone component in this layer, awaiting connection to other components such as flange plates or output shafts.'
     }
 }
         
