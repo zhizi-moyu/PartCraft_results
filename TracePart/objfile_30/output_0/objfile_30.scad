@@ -1,74 +1,127 @@
+```scad
+$fn = 100;
 
 // Parameters
-module main_body() {
+hub_d = 30;
+hub_l = 15;
+bore_d = 10;
+flange_d = 40;
+flange_t = 5;
+bolt_d = 3;
+bolt_head_d = 5;
+bolt_head_h = 2;
+bolt_circle_r = 12;
+bellows_d = 28;
+bellows_l = 30;
+bellows_ridges = 6;
+bellows_ridge_h = 2;
+nut_d = 5;
+nut_h = 2;
+
+// Modules
+module hub() {
     difference() {
-        cylinder(h=50, r=20, $fn=100); // Main cylinder
-        translate([0, 0, 10]) cylinder(h=40, r=15, $fn=100); // Hollow inner cylinder
-        for (z = [5, 15, 25, 35, 45]) {
-            translate([0, 0, z]) cylinder(h=2, r=20, $fn=100); // Circular grooves
+        union() {
+            cylinder(h = hub_l, d = hub_d);
+            translate([0, 0, hub_l - flange_t])
+                cylinder(h = flange_t, d = flange_d);
+        }
+        // Bore
+        translate([0, 0, -1])
+            cylinder(h = hub_l + 2, d = bore_d);
+        // Bolt holes
+        for (i = [0:120:360]) {
+            angle = i;
+            x = bolt_circle_r * cos(angle);
+            y = bolt_circle_r * sin(angle);
+            translate([x, y, hub_l - flange_t - 1])
+                cylinder(h = flange_t + 2, d = bolt_d);
         }
     }
 }
 
-module end_cap() {
+module flange_ring() {
     difference() {
-        cylinder(h=10, r=20, $fn=100); // Disc shape
-        translate([0, 0, 5]) cylinder(h=10, r=10, $fn=100); // Remove center
-        for (angle = [0, 90, 180, 270]) {
-            rotate([0, 0, angle]) translate([15, 0, 3])
-            rotate([90, 0, 0]) cylinder(h=6, r=2.5, $fn=50); // Bolt holes
+        cylinder(h = flange_t, d = flange_d);
+        // Center hole
+        translate([0, 0, -1])
+            cylinder(h = flange_t + 2, d = bore_d);
+        // Bolt holes
+        for (i = [0:120:360]) {
+            angle = i;
+            x = bolt_circle_r * cos(angle);
+            y = bolt_circle_r * sin(angle);
+            translate([x, y, -1])
+                cylinder(h = flange_t + 2, d = bolt_d);
         }
+    }
+}
+
+module bellows() {
+    for (i = [0:bellows_ridges - 1]) {
+        translate([0, 0, i * bellows_ridge_h])
+            cylinder(h = bellows_ridge_h, d = bellows_d + (i % 2 == 0 ? 2 : -2));
     }
 }
 
 module bolt() {
     union() {
-        cylinder(h=50, r=2.5, $fn=50); // Threaded rod
-        translate([0, 0, 50]) cylinder(h=5, r=4, $fn=50); // Bolt head
+        // Shaft
+        cylinder(h = flange_t * 2 + 2, d = bolt_d);
+        // Head
+        translate([0, 0, flange_t * 2 + 2])
+            cylinder(h = bolt_head_h, d = bolt_head_d);
     }
 }
 
 module nut() {
-    difference() {
-        cylinder(h=5, r=4, $fn=50); // Hexagonal base
-        translate([0, 0, -1]) cylinder(h=6, r=2.5, $fn=50); // Remove center
-    }
+    cylinder(h = nut_h, d = nut_d);
 }
 
-module retaining_ring() {
-    difference() {
-        cylinder(h=2, r=20, $fn=100); // Ring
-        translate([0, 0, -1]) cylinder(h=4, r=19, $fn=100); // Remove inner
-    }
-}
+// Assembly
+module coupling() {
+    // Left hub
+    hub();
 
-module compression_spring() {
-    translate([0, 0, 10])
-    linear_extrude(height = 30, twist = 720, $fn=100) {
-        translate([-1, -1]) circle(r=1, $fn=100); // Spiral extrusion
-    }
-}
+    // Left flange ring
+    translate([0, 0, hub_l])
+        flange_ring();
 
-// Assembly of components
-module flexible_coupling() {
-    main_body();
-    translate([0, 0, 50]) end_cap();
-
-    // Bolt and nut placement
-    for (angle = [0, 90, 180, 270]) {
-        rotate([0, 0, angle]) {
-            translate([15, 0, -10]) bolt();
-            translate([15, 0, -15]) nut();
-        }
+    // Bolts and nuts (left)
+    for (i = [0:120:360]) {
+        angle = i;
+        x = bolt_circle_r * cos(angle);
+        y = bolt_circle_r * sin(angle);
+        translate([x, y, hub_l])
+            bolt();
+        translate([x, y, hub_l - nut_h])
+            nut();
     }
 
-    // Spring placement
-    compression_spring();
+    // Bellows
+    translate([0, 0, hub_l + flange_t])
+        bellows();
 
-    // Retaining ring
-    translate([0, 0, 3]) retaining_ring();
+    // Right flange ring
+    translate([0, 0, hub_l + flange_t + bellows_l])
+        flange_ring();
+
+    // Bolts and nuts (right)
+    for (i = [0:120:360]) {
+        angle = i;
+        x = bolt_circle_r * cos(angle);
+        y = bolt_circle_r * sin(angle);
+        translate([x, y, hub_l + flange_t + bellows_l])
+            bolt();
+        translate([x, y, hub_l + flange_t + bellows_l - nut_h])
+            nut();
+    }
+
+    // Right hub
+    translate([0, 0, hub_l + flange_t * 2 + bellows_l])
+        hub();
 }
 
-// Render the complete model
-flexible_coupling();
+coupling();
+```
 
